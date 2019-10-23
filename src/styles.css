@@ -1,5 +1,17 @@
 @charset "UTF-8";
 
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+#content-wrap {
+    padding-top: 4rem;
+    padding-bottom: 13rem;    /* Footer height */
+  }
+
+
 @font-face {
     font-family: Rajdhani;
     src: url('/assets/fonts/Rajdhani-Regular.ttf');
@@ -146,13 +158,13 @@ p {
 .nav-menu {
     padding: 1rem 0;
     transition: all 0.3s ease;
-    background-color: rgb(43, 57, 63, 0.98);
+    background-color: rgb(43, 57, 63, 1);
     /* R43 G57 B63 */
 }
 
 .nav-menu.is-scrolling,
 .nav-menu.menu-is-open {
-    background-color: rgb(43, 57, 63, 0.98);
+    background-color: rgb(43, 57, 63, 1);
     -webkit-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
@@ -356,6 +368,10 @@ header {
     border-bottom: 1px solid  rgba(43, 57, 63, 0.1);
 }
 
+.simple {
+    margin-top: -80px;
+}
+
 .perspective {
     position: relative;
     z-index: -1;
@@ -373,8 +389,11 @@ header {
 
 
 .footer {
-    background-color: rgb(43, 57, 63, 0.98);
+    background-color: rgb(43, 57, 63, 1);
     padding: 4rem 0;
-
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+    
 }
 

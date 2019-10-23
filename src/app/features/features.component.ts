@@ -35,6 +35,14 @@ export class FeaturesComponent implements OnInit {
     this.router.navigateByUrl("/network")
   }
 
+  routeToAudit() {
+    this.router.navigateByUrl("/audit")
+  }
+
+  routeToGas() {
+    this.router.navigateByUrl("/gas")
+  }
+
   
   
 }

@@ -15,10 +15,11 @@
                   [ngClass]="{'active': this.router.url == '/'}">Features</a> </li>
               <li class="nav-item"> <a class="nav-link" [routerLink]="['network']" routerLinkActive="active">Network</a>
               </li>
-              <li class="nav-item"> <a class="nav-link" href="#pricing">Data Audit</a> </li>
-              <li class="nav-item"> <a class="nav-link" href="#contact">Payment</a> </li>
-              <li class="nav-item"> <a class="nav-link" href="#contact">Get TestNet GAS</a> </li>
-              <li class="nav-item"> <a class="nav-link" href="#contact">Services</a> </li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['audit']" routerLinkActive="active">Data Audit</a> </li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['gas']" routerLinkActive="active">Incentive Model</a> </li>
+              <!--
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['tokens']" routerLinkActive="active">Get TestNet GAS</a> </li>-->
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['services']" routerLinkActive="active">Demos</a> </li>
 
 
             </ul>

@@ -1,1 +1,110 @@
-<p>gas works!</p>
+<div class="section ">
+
+
+        <div class="container">
+    
+            <div class="section-title">
+                <h2>Incentive model</h2>
+            </div>
+            <p class="mb-4">For incentive model and pricing we implement a free market. Each node
+                    declares how much it wants to receive as a reward for data storage services
+                    for the upcoming epoch. Placement function considers the declared price and
+                    prefers nodes with better prices. However, because nodes in NetworkMap
+                    declare key-value attribute describing their parameters, like geographical
+                    location, type of storage, capacity and other things also used in
+                    StoragePolicy, it leaves room for nodes that want higher price better or
+                    unique services to still get into the placement function result.</p>
+                    
+                    <p class="mb-4">
+                    In short, if you are too greedy, you will not get users and will not get
+                    rewards. To have higher prices you need to satisfy market demand or provide
+                    something unique.</p>
+
+                    <div style="padding: 40px;">
+                            <img src="/assets/images/profit.png" alt="profit" class="img-fluid" style="width:35vw; ">
+                        </div>
+                    
+                    <p class="mb-4">
+                    As you see in the example graph of price to capacity change, node needs to
+                    keep price "in market" to get most profit. this should guarantee the
+                    competitive price for data storage in NeoFS.</p>
+    
+    
+    
+            </div></div>
+
+
+            <div class="section simple">
+
+
+                    <div class="container">
+                
+                        <div class="section-title">
+                            <h2>Neo GAS token input</h2>
+                        </div>
+                        <p class="mb-4">
+                                NeoFS uses Neo GAS for all payments. To be able to pay for storage services in
+                                NeoFS, the one has to deposit some GAS to NeoFS SmartContract address. This
+                                event will be monitored by InnerRing nodes and reflected in user's account
+                                balance internally in NeoFS.</p>
+                                
+                                <p class="mb-4">
+                                NeoFS InnerRing nodes keep track of all account using NeoFS and using dBFT2.0
+                                consensus algorithm, the same as in Neo blockchain, agree on users' mutual
+                                settlements, reward distribution between node owners and other
+                                payment-related procedures.</p>
+                                
+                                <p class="mb-4">
+                                For example some person may own few storage nodes and provide storage
+                                services, but at the same time use NeoFS for storing his backups in different
+                                geographical location. In this case rewards from his storage nodes my be used
+                                to pay for his backups automatically, without transactions on main
+                                NeoBlockchain.</p>
+                                
+
+
+
+
+
+                    <div style="padding: 40px;">
+                            <img src="/assets/images/gasi.png" alt="GAS" class="img-fluid" style="width:35vw; ">
+                        </div>
+
+
+                        </div></div>
+
+
+
+                        <div class="section simple">
+
+
+                                <div class="container">
+                            
+                                    <div class="section-title">
+                                        <h2>Neo GAS token withdraw</h2>
+                                    </div>
+                              
+            
+                                            <p class="mb-4">
+                                                    But it's also possible to withdraw the GAS accumulated inside NeoFS to Neo
+                                Blokchain address. To do it, user has to issue withdraw call to NeoFS.
+                                InnerRing nodes will lock the desired amount and issue a cheque, signed by
+                                all InnerRing nodes. Then, user has to invoke NeoFS Smart contract, providing
+                                it with this cheque. If it will be verified successfully, SmartContract will
+                                send GAS to user's address and InnerRing nodes will reflect those changes in
+                                internal account balance. In cheque is not used during validity period, gas,
+                                locked for withdrawal, will be unlocked. Just like in real world.</p>
+            
+            
+            
+                                <div style="padding: 40px;">
+                                        <img src="/assets/images/gasw.png" alt="GAS" class="img-fluid" style="width:35vw; ">
+                                    </div>
+            
+            
+                                    </div></div>
+            
+                     
+
+
+

@@ -1,7 +1,7 @@
 <div class="section">
 
 
-    <div class="container" style="margin-top: 80px;">
+    <div class="container">
 
         <div class="section-title">
             <h2>Network</h2>
@@ -51,77 +51,80 @@
 
 
         </div>
-        
-            <p class="mb-4">
-                The main use case for NeoFS is DApps's data storage and content distribution.
-                Right now most DApps don't store their assets in a decentralized fashion,
-                which makes them not really distributed applications. With NeoFS DApps can
-                upload content to NeoFS and distribute it to clients via protocol gates using
-                standard HTTPS protocol or, for example, using NeoFS API from mobile
-                application.</p>
 
-            <p class="mb-4">
-                Also DApps can access NeoFS directly from SmartContract code. For example
-                DApp's smart contract can generate some data, like hilarious cat picture, and
-                put it into NeoFS, rather then storing it in blockchain. Storing data
-                off-chain would be significantly cheaper and easier to deliver to client.
-            </p>
+        <p class="mb-4">
+            The main use case for NeoFS is DApps's data storage and content distribution.
+            Right now most DApps don't store their assets in a decentralized fashion,
+            which makes them not really distributed applications. With NeoFS DApps can
+            upload content to NeoFS and distribute it to clients via protocol gates using
+            standard HTTPS protocol or, for example, using NeoFS API from mobile
+            application.</p>
 
-
-        
+        <p class="mb-4">
+            Also DApps can access NeoFS directly from SmartContract code. For example
+            DApp's smart contract can generate some data, like hilarious cat picture, and
+            put it into NeoFS, rather then storing it in blockchain. Storing data
+            off-chain would be significantly cheaper and easier to deliver to client.
+        </p>
 
 
 
 
-        </div></div><div class="section light-bg">
 
 
-        <div class="container">
-            <div class="section-title">
-                <h2>Network Map</h2>
+
+    </div>
+</div>
+
+
+<div class="section  simple">
+
+
+    <div class="container">
+        <div class="section-title">
+            <h2>Network Map</h2>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <img src="/assets/images/container.png" alt="container" class="img-fluid" style="padding-bottom:20px;">
             </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <div>
+
+                    <p class="mb-4">
+                        As we mentioned before, InnerRing nodes monitor state of NeoFS storage nodes.
+                        Using this information they maintain up-to-date Network Map. It's a
+                        multi-dimensional graph where nodes have attributes and are grouped by those
+                        attributes and their values. This allows us to use a special data placement
+                        function to find nodes that would store an object when we want to put it into
+                        NeoFS network or to get it.</p>
 
 
-            
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="/assets/images/container.png" alt="container" class="img-fluid"
-                        style="padding-bottom:20px;">
                 </div>
-                <div class="col-md-6 d-flex align-items-center">
-                    <div>
-
-                        <p class="mb-4">
-                            As we mentioned before, InnerRing nodes monitor state of NeoFS storage nodes.
-                            Using this information they maintain up-to-date Network Map. It's a
-                            multi-dimensional graph where nodes have attributes and are grouped by those
-                            attributes and their values. This allows us to use a special data placement
-                            function to find nodes that would store an object when we want to put it into
-                            NeoFS network or to get it.</p>
-
-
-                    </div>
-                </div>
-
-
-
             </div>
-
-            
-                <p class="mb-4">
-                    This approach allows us not to have any centralized meta-data storage having
-                    object's locations and not to re-balance data with every joining or leaving
-                    storage node, like it happens in DHT-based systems.</p>
-            
 
 
 
         </div>
+
+
+        <p class="mb-4">
+            This approach allows us not to have any centralized meta-data storage having
+            object's locations and not to re-balance data with every joining or leaving
+            storage node, like it happens in DHT-based systems.</p>
+
+
+
+
     </div>
+</div>
 
 
 
-<div class="section">
+<div class="section  simple">
 
     <div class="container">
 
@@ -163,23 +166,21 @@
 
 
 
-<div class="section light-bg">
+<div class="section  simple">
 
-        <div class="container">
-    
-            <div class="section-title">
-                <h2>Protocol Gates</h2>
-            </div>
-    
-            <p class="mb-4">
-                    To interact with existing systems using standard protocols, NeoFS has
-                    protocol gates. Gates are mainly maintained by users and are not part of
-                    NeoFS network. From the start we provide HTTP protocol gate, that will allow
-                    access data from NeoFS using regular browser. Later we plan to release AWS S3
-                    and OpenStack Object Storage gates to allow more sophisticated integrations.
-                    Technically one may easily develop own gate by using NeoFS protocol libraries.</p>
-    
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Protocol Gates</h2>
         </div>
+
+        <p class="mb-4">
+            To interact with existing systems using standard protocols, NeoFS has
+            protocol gates. Gates are mainly maintained by users and are not part of
+            NeoFS network. From the start we provide HTTP protocol gate, that will allow
+            access data from NeoFS using regular browser. Later we plan to release AWS S3
+            and OpenStack Object Storage gates to allow more sophisticated integrations.
+            Technically one may easily develop own gate by using NeoFS protocol libraries.</p>
+
     </div>
-
-
+</div>

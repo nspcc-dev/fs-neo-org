@@ -1,1 +1,75 @@
-<p>audit works!</p>
+<div class="section ">
+
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Zero-knoladge and Homomorphic hashing</h2>
+        </div>
+        <p class="mb-4">When you have a large number of objects in a distributed network of untrusted
+            nodes with an ever-changing topology, you can't use classical approach with
+            comparing objects' hashes with some sample in a central meta-data storage.
+            This would cause unacceptable overhead.</p>
+            
+            <p class="mb-4">
+            To solve this problem, in NeoFS we use Homomorphic hasing. It's special kind
+            of hashing algorithms that allow to compute the hash of a composite block
+            from the hashes of the individual blocks.</p>
+            
+            <p class="mb-4">
+            For integrity checks NeoFS calculates a composite homomorphic hash of all the
+            objects in a group under control and puts it into a structure called Storage
+            Group. During integrity checks NeoFS nodes can ensure that hashes of objects
+            stored are correct and are part of that initially created composite hash.
+            This can be done without moving object's data over the network and no matter
+            how many objects we have in a storage group, the hash size will be the same.</p>
+
+
+
+        </div></div>
+
+
+        <div class="section  simple">
+
+
+            <div class="container">
+        
+                <div class="section-title">
+                    <h2>Data Audit</h2>
+                </div>
+                <p class="mb-4">
+                    So how does NeoFS ensures data is not lost or corrupted? Each epoch InnerRing
+                    nodes perform Data Audit. It's a two-stage game, in term of Game Theory. At
+                    first stage we ask nodes in a selected container to collectively reconstruct
+                    a list of homomorphic hashes that would form a composite hash stored in
+                    storage group. By doing this, nodes will show that they have all objects and
+                    are able to provide hash of those objects. We can validate provided list of
+                    hashes,but at this stage we don't know if some nodes are lying.</p>
+
+                    <div style="padding: 40px;">
+                            <img src="/assets/images/audit.png" alt="audit" class="img-fluid" style="width:80vw; ">
+                        </div>
+                    
+                    <p class="mb-4">
+                    At next stage we need to make sure that nodes are honest and don't fake check
+                    results. InnerRing nodes calculate a set of node pair that store same objects
+                    and ask each node to provide thee homomorphic hashes of this object. Ranges
+                    are chosen in a way that a hash of a range asked from one node, would be the
+                    composite hash of ranges asked from another node in that pair. Nodes can't
+                    predict objects or ranges that would be chosen for audit. They can't event
+                    predict the pair node for the game. This stage will discover malicious nodes
+                    very fast, because each node is serving multiple containers and storage
+                    groups and participates in many data audit sessions. When node is caught in a
+                    lie, it will not get any rewards for this epoch. So the price of faking
+                    checks and risks are too high and it's easier and cheaper for the node to be
+                    honest and behave correctly.</p>
+                    
+                    <p class="mb-4">
+                    By combining the fact of nodes being able to reconstruct the storage group's
+                    composite hash and the fact of nodes' honest behavior, the system can
+                    consider that data is safely stored, not corrupted and available with a very
+                    high probability.</p>
+        
+        
+        
+                </div></div>
