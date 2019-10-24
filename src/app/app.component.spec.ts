@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'sendneofs'`, () => {
+  it(`should have as title 'neofs'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('sendneofs');
+    expect(app.title).toEqual('neofs');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('sendneofs app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('neofs app is running!');
   });
 });
