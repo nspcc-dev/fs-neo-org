@@ -7,14 +7,18 @@ import {Router} from "@angular/router";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  navbarOpen = false;
+  constructor(public router: Router) { }
 
   ngOnInit() {
     
   }
 
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+}
 
-
-
+  onClick(){
+    this.navbarOpen = false;
+  }
 }

@@ -2,24 +2,25 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <nav class="navbar navbar-dark navbar-expand-lg">
-          <a class="navbar-brand" href="/"><img src="/assets/images/NeoFS_w2.svg" class="img-fluid" alt="logo"
-              style="height:50px;"></a> <button class="navbar-toggler" type="button" data-toggle="collapse"
+        <nav class="navbar navbar-dark navbar-expand-lg" style="padding-left:0px;">
+          <a class="navbar-brand" [routerLink]="['/']" ><img src="/assets/images/NeoFS_w2.svg" class="img-fluid" alt="logo"
+              style="height:50px;"></a> <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="toggleNavbar()"
             data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span
               class="navbar-toggler-icon"></span> </button>
-          <div class="collapse navbar-collapse" id="navbar">
+              <div class="collapse navbar-collapse "
+              [ngClass]="{ 'show': navbarOpen }" >
             <ul class="navbar-nav ml-auto">
 
 
-              <li class="nav-item"> <a class="nav-link" [routerLink]="['features']" routerLinkActive="active"
-                  [ngClass]="{'active': this.router.url == '/'}">Features</a> </li>
-              <li class="nav-item"> <a class="nav-link" [routerLink]="['network']" routerLinkActive="active">Network</a>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['features']" routerLinkActive="active" (click)="onClick()"
+                  [ngClass]="{'active': this.router.url == '/'}" >Features</a> </li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['network']" routerLinkActive="active" (click)="onClick()">Network</a>
               </li>
-              <li class="nav-item"> <a class="nav-link" [routerLink]="['audit']" routerLinkActive="active">Data Audit</a> </li>
-              <li class="nav-item"> <a class="nav-link" [routerLink]="['gas']" routerLinkActive="active">Incentive Model</a> </li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['audit']" routerLinkActive="active" (click)="onClick()">Data Audit</a> </li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['gas']" routerLinkActive="active" (click)="onClick()">Incentive Model</a> </li>
               <!--
               <li class="nav-item"> <a class="nav-link" [routerLink]="['tokens']" routerLinkActive="active">Get TestNet GAS</a> </li>-->
-              <li class="nav-item"> <a class="nav-link" [routerLink]="['services']" routerLinkActive="active">Demos</a> </li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['services']" routerLinkActive="active" (click)="onClick()">Developers</a> </li>
 
 
             </ul>

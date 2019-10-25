@@ -64,7 +64,7 @@
 
         <p class="mb-4">Unlike many other projects in this area, <a href="https://nspcc.ru/en">Neo SPCC</a>
             is not trying to create a
-            parallel reality, in a technological sense. Solving
+            parallel reality in a technological sense. Solving
             real-world problems requires to use standard protocols and have ability to
             integrate NeoFS with existing systems. There are protocol adapters, or
             gateways, that allow accessing NeoFS via standard HTTP or S3 protocols. Users
@@ -102,7 +102,7 @@
                 <a (click)="routeToNetwork()" class="btn btn-primary">Read more</a>
             </div>
         </div>
-        <div class="perspective">
+        <div class="perspective" style="padding-top:40px;">
             <img src="/assets/images/governance.png" alt="governance" class="img-fluid"
                 style="width:80vw; max-width: 500px;">
         </div>
@@ -201,6 +201,14 @@
                         </div>
                     </li>
 
+
+                    <li class="media" (click)="scrollToElement(hardware)">
+                            <div class="circle-icon mr-2">9</div>
+                            <div class="media-body">
+                                <h5 style="padding:20px;">Runs on commodity hardware</h5>
+    
+                            </div>
+                        </li>
                 </ul>
             </div>
 
@@ -295,9 +303,9 @@
             integrity checks and game theory models, to create a situation where all nodes
             behave correctly and the data is stored safely, is used.</p>
 
-        <p class="mb-4">A decentralized nature of NeoFS eliminates not only the centralized points
-            of failure, but also centralized points of control. In NeoFS, only users have full control over
-            their data, where, how it's stored, and who can get access to it.</p>
+        <p class="mb-4">A decentralized nature of NeoFS eliminates not only centralized points
+            of failure but also centralized points of control. In NeoFS, only users have full control over
+            their data, where, how it is stored, and who can get access to it.</p>
 
         <div class="row" style="padding-top:40px;">
             <div class="col-12 col-lg-4">
@@ -405,7 +413,7 @@
                 <a (click)="routeToAudit()" class="btn btn-primary">Read more</a>
             </div>
         </div>
-        <div class="perspective-small">
+        <div class="perspective-small" style="padding-top:40px;">
             <img src="/assets/images/audit.png" alt="audit" class="img-fluid" style="width:80vw; max-width: 500px;">
         </div>
     </div>
@@ -456,7 +464,7 @@
                 <a (click)="routeToGas()" class="btn btn-primary">Read more</a>
             </div>
         </div>
-        <div class="perspective-small">
+        <div class="perspective-small" style="padding-top:40px;">
             <img src="/assets/images/gasw.png" alt="GAS" class="img-fluid" style="width:80vw; max-width: 500px;">
         </div>
     </div>
@@ -493,7 +501,7 @@
 
             <p class="mb-4">
                 As it is shown on the figure below, node needs to
-                keep price "in market" to get the highest profit. This should guarantee a
+                keep price "in the market" to get the highest profit. This should guarantee a
                 competitive price for data storage in NeoFS.
             </p>
 
@@ -503,3 +511,21 @@
 
     </div>
 </div>
+
+
+
+<div class="section   light-bg" id="sc" #hardware>
+
+
+        <div class="container">
+    
+            <div class="section-title">
+                <h2>Runs on commodity hardware</h2>
+            </div>
+            <p class="mb-4">NeoFS is designed to work on commodity hardware without any special hardware requirements. This allows
+                    users to quickly replace failed system components with what can be bought in a local computer store.
+                   </p>
+    
+        </div>
+    </div>
+    
