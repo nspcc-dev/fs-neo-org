@@ -14,6 +14,8 @@ import { GasComponent } from './gas/gas.component';
 import { TokensComponent } from './tokens/tokens.component';
 import { ServicesComponent } from './services/services.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { ServicesComponent } from './services/services.component';
   imports: [
     NgbModule, 
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

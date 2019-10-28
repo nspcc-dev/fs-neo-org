@@ -6,7 +6,7 @@ import {FeaturesComponent} from "./features/features.component";
 import {AuditComponent} from "./audit/audit.component";
 import {GasComponent} from "./gas/gas.component";
 import {ServicesComponent} from "./services/services.component";
-
+import {TokensComponent} from "./tokens/tokens.component";
 
 const routes: Routes = [
   {path: '', component: FeaturesComponent },
@@ -15,6 +15,7 @@ const routes: Routes = [
   {path: 'audit', component: AuditComponent},
   {path: 'gas', component: GasComponent},
   {path: 'services', component: ServicesComponent},
+  {path: 'tokens', component: TokensComponent},
   { path: '**', redirectTo: '' },
 ];
 

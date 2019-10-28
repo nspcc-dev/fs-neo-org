@@ -1,1 +1,60 @@
-<p>tokens works!</p>
+<div class="section ">
+
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Get tokens for public NeoFS Testnet</h2>
+        </div>
+         
+        <p class="mb-4">
+                Get 50 GAS and 50 Nep-5 GAS Tokens (for Neo2 Testnet). With the transition to the Neo 3.0 test network, only GAS tokens will be send. AH1ASTH3vNDCwshVG7ZvngvDhhRZNN2pGc</p>
+    
+
+            <form #login = "ngForm" (ngSubmit) = "onClickSubmit(login.value)" >
+                    <div class="form-group">
+                            <label for="u_address">Ender your Neo Address for NeoFS Testnet:</label>
+                <input class="form-control" type = "text" name = "u_address" placeholder = "address" ngModel id="u_address">
+                <br/>
+                <input  class="btn btn-primary" type = "submit" value = "submit">
+                    </div>
+              </form>
+
+                  <hr *ngIf="show">
+                  <ngb-toast
+                    *ngIf="show"
+                    header="{{this.header}}"
+                    [delay]="7000"
+                    [autohide]="autohide"
+                    (mouseenter)="autohide = false"
+                    (mouseleave)="autohide = true"
+                    (hide)="show = false; autohide = true"
+                    [class.bg-warning]="!autohide"
+                  >
+                    <div class="alert alert-{{this.alert_type}}">
+                      {{this.message}}
+                    </div>
+                     
+                  </ngb-toast>
+
+                  <hr *ngIf="show_sec">
+                  <ngb-toast
+                    *ngIf="show_sec"
+                    header="{{this.header_sec}}"
+                    [delay]="7000"
+                    [autohide]="autohide_sec"
+                    (mouseenter)="autohide_sec = false"
+                    (mouseleave)="autohide_sec = true"
+                    (hide)="show_sec = false; autohide_sec = true"
+                    [class.bg-warning]="!autohide_sec"
+                  >
+                    <div class="alert alert-{{this.alert_type_sec}}">
+                      {{this.message}}
+                    </div>
+                     
+                  </ngb-toast>
+
+
+
+    </div>
+</div>
