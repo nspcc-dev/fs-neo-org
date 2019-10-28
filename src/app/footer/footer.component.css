@@ -10,3 +10,20 @@ a, a:visited, a:link {
   }
 
   
+
+.social-media {
+ 
+  text-align: center;
+}
+
+.social-icon-simple {
+  margin: 10px;
+  height: 30px;
+  filter: none;
+}
+
+.social-icon {
+  margin: 10px;
+  height: 30px;
+  filter: invert(1)
+}
