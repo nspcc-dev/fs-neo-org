@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Neon, { settings, api, rpc, wallet, tx, u, sc, nep5 } from "@cityofzion/neon-js";
-import {environment} from "../../environments/environment";
+import { environment } from "../../environments/environment";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-tokens',
@@ -9,7 +10,7 @@ import {environment} from "../../environments/environment";
 })
 export class TokensComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   await_result_gas: boolean = false;
   await_result_nep: boolean = false;
@@ -37,14 +38,65 @@ export class TokensComponent implements OnInit {
 
 
 
+  async onClickCheck(formData) {
+    try {
+      this.show = false;
+      this.show_sec = false;
 
 
+      if (Neon.is.address(formData.u_address) == false) {
+        this.alert_type = "danger"
+        this.header = "ERROR:"
+        this.message = "Incorrect Neo address"
+        this.show = true;
+      }
+      else {
+
+        const rpcAddr = environment.neo_rpc;
+        const scriptHash = environment.nep5_script_hash;
+        const balance = await nep5.getTokenBalance(rpcAddr, scriptHash, formData.u_address);
+
+
+        this.alert_type = "success";
+        this.header = "NEP-5 GAS Balance:";
+        this.message = balance.toString();
+        this.show = true;
+
+
+        const rpc_client = new rpc.RPCClient("http://85.143.219.93:30333"); //85.143.219.93:20333
+        const query = Neon.create.query({ id: 0, method: "getaccountstate", params: [formData.u_address] });
+        let rpc_result = await rpc_client.execute(query);
+        console.log("RPC call 'getaccountstate'.")
+        for (let balance of rpc_result.result.balances) {
+          if (balance.asset == environment.gas_asset) {
+            console.log("Gas value: ", balance.value)
+            if (balance.value > 0) {
+              this.alert_type_sec = "success";
+              this.header_sec = "GAS Balance:";
+              this.message_sec = balance.value;
+              this.show_sec = true;
+            }
+
+          }
+        }
+
+
+
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
 
   async onClickSubmit(formData) {
     try {
-      this.show = false;
 
-      if (this.await_result_gas == true || this.await_result_nep == true){
+      this.show = false;
+      this.show_sec = false;
+
+
+      if (this.await_result_gas == true || this.await_result_nep == true) {
         this.alert_type = "danger"
         this.header = "ERROR:"
         this.message = "In awaiting of previose request"
@@ -62,7 +114,23 @@ export class TokensComponent implements OnInit {
         this.show = true;
       }
       else {
-        rec_gas = await this.checkGAS(formData.u_address)
+
+
+        const rpc_client = new rpc.RPCClient("http://85.143.219.93:30333"); //85.143.219.93:20333
+        const query = Neon.create.query({ id: 0, method: "getaccountstate", params: [formData.u_address] });
+        let rpc_result = await rpc_client.execute(query);
+        console.log("RPC call 'getaccountstate'.")
+        for (let balance of rpc_result.result.balances) {
+          if (balance.asset == environment.gas_asset) {
+            console.log("Gas value: ", balance.value)
+            if (balance.value > 0) {
+              rec_gas = true
+            }
+
+          }
+        }
+
+
       }
 
 
@@ -74,18 +142,20 @@ export class TokensComponent implements OnInit {
           this.header = "ERROR:"
           this.message = "You already have GAS in the NeoFS testnet."
           this.show = true;
+          this.show_sec = false;
         }
         else {
           // Transfer Tokens
 
           // GAS
-          const intent = api.makeIntent({ GAS: 50 }, formData.u_address)
+          const intent = api.makeIntent({ GAS: 10 }, formData.u_address)
 
           const config = {
-            api: this.apiProvider, // The network to perform the action, MainNet or TestNet.
-            account: this.wallet_data, // This is the address which the assets come from.
-            intents: intent, // This is where you want to send assets to.
+            api: this.apiProvider, 
+            account: this.wallet_data, 
+            intents: intent,
             url: environment.neo_rpc,
+
           };
 
           this.await_result_gas = true;
@@ -114,68 +184,68 @@ export class TokensComponent implements OnInit {
 
 
 
-
-      // NEP-5 TRANSFER
-      
-      
-      var address = this.wallet_data.address
-
-      const rpcAddr =  environment.neo_rpc;
-      const scriptHash = environment.nep5_script_hash;
-      const tokenInfo = await nep5.getToken(rpcAddr, scriptHash);
-      const balance = await nep5.getTokenBalance(rpcAddr, scriptHash, address);
-
-      console.log(tokenInfo)
-      console.log(balance)
-
-      const scBuilder = nep5.abi.transfer(scriptHash, address, formData.u_address, 50);
-      const script = scBuilder().str;
-      const apiProvider = new api.neoscan.instance("PrivateNet");
+          // NEP-5 TRANSFER
 
 
-      const config_nep = {
-        api: apiProvider, // Network
-        url:  environment.neo_rpc,
-        account: this.wallet_data, // Your Account
-        script: script, // The Smart Contract invocation script
-        gas: 0, // Optional, system fee.
-        fees: 0 // Optional, network fee
-      };
+          var address = this.wallet_data.address
 
-      // Neon API
+          const rpcAddr = environment.neo_rpc;
+          const scriptHash = environment.nep5_script_hash;
+          const tokenInfo = await nep5.getToken(rpcAddr, scriptHash);
+          const balance = await nep5.getTokenBalance(rpcAddr, scriptHash, address);
 
-      this.await_result_nep = true;
+          console.log(tokenInfo)
+          console.log(balance)
 
-      Neon.doInvoke(config_nep)
-        .then(config_nep => {
-          console.log("\n\n--- Response NEP5 TRANSFER---");
-          console.log(config_nep.response);
+          const scBuilder = nep5.abi.transfer(scriptHash, address, formData.u_address, 100);
+          const script = scBuilder().str;
+          const apiProvider = new api.neoscan.instance("PrivateNet");
 
-          this.alert_type_sec = "success";
-          this.header_sec = "NEP-5 GAS has been successfully transferred";
-          this.message_sec = "TX: " + config_nep.response.txid;
-          this.show_sec = true;
-          this.await_result_nep = false;
 
-        })
-        .catch(config_nep => {
-          console.log(config_nep);
-          this.alert_type_sec = "danger";
-          this.header_sec = "ERROR:";
-          this.message_sec = config_nep;
-          this.show_sec = true;
-          this.await_result_nep = false;
-        });
+          const config_nep = {
+            api: apiProvider, // Network
+            url: environment.neo_rpc,
+            account: this.wallet_data, 
+            script: script, // The Smart Contract invocation script
+            gas: 0, // Optional, system fee.
+            fees: 0 // Optional, network fee
+          };
 
+          // Neon API
+
+          this.await_result_nep = true;
+
+          Neon.doInvoke(config_nep)
+            .then(config_nep => {
+              console.log("\n\n--- Response NEP5 TRANSFER---");
+              console.log(config_nep.response);
+
+              this.alert_type_sec = "success";
+              this.header_sec = "NEP-5 GAS has been successfully transferred";
+              this.message_sec = "TX: " + config_nep.response.txid;
+              this.show_sec = true;
+              this.await_result_nep = false;
+
+            })
+            .catch(config_nep => {
+              console.log(config_nep);
+              this.alert_type_sec = "danger";
+              this.header_sec = "ERROR:";
+              this.message_sec = config_nep;
+              this.show_sec = true;
+              this.await_result_nep = false;
+            });
 
         }
       }
+
     }
     catch (err) {
       console.log(err);
     }
   }
 
+  /*
 
   async checkGAS(address: string) {
     try {
@@ -195,7 +265,7 @@ export class TokensComponent implements OnInit {
     catch (err) {
       return false
     }
-  }
+  }*/
 
 
 
@@ -210,9 +280,9 @@ export class TokensComponent implements OnInit {
       // },
       nodes: [
         environment.neo_node_1,
-        environment.neo_node_2,
-        environment.neo_node_3,
-        environment.neo_node_4,
+        //environment.neo_node_2,
+        //environment.neo_node_3,
+        //environment.neo_node_4,
       ], // Optional
       extra: {
         // Neoscan URL
@@ -222,27 +292,20 @@ export class TokensComponent implements OnInit {
 
     const privateNet = new rpc.Network(privateNetConfig);
     Neon.add.network(privateNet);
-
-    // Get Wallet
-    this.wallet_data = this.getWallet()
-
-   
-
-/*
-    console.log("1:-------------------------------")
-    // http://localhost:4000/api/main_net
-    privateNetNeoscan.getBalance(address).then(res => { this.my_gas = res.assets["GAS"].balance.toString(); console.log("MAIN ADDR GAS:"); console.log(this.my_gas) });
-    console.log("PK:")
-    console.log(this.wallet_data.privateKey) */
-
+    this.wallet_data = this.W()
     this.apiProvider = new api.neoscan.instance("PrivateNet");
-
-
   }
 
-  getWallet() {
-    return new wallet.Account("KxDgvEKzgSBPPfuVfw67oPQBSjidEiqTHURKSDL1R7yGaGYAeYnr")
+  W() {
+    let w = this.w1()+this.w2();
+    return new wallet.Account(w)
+  } 
+
+
+  w1() {
+    return "L4PD5AcQsJ6JQ2A9m1WVfhvn4"
   }
-
-
+  w2() {
+    return "kQtwm5vLzN2iZctRHntMaFozyyi"
+  }
 }

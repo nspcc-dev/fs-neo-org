@@ -4,20 +4,109 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>HTTP-Gate demo: <a href="https://send.fs.neo.org">Send.NeoFS</a> web service allowing users to easily
-                upload files to the NeoFS TestNet</h2>
+            <h2>Services</h2>
         </div>
-        <p class="mb-4">Objects stored on the NeoFS TestNet are distributed across multiple geographically decentralized
-            nodes. Storage nodes are currently located in St Petersburg, New York, Singapore, Frankfurt, London,
-            Bangalore, Toronto, and Frankfurt. At the time of press, files may be uploaded on Send.NeoFS with a
-            user-specified lifetime of 15 minutes, 1 hour, 24 hours, or 48 hours. File uploads are free during the
-            testing phases, with a file size limit of 50Mb.</p>
+
+
+
+        <div class="row" style="padding-top:0px;">
+            
+            <div class="col-12 col-lg-12" [routerLink]="['/services/sendneofs']" >
+                <div class="card features">
+                    <div class="card-body">
+                        <div class="media">
+                            <span> <img src="/assets/images/icon_nspcc_6_1.svg"></span>
+                            <div class="media-body">
+                                <h2 class="card-title">Send.NeoFS </h2>
+                                <p class="card-text">is a simple example of integration with NeoFS network via HTTP
+                                    protocol. It allows to store your files in decentralized network for the selected
+                                    period of time and share them via generated link.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+        </div>
+
+
+        <div class="row" style="padding-top:40px;">
+            <div class="col-12 col-lg-12" [routerLink]="['/services/sdk']">
+                <div class="card features">
+                    <div class="card-body">
+                        <div class="media">
+                            <span> <img src="/assets/images/icon_nspcc_4.svg"></span>
+                            <div class="media-body">
+                                <h2 class="card-title">NeoFS SDK</h2>
+                                <p class="card-text">Allow developers to deploy their own local NeoFS networks, where
+                                    they may begin testing the solution and integrating support for it into their own
+                                    applications. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="padding-top:40px;">
+            <div class="col-12 col-lg-12" [routerLink]="['/services/testnet']">
+                <div class="card features">
+                    <div class="card-body">
+                        <div class="media">
+                            <span> <img src="/assets/images/icon_nspcc_5.svg"></span>
+                            <div class="media-body">
+                                <h2 class="card-title">NeoFS Public TestNet</h2>
+                                <p class="card-text">The NeoFS Public TestNet release will allow developers in the NEO
+                                    ecosystem to
+                                    experiment with NeoFS and test potential applications that could make use of the
+                                    decentralized storage facilities. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
 
 
     </div>
 </div>
+
+
+<!-- 
+
+<div class="section simple ">
+
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Documents</h2>
+        </div>
+        <p class="mb-4">
+
+            <a [routerLink]="['/howto']"> How to deposit NEP-5 GAS to NeoFS </a>
+
+
+        </p>
+
+
+
+
+    </div>
+</div>
+
+
+-->
+
+
+
+
+
+
 
 <div class="section simple">
 
@@ -30,9 +119,9 @@
 
 
 
-       <div class="row" style="padding-left:1rem;padding-right: 1rem;">
+        <div class="row" style="padding-left:1rem;padding-right: 1rem;">
             <!-- <div class="col col-lg-7 col-md-7 col-sm-12 col-xs-12">-->
-            <div class="embed-responsive embed-responsive-16by9" >
+            <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" [src]='safeURL' allowfullscreen></iframe>
 
             </div>
@@ -44,35 +133,3 @@
 </div>
 
 
-
-<div class="section simple">
-
-
-    <div class="container">
-
-        <div class="section-title">
-            <h2>NeoFS local SDK</h2>
-        </div>
-        <p class="mb-4">
-            NeoFS local SDK, which allows deploying locally a full NeoFS network and work with it from neofs-cli, is
-            granted for public access. <a href="https://github.com/nspcc-dev/neofs-local">Github repository</a> contains
-            not only SDK but also demo video on how to deploy
-            NeoFS local, Golang libraries of applied methods such as homomorphic hashing and network map and some other
-            useful stuff.</p>
-
-        <p class="mb-4">
-            <a href="https://github.com/nspcc-dev/neofs-local/blob/master/neofs-local/HOWTO.md">How to start with NeoFS
-                local SDK</a></p>
-        <p class="mb-4">
-  
-            <div class="row"  style="padding-left:1rem;padding-right: 1rem;">
-
-                <div class="embed-responsive embed-responsive-16by9" style="padding:20px;">
-                    <iframe class="embed-responsive-item" [src]='safeURL_v2' allowfullscreen></iframe>
-    
-                </div>
-            </div>
-
-
-    </div>
-</div>

@@ -15,6 +15,10 @@ import { TokensComponent } from './tokens/tokens.component';
 import { ServicesComponent } from './services/services.component';
 
 import { FormsModule } from '@angular/forms';
+import { HowtoComponent } from './howto/howto.component';
+import { SendneofsComponent } from './services/sendneofs/sendneofs.component';
+import { SdkComponent } from './services/sdk/sdk.component';
+import { TestnetComponent } from './services/testnet/testnet.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { FormsModule } from '@angular/forms';
     AuditComponent,
     GasComponent,
     TokensComponent,
-    ServicesComponent
+    ServicesComponent,
+    HowtoComponent,
+    SendneofsComponent,
+    SdkComponent,
+    TestnetComponent
   ],
   imports: [
     NgbModule, 

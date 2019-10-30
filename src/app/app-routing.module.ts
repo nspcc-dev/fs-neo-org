@@ -7,6 +7,12 @@ import {AuditComponent} from "./audit/audit.component";
 import {GasComponent} from "./gas/gas.component";
 import {ServicesComponent} from "./services/services.component";
 import {TokensComponent} from "./tokens/tokens.component";
+import {HowtoComponent} from "./howto/howto.component";
+
+
+import { SendneofsComponent } from './services/sendneofs/sendneofs.component';
+import { SdkComponent } from './services/sdk/sdk.component';
+import { TestnetComponent } from './services/testnet/testnet.component';
 
 const routes: Routes = [
   {path: '', component: FeaturesComponent },
@@ -15,7 +21,13 @@ const routes: Routes = [
   {path: 'audit', component: AuditComponent},
   {path: 'gas', component: GasComponent},
   {path: 'services', component: ServicesComponent},
+
+  {path: 'services/sendneofs', component: SendneofsComponent},
+  {path: 'services/sdk', component: SdkComponent},
+  {path: 'services/testnet', component: TestnetComponent},
+
   {path: 'tokens', component: TokensComponent},
+  {path: 'howto', component: HowtoComponent},
   { path: '**', redirectTo: '' },
 ];
 
