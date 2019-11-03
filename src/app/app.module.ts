@@ -19,6 +19,7 @@ import { HowtoComponent } from './howto/howto.component';
 import { SendneofsComponent } from './services/sendneofs/sendneofs.component';
 import { SdkComponent } from './services/sdk/sdk.component';
 import { TestnetComponent } from './services/testnet/testnet.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { TestnetComponent } from './services/testnet/testnet.component';
     NgbModule, 
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

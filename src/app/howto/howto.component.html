@@ -8,7 +8,7 @@
     </div>
 
     <div class="section-title">
-      <h3>Prepare your wallet</h3>
+      <h3>Wallet</h3>
     </div>
 
     <p class="mb-4">
@@ -18,7 +18,7 @@
       All the examples below will be for neo-python.
     </p>
     <p class="mb-4">
-      Use pre-configured <a href="https://github.com/nspcc-dev/neo-python">neo-python</a>:
+      Use pre-configured <a href="https://github.com/nspcc-dev/neo-python" target="_blank">neo-python</a>:
     </p>
 
     <p class="mb-4 code">
@@ -26,9 +26,9 @@
     </p>
 
     <p class="mb-4">
-      or get default <a href="https://github.com/CityOfZion/neo-python">neo-python</a>: and change config file
+      or get default <a href="https://github.com/CityOfZion/neo-python" target="_blank">neo-python</a>: and change config file
       neo/data/protocol.privnet.json <a
-        href="https://github.com/nspcc-dev/neo-python/blob/master/neo/data/protocol.privnet.json">to this</a>:
+        href="https://github.com/nspcc-dev/neo-python/blob/master/neo/data/protocol.privnet.json" target="_blank">to this</a>:
     </p>
     <p class="mb-4 code">
       git clone https://github.com/CityOfZion/neo-python.git
@@ -125,13 +125,18 @@
       To deposit GAS to the NeoFS smart contract need to run contract 0x91ffdcb4e420c897bcaf8878092452a191993b89 method
       `Deposit` with options: public key, GAS amount.
     </p>
+    <p class="mb-4  code">
+      sc invoke &lt;contract script hash&gt; Deposit
+      [b'&lt;public key&gt;', &lt;amount&gt;]
+    </p>
     <p class="mb-4">
       For example:
     </p>
     <p class="mb-4 code">
- 
-      neo> sc invoke 0x91ffdcb4e420c897bcaf8878092452a191993b89 Deposit [b'03a4ae16128e052f079de2474d8c74ee9db0cf4562f2085669eb04bfb4d2a257b7', 50] 
- 
+
+      neo> sc invoke 0x91ffdcb4e420c897bcaf8878092452a191993b89 Deposit
+      [b'03a4ae16128e052f079de2474d8c74ee9db0cf4562f2085669eb04bfb4d2a257b7', 50]
+
     </p>
 
   </div>
@@ -151,13 +156,13 @@
     </div>
 
     <h5>
-      Get <a href="https://github.com/nspcc-dev/neofs-local">neofs-local repository</a>
+      Get <a href="https://github.com/nspcc-dev/neofs-local" target="_blank">neofs-local repository</a>
     </h5>
     <p class="mb-4 code">
-  
-    git clone https://github.com/nspcc-dev/neofs-local.git<br>
-    cd neofs-local<br>
- 
+
+      git clone https://github.com/nspcc-dev/neofs-local.git<br>
+      cd neofs-local<br>
+
     </p>
 
     <p class="mb-4">
@@ -169,9 +174,9 @@
       Run NeoFS CLI
     </h5>
     <p class="mb-4 code">
-   
-    make cli
-   
+
+      make cli
+
     </p>
 
 
@@ -180,12 +185,19 @@
       Declare NeoFS endpoint for CLI
     </h5>
     <p class="mb-4">
-      Can be declared your own NeoFS node or default as in example below:
+      Can be declared your own NeoFS node or default as in example below.
+
+
     </p>
+    <p class="mb-4">
+      We recommend choosing either your own node or the closest one possible. <a
+        [routerLink]="['/services/testnet']">Available nodes can be found here</a>.
+    </p>
+
     <p class="mb-4 code">
-    
-    bash-5.0# neofs-cli set host 85.143.219.93:8080
-   
+
+      bash-5.0# neofs-cli set host 85.143.219.93:8080
+
     </p>
 
 
@@ -193,9 +205,9 @@
       Declare your private key for CLI by WIF
     </h5>
     <p class="mb-4 code">
-    
-    bash-5.0# neofs-cli set key L1b9rz58fZC6yXjg7nGAeAGM5dt8hhpScXA9stWLPVtLMWUPMc7X
- 
+
+      bash-5.0# neofs-cli set key L1b9rz58fZC6yXjg7nGAeAGM5dt8hhpScXA9stWLPVtLMWUPMc7X
+
     </p>
 
   </div>
@@ -215,9 +227,9 @@
       Check balance
     </h5>
     <p class="mb-4 code">
-  
+
       bash-5.0# neofs-cli accounting balance
-   
+
     </p>
 
     <p class="mb-4">
@@ -230,9 +242,9 @@
       Create container
     </h5>
     <p class="mb-4 code">
-   
-   bash-5.0# neofs-cli container put --rule 'SELECT 3 Node'
- 
+
+      bash-5.0# neofs-cli container put --rule 'SELECT 3 Node'
+
     </p>
 
 
@@ -241,10 +253,10 @@
       Upload object to container
     </h5>
     <p class="mb-4 code">
-   
-   bash-5.0# neofs-cli object put --cid &lt;container ID&gt; --file &lt;/path/to/file&gt;
 
- 
+      bash-5.0# neofs-cli object put --cid &lt;container ID&gt; --file &lt;/path/to/file&gt;
+
+
     </p>
 
 
@@ -253,9 +265,9 @@
     <h5>Create Storage group</h5>
 
     <p class="mb-4 code">
-   
-   bash-5.0# neofs-cli sg put --cid &lt;container ID&gt; --oid &lt;object ID&gt;
- 
+
+      bash-5.0# neofs-cli sg put --cid &lt;container ID&gt; --oid &lt;object ID&gt;
+
     </p>
     <p class="mb-4">
       Any number of objec IDs can be added to the storage group creation command.
@@ -266,9 +278,9 @@
     <h5>Get object</h5>
 
     <p class="mb-4 code">
-   
-   bash-5.0# neofs-cli object get --cid &lt;container ID&gt; --file &lt;/path/to/out/file&gt;
- 
+
+      bash-5.0# neofs-cli object get --cid &lt;container ID&gt; --file &lt;/path/to/out/file&gt;
+
     </p>
 
 
@@ -276,15 +288,15 @@
       Open object by HTTP gate url
     </h5>
     <p class="mb-4 code">
-   
-  https://send.fs.neo.org/&lt;containe_ID&gt;/&lt;object ID&gt;
- 
+
+      https://send.fs.neo.org/&lt;container_ID&gt;/&lt;object ID&gt;
+
     </p>
 
 
     <p class="mb-4">
       Additional information is available in <a
-        href="https://github.com/nspcc-dev/neofs-local/blob/master/neofs-local/HOWTO.md">github HowTo file</a>.
+        href="https://github.com/nspcc-dev/neofs-local/blob/master/neofs-local/HOWTO.md" target="_blank">github HowTo file</a>.
     </p>
   </div>
 

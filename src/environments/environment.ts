@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
 
+  wallet_rpc: "http://85.143.221.48:8081/",
   neo_node_1: "http://85.143.219.93:20332",
   neo_rpc: "http://85.143.219.93:30333",
   neo_scan: "http://85.143.219.93:4000/api/main_net",
