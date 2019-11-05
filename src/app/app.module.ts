@@ -20,6 +20,7 @@ import { SendneofsComponent } from './services/sendneofs/sendneofs.component';
 import { SdkComponent } from './services/sdk/sdk.component';
 import { TestnetComponent } from './services/testnet/testnet.component';
 import { HttpClientModule } from '@angular/common/http';
+import { WalletComponent } from './wallet/wallet.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     HowtoComponent,
     SendneofsComponent,
     SdkComponent,
-    TestnetComponent
+    TestnetComponent,
+    WalletComponent
   ],
   imports: [
     NgbModule, 

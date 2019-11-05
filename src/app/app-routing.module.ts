@@ -13,6 +13,7 @@ import {HowtoComponent} from "./howto/howto.component";
 import { SendneofsComponent } from './services/sendneofs/sendneofs.component';
 import { SdkComponent } from './services/sdk/sdk.component';
 import { TestnetComponent } from './services/testnet/testnet.component';
+import { WalletComponent } from './wallet/wallet.component';
 
 const routes: Routes = [
   {path: '', component: FeaturesComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'audit', component: AuditComponent},
   {path: 'gas', component: GasComponent},
   {path: 'services', component: ServicesComponent},
+  {path: 'wallet', component: WalletComponent},
 
   {path: 'services/sendneofs', component: SendneofsComponent},
   {path: 'services/sdk', component: SdkComponent},
