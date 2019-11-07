@@ -15,7 +15,7 @@
 <div class="section simple" *ngIf="this.walletservice.getWallet()">
     <div class="container">
 
-        <div class="nav-menu card features features_nav">
+        <div class="nav-menu features features_nav">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -36,9 +36,10 @@
                                     <li class="nav-item"> <a class="nav-link"
                                             (click)="SetNavWallet('deposit')">Deposit</a>
                                     </li>
+                                    <!--
                                     <li class="nav-item"> <a class="nav-link"
                                             (click)="SetNavWallet('withdraw')">Withdraw</a>
-                                    </li>
+                                    </li> -->
 
                                 </ul>
 
@@ -69,32 +70,79 @@
 
 <div class="section simple" *ngIf="this.walletservice.getWallet() && ( this.nav == 'wallet' || this.nav == 'deposit')">
     <div class="container">
-        <div class="row" style="padding-top:0px;">
-            <div class="col-12 col-lg-12">
-                <div class="card features">
-                    <div class="card-body">
-                        <div class="media">
+        <div style="padding-top:0px;">
 
-                            <div class="media-body">
+            <!-- .col-	.col-sm-	.col-md-	.col-lg-	.col-xl- -->
 
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4  " style="padding-top:10px;">
+                    <div class="card features_nav">
+                        <!-- features -->
+                        <div class="card-body">
 
+                            <div class="text-center">NEP-5 GAS</div>
 
-                                <h3>Balance</h3>
-                                <p class="mb-4">
-                                    Nep5 GAS: {{this.walletservice.getBalance().nep5 }}
-                                </p>
-                                <p class="mb-4">
-                                    GAS: {{this.walletservice.getBalance().gas }}
-                                </p>
+                            <ng-spinner class="d-flex justify-content-center" type="border"
+                                *ngIf="this.spinner_nep5 == true"></ng-spinner>
 
+                            <div *ngIf="this.spinner_nep5 == false">
+                                <h2 class="text-center"> {{this.walletservice.getBalance().nep5 }}</h2>
 
-                                <div class="btn btn-primary" (click)="WalletBalanceRefresh()" value="check" >Refresh</div>
 
                             </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4" style="padding-top:10px;">
+                    <div class="card features_nav">
+                        <!-- features -->
+                        <div class="card-body">
+
+                            <div class="text-center">GAS</div>
+                            <ng-spinner class="d-flex justify-content-center" type="border"
+                                *ngIf="this.spinner_gas == true"></ng-spinner>
+                            <div *ngIf="this.spinner_gas == false">
+
+                                <h2 class="text-center"> {{this.walletservice.getBalance().gas }} </h2>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4" style="padding-top:10px;">
+                    <div class="card features_nav">
+                        <div class="card-body">
+
+
+                            <div class="text-center"> NeoFS Balance</div>
+                            <ng-spinner class="d-flex justify-content-center" type="border"
+                                *ngIf="this.spinner_neofs == true"></ng-spinner>
+                            <div>
+                                <h2 class="text-center" *ngIf="this.spinner_neofs == false"> {{this.walletservice.getNeoFSBalance()}}</h2>
+                            </div>
+
+
+
                         </div>
                     </div>
                 </div>
             </div>
+
+
+            <div class="btn btn-primary" (click)="WalletBalanceRefresh()" value="check" style="margin-top:20px;">
+                Refresh </div>
+ 
+
+
         </div>
 
     </div>
@@ -118,8 +166,8 @@
                             <div class="media-body">
 
 
-                                <h3>Deposit</h3>
-                                 
+                                <h2>Deposit</h2>
+
 
                                 <form #dep="ngForm" (ngSubmit)="DepositWallet(dep.value)">
                                     <div class="form-group">
@@ -160,7 +208,7 @@
 
 
 
-                                <h3>Wallet info</h3>
+                                <h2>Wallet info</h2>
                                 <p class="mb-4">
                                     Address: {{this.walletservice.getWallet().label}}
                                 </p>
@@ -229,18 +277,19 @@
 
 
 
-
+<div class="section simple">
+    <div class="container">
 
         <hr *ngIf="show">
         <ngb-toast *ngIf="show" header="{{this.header}}" [delay]="7000" [autohide]="autohide"
             (mouseenter)="autohide = false" (mouseleave)="autohide = true" (hide)="show = false; autohide = true"
-            [class.bg-warning]="!autohide">
+            style="width: 100%;">
+
+
             <div class="alert alert-{{this.alert_type}}">
                 {{this.message}}
             </div>
 
         </ngb-toast>
-
-
-
-
+    </div>
+</div>

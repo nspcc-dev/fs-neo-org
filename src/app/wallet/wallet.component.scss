@@ -1,0 +1,74 @@
+//@import "../../assets/css/bootstrap.min.css";
+
+
+
+.card.features_nav {
+  -moz-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+  min-height: 100px;
+  height: 100px;
+
+}
+
+.features_nav {
+  -moz-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+border:0px;
+
+
+}
+
+.card.features:hover {
+  transform: translateY(0px);
+  -moz-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+}
+
+.nav-menu {
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  /* R43 G57 B63 */
+}
+
+.nav-menu.is-scrolling,
+.nav-menu.menu-is-open {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+a {
+  color: rgba(0, 175, 146, 1);
+}
+
+a:hover,
+a:focus {
+  color: rgba(0, 229, 153, 1);
+}
+
+
+.navbar-nav .nav-link {
+  color: rgba(0, 175, 146, 1);
+  position: relative;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

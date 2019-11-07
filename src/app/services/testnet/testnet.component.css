@@ -1,8 +1,33 @@
+.card.features_nav {
+    -moz-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+    -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+
+  
+  }
+  
+  .features_nav {
+    -moz-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+    -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+  border:0px;
+  
+  
+  }
+  
+  .card.features:hover {
+    transform: translateY(0px);
+    -moz-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+    -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+  }
+
+
 .circle-icon {
     box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.07);
-    padding: 10px;
-    width: 40px;
-    height: 40px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     margin-bottom: 1.5rem;
     background-image: -moz-linear-gradient( 122deg,  rgba(0, 229, 153, 0.8) 0%, rgba(0, 175, 146, 0.8) 100%);
@@ -20,8 +45,8 @@
 
 @media (max-width:992px) {
     .circle-icon {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         font-size: 20px;
         line-height: 20px;
     }

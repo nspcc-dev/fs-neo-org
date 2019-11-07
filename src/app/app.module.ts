@@ -22,6 +22,8 @@ import { TestnetComponent } from './services/testnet/testnet.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WalletComponent } from './wallet/wallet.component';
 
+import { NgSpinnerModule } from 'ng-bootstrap-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,8 @@ import { WalletComponent } from './wallet/wallet.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

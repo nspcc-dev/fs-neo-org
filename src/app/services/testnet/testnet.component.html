@@ -17,7 +17,70 @@
             We recommend choosing either your own node or the closest one possible.
         </p>
 
+        <div class="btn btn-primary" (click)="getNetMap()" value="check" style="margin-top:20px;">
+            Refresh </div>
 
+
+        <div *ngIf="!(this.netmap === undefined)">
+
+            <div class="row">
+
+
+
+                <!-- list:  {{node.Options}} -->
+
+                <!-- .col-	.col-sm-	.col-md-	.col-lg-	.col-xl- *ngIf="this.spinner_nep5 == true"-->
+
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6  " style="padding-top:10px;"
+                    *ngFor="let node of netmap; let i = index">
+                    <div class="card features_nav">
+                        <!-- features -->
+                        <div class="card-body">
+
+                            <div class="text-center">
+                                   <div class="row text-center d-flex justify-content-center"> <div class="circle-icon mr-2" ></div> <h3>{{node.Address}}</h3></div>
+                            </div>
+                            
+                            <p class="text-center" *ngFor="let opt of node.Options[0].split('/'); let z = index"> 
+                                    {{opt}}
+                            </p>
+                            <!--  {{node.Options[0].split(" ", 3)}}
+                            <p *ngFor="let opt of node.Options; let z = index">
+                                {{opt}}
+                                <ng-spinner class="d-flex justify-content-center" type="border"></ng-spinner>
+                            </p>-->
+                            <div class="d-flex justify-content-center">
+                            </div>
+
+                            
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+            <div *ngIf="this.netmap === undefined">
+                netmap_pre
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <!-- 
 
 
         <div class="row">
@@ -141,7 +204,7 @@
 
         </div>
 
-
+-->
 
 
 
