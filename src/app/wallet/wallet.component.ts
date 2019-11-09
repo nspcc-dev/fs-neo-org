@@ -27,7 +27,7 @@ export class WalletComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(this.walletservice.getWallet());
+
 
     const privateNetConfig = {
       name: "PrivateNet",
@@ -47,6 +47,9 @@ export class WalletComponent implements OnInit {
     const privateNet = new rpc.Network(privateNetConfig);
     Neon.add.network(privateNet);
 
+    this.walletservice.getWallet();
+    this.nav = "wallet"
+    this.WalletBalanceRefresh()
   }
 
   CloseWallet() {
