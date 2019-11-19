@@ -61,12 +61,24 @@ a:focus {
 
 
 
+.btn-primary.disabled {
+  border-radius: 3px;
+  
+  background-image: -moz-linear-gradient( 122deg, rgb(189, 189, 189) 0%, rgba(107,107,107, 0.8) 100%);
+  background-image: -webkit-linear-gradient( 122deg, rgba(189, 189, 189, 1) 0%, rgba(107,107,107, 0.8) 100%);
+  background-image: -ms-linear-gradient( 122deg, rgba(189, 189, 189, 1) 0%, rgba(107,107,107, 0.8) 100%);
+  background-image: linear-gradient( 122deg, rgba(189, 189, 189, 1) 0%, rgba(107,107,107, 0.8) 100%);
+
+  box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  padding: 0.6rem 2rem;
+  border: 0;
+}
 
 
-
-
-
-
+.zero {
+  margin-top: -140px;
+}
 
 
 

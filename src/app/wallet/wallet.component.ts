@@ -4,23 +4,32 @@ import Neon, { rpc, wallet, api, nep5, sc } from "@cityofzion/neon-js";
 import { Router } from "@angular/router";
 import { environment } from 'src/environments/environment.prod';
 
+import { TokensComponent } from '../tokens/tokens.component';
 
 @Component({
   selector: 'app-wallet',
+  providers: [TokensComponent],
   templateUrl: './wallet.component.html',
   styleUrls: ['./wallet.component.scss']
 })
 export class WalletComponent implements OnInit {
 
-  constructor(public walletservice: WalletServService, public router: Router) { }
+  constructor(public walletservice: WalletServService, public router: Router, public tokens: TokensComponent) { }
   navbarOpen = false;
   nav = "" // deposit / withdraw
+
   show = false;
   autohide = true;
   header = ""
   alert_type = ""
   message = "";
-  
+
+  show_sec = false;
+  autohide_sec = true;
+  header_sec = ""
+  alert_type_sec = ""
+  message_sec = "";
+
   spinner_nep5 = true;
   spinner_gas = true;
   spinner_neofs = true;
@@ -47,24 +56,27 @@ export class WalletComponent implements OnInit {
     const privateNet = new rpc.Network(privateNetConfig);
     Neon.add.network(privateNet);
 
-    this.walletservice.getWallet();
+    //this.walletservice.getWallet();
     this.nav = "wallet"
-    this.WalletBalanceRefresh()
+    if (this.walletservice.getWallet()) {
+      this.WalletBalanceRefresh()
+    }
   }
 
   CloseWallet() {
     this.walletservice.setWallet(undefined)
   }
 
- 
+
 
   async DepositWallet(formData) {
-   
-//    formData.u_dep should be number <= current nep5 balance oe ERR
+
+    //    formData.u_dep should be number <= current nep5 balance oe ERR
 
     //const sb = Neon.create.scriptBuilder();
 
- 
+    let prev_neofs_tokens = this.walletservice.getNeoFSBalance()
+
 
     const props = {
       scriptHash: environment.neofs_sc,
@@ -109,29 +121,113 @@ export class WalletComponent implements OnInit {
         this.show = true;
       });
 
-  
-    await this.WalletBalanceRefresh()
- 
+
+
+      this.spinner_neofs = true;
+
+      this.WalletBalanceGASRefreshChanged()
+
+      let i = 1;
+      while (i < 50 && this.walletservice.getNeoFSBalance() == prev_neofs_tokens) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+        await this.walletservice.setNeoFSBalance();
+        i++;
+      }
+
+      console.log(prev_neofs_tokens)
+      
+
+
+      this.spinner_neofs = false;
+
+    //await this.WalletBalanceRefresh()
+
 
   }
-/*
-  async WalletNeoFSBalanceRefresh() {
-    console.log("FS update balance")
-    this.spinner_neofs = true;
-    await this.walletservice.setNeoFSBalance();
-    this.spinner_neofs = false;
-  }*/
+  /*
+    async WalletNeoFSBalanceRefresh() {
+      console.log("FS update balance")
+      this.spinner_neofs = true;
+      await this.walletservice.setNeoFSBalance();
+      this.spinner_neofs = false;
+    }*/
 
-  async WalletBalanceRefresh() {
+
+  async WalletRequestTokens() {
+    if (this.walletservice.getBalance().gas == 0) {
+      await this.tokens.onClickSubmit({ u_address: this.walletservice.getWallet().address })
+
+      this.show = this.tokens.show
+      this.header = this.tokens.header
+      this.alert_type = this.tokens.alert_type
+      this.message = this.tokens.message
+
+      this.show_sec = this.tokens.show_sec
+      this.header_sec = this.tokens.header_sec
+      this.alert_type_sec = this.tokens.alert_type_sec
+      this.message_sec = this.tokens.message_sec
+
+
+
+      this.spinner_nep5 = true;
+      this.spinner_gas = true;
+
+
+
+      let i = 1;
+      while (i < 100 && (await this.walletservice.getBalance().gas == 0 || await this.walletservice.getBalance().nep5 == 0)) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+        await this.walletservice.setBalance()
+        i++;
+      }
+
+
+      this.spinner_nep5 = false;
+      this.spinner_gas = false;
+    }
+
+  }
+
+  async WalletBalanceGASRefresh() {
     this.spinner_nep5 = true;
     this.spinner_gas = true;
-    this.spinner_neofs = true;
     await this.walletservice.setBalance()
+    
     this.spinner_nep5 = false;
     this.spinner_gas = false;
-    
+  }
+
+  async WalletBalanceGASRefreshChanged() {
+    this.spinner_nep5 = true;
+    this.spinner_gas = true;
+
+    let prev_balance = await this.walletservice.getBalance()
+    let prev_gas = prev_balance.gas
+    let prev_nep = prev_balance.nep5
+
+    //await this.walletservice.setBalance()
+
+    let i = 1;
+    while (i < 100 && (await this.walletservice.getBalance().gas == prev_gas || await this.walletservice.getBalance().nep5 == prev_nep)) {
+      await new Promise(resolve => setTimeout(resolve, 100));
+      await this.walletservice.setBalance()
+      i++;
+    }
+
+
+    this.spinner_nep5 = false;
+    this.spinner_gas = false;
+  }
+
+  async WalletBalanceFSRefresh() {
+    this.spinner_neofs = true;
     await this.walletservice.setNeoFSBalance();
     this.spinner_neofs = false;
+  }
+
+  async WalletBalanceRefresh() {
+    this.WalletBalanceGASRefresh()
+    this.WalletBalanceFSRefresh()
   }
 
   async OpenWallet(formData) {
@@ -147,7 +243,7 @@ export class WalletComponent implements OnInit {
 
     wallet_gen = new wallet.Account(formData.u_wif)
 
- 
+
 
     if (wallet_gen.address) {
 
@@ -156,7 +252,7 @@ export class WalletComponent implements OnInit {
       await this.walletservice.setWallet(wallet_gen)
       await this.WalletBalanceRefresh()
       this.nav = "wallet"
-      
+
     }
 
 

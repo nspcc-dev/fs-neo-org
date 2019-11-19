@@ -8,7 +8,7 @@
     </div>
 
     <p class="mb-4">
-      Get 10 GAS and 100 Nep-5 GAS Tokens (for Neo2 Testnet). With the transition to the Neo 3.0 TestNet, only GAS token
+      Get 10 GAS and 100 Nep-5 GAS Tokens (for Neo2 Testnet). With the transition to the Neo 3.0 TestNet only GAS token
       will be send. How to connect to NeoFS Neo TestNet and create Neo address <a [routerLink]="['/howto']">can be found here.</a></p>
 
       <p class="mb-4">
@@ -28,8 +28,7 @@
 
     <hr *ngIf="show">
     <ngb-toast *ngIf="show" header="{{this.header}}" [delay]="7000" [autohide]="autohide"
-      (mouseenter)="autohide = false" (mouseleave)="autohide = true" (hide)="show = false; autohide = true"
-      [class.bg-warning]="!autohide">
+      (mouseenter)="autohide = false" (mouseleave)="autohide = true" (hide)="show = false; autohide = true" >
       <div class="alert alert-{{this.alert_type}}">
         {{this.message}}
       </div>
@@ -39,17 +38,14 @@
     <hr *ngIf="show_sec">
     <ngb-toast *ngIf="show_sec" header="{{this.header_sec}}" [delay]="7000" [autohide]="autohide_sec"
       (mouseenter)="autohide_sec = false" (mouseleave)="autohide_sec = true"
-      (hide)="show_sec = false; autohide_sec = true" [class.bg-warning]="!autohide_sec">
+      (hide)="show_sec = false; autohide_sec = true">
       <div class="alert alert-{{this.alert_type_sec}}">
         {{this.message_sec}}
       </div>
 
     </ngb-toast>
 
-
-
-    
-
+  
 
   </div>
 </div>

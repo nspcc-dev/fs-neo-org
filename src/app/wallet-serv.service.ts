@@ -64,32 +64,7 @@ export class WalletServService {
       }
       
       
-      /*
-      GAS_count = ((balance||{}).value)||0;
-      {
-  "result": true,
-  "err": "",
-  "gas": 10
-}
-
-      {
-  "nodes": [
-    {
-      "node": "157.245.37.172:8080",
-      "status": {
-        "Healthy": true,
-        "Status": "OK"
-      }
-    },
-    {
-      "node": "85.143.219.93:8080",
-      "status": {
-        "Healthy": true,
-        "Status": "OK"
-      }
-    }
-  ]
-}*/
+  
 
     }
 

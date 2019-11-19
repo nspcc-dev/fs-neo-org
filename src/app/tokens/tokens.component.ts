@@ -49,6 +49,7 @@ export class TokensComponent implements OnInit {
           this.alert_type = "success";
           this.header = "GAS Balance:";
           this.message = rpc_result["data"].gas;
+
           this.show = true;
 
           this.alert_type_sec = "success";
@@ -126,7 +127,7 @@ export class TokensComponent implements OnInit {
           }
           else {
             this.alert_type_sec = "success";
-            this.header_sec = "GAS has been successfully transferred";
+            this.header_sec = "NEP-5 GAS has been successfully transferred";
             this.message_sec = "TX: " + rpc_result.nep5.tx;
             this.show_sec = true;
           }

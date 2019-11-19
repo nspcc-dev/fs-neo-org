@@ -15,101 +15,16 @@
       RPC endpoint http://85.143.219.93:30333 can be used for custom wallets.
     </p>
     <p class="mb-4">
-      All the examples below will be for neo-python.
+      Open <a [routerLink]="['/wallet']"> NeoFS Testnet Wallet</a>. Open existing wallet by providing private key/WIF or create new wallet and click on "Request tokens" button.
     </p>
     <p class="mb-4">
-      Use pre-configured <a href="https://github.com/nspcc-dev/neo-python" target="_blank">neo-python</a>:
+      Or use neo-python. Description about how to do this is available <a [routerLink]="['/howto/py']">here</a>. 
+      It is possible to request tokens for your address <a [routerLink]="['/tokens']">here</a> in case of custom wallet.
     </p>
 
-    <p class="mb-4 code">
-      git clone https://github.com/nspcc-dev/neo-python
-    </p>
-
-    <p class="mb-4">
-      or get default <a href="https://github.com/CityOfZion/neo-python" target="_blank">neo-python</a>: and change config file
-      neo/data/protocol.privnet.json <a
-        href="https://github.com/nspcc-dev/neo-python/blob/master/neo/data/protocol.privnet.json" target="_blank">to this</a>:
-    </p>
-    <p class="mb-4 code">
-      git clone https://github.com/CityOfZion/neo-python.git
-    </p>
+ 
 
   </div>
-
-
-
-
-
-
-  <div class="container upper">
-
-
-    <div class="section-title">
-      <h3>Get Neo address</h3>
-    </div>
-
-    <h5>
-      Run neo-python wallet
-    </h5>
-    <p class="mb-4 code">
-
-      cd neo-python<br>
-      python3.7 -m venv venv<br>
-      source venv/bin/activate<br>
-    </p>
-
-    <p class="mb-4">
-      Run pip install for first execution
-    </p>
-
-    <p class="mb-4 code">
-      pip3.7 install wheel -e .
-    </p>
-
-    <p class="mb-4 code">
-      rm -rf ~/.neopython/Chains/privnet*<br>
-      np-prompt -p -v<br>
-
-    </p>
-    <h5>
-      Create wallet
-    </h5>
-
-    <p class="mb-4 code">
-
-      neo> wallet create my_wallet.wallet
-
-    </p>
-
-    <p class="mb-4">
-      Now you can find NEO address and public key in the NeoFS TestNet:
-    </p>
-
-    <p class="mb-4 code">
-
-      neo> wallet verbose
-
-    </p>
-
-    <h5>
-      Add NEP-5 GAS token information to the wallet
-    </h5>
-    <p class="mb-4 code">
-      neo> wallet import token 9bcd6be0f0d2b731977640d14d7edf7a6b59ea77
-    </p>
-
-    <p class="mb-4">
-      Use `wallet export wif &lt;address&gt;` to get WIF for Neo address. For example:
-    </p>
-    <p class="mb-4 code">
-      neo> wallet export wif AUJ3GSGiKShHFnkjBuVKfmAE4xdmE4qN6a
-    </p>
-
-
-
-  </div>
-
-
 
 
 
@@ -122,20 +37,7 @@
     </div>
 
     <p class="mb-4">
-      To deposit GAS to the NeoFS smart contract need to run contract 0x91ffdcb4e420c897bcaf8878092452a191993b89 method
-      `Deposit` with options: public key, GAS amount.
-    </p>
-    <p class="mb-4  code">
-      sc invoke &lt;contract script hash&gt; Deposit
-      [b'&lt;public key&gt;', &lt;amount&gt;]
-    </p>
-    <p class="mb-4">
-      For example:
-    </p>
-    <p class="mb-4 code">
-
-      neo> sc invoke 0x91ffdcb4e420c897bcaf8878092452a191993b89 Deposit
-      [b'03a4ae16128e052f079de2474d8c74ee9db0cf4562f2085669eb04bfb4d2a257b7', 50]
+      Select Deposit tab in the NeoFS wallet. Enter amount of NEP-5 GAS tokens for deposit to NeoFS balance and click on "Deposit" button.
 
     </p>
 
@@ -166,7 +68,7 @@
     </p>
 
     <p class="mb-4">
-      Volume dir is './data'. Add files to have access from docker. In the docker this dir will be available in the root
+      Volume directory is './data'. Add files to have access from docker. In the docker this dir will be available in the root
       - `/data`.
     </p>
 

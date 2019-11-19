@@ -21,8 +21,8 @@ import { SdkComponent } from './services/sdk/sdk.component';
 import { TestnetComponent } from './services/testnet/testnet.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WalletComponent } from './wallet/wallet.component';
-
-import { NgSpinnerModule } from 'ng-bootstrap-spinner';
+import { PyComponent } from './howto/py/py.component';
+ 
 
 @NgModule({
   declarations: [
@@ -40,15 +40,15 @@ import { NgSpinnerModule } from 'ng-bootstrap-spinner';
     SendneofsComponent,
     SdkComponent,
     TestnetComponent,
-    WalletComponent
+    WalletComponent,
+    PyComponent
   ],
   imports: [
     NgbModule, 
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule,
-    NgSpinnerModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

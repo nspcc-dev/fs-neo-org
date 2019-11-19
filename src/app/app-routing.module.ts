@@ -14,6 +14,7 @@ import { SendneofsComponent } from './services/sendneofs/sendneofs.component';
 import { SdkComponent } from './services/sdk/sdk.component';
 import { TestnetComponent } from './services/testnet/testnet.component';
 import { WalletComponent } from './wallet/wallet.component';
+import {PyComponent} from "./howto/py/py.component";
 
 const routes: Routes = [
   {path: '', component: FeaturesComponent },
@@ -30,6 +31,9 @@ const routes: Routes = [
 
   {path: 'tokens', component: TokensComponent},
   {path: 'howto', component: HowtoComponent},
+  {path: 'howto/py', component:  PyComponent},
+
+ 
   { path: '**', redirectTo: '' },
 ];
 

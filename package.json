@@ -21,7 +21,6 @@
     "@angular/router": "~8.2.9",
     "@cityofzion/neon-js": "4.7.0",
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
-    "ng-bootstrap-spinner": "^1.2.0",
     "ngx-bootstrap": "^5.1.2",
     "ngx-file-drop": "^8.0.8",
     "rxjs": "~6.4.0",
