@@ -7,7 +7,7 @@ export const environment = {
   neo_scan: "https://fs.neo.org/neo_scan/", //"http://85.143.219.93:4000/api/main_net",
   nep5_script_hash: "9bcd6be0f0d2b731977640d14d7edf7a6b59ea77",
   gas_asset: "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
-  neofs_sc: "91ffdcb4e420c897bcaf8878092452a191993b89"
+  neofs_sc: "cdabc9be4bfbc2ca4696e6cd6da3af104f929601"
   
   /*
   neo_node_1: "neo-cli-privatenet-1:20333",
