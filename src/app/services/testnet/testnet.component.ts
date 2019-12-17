@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import Neon, { rpc, wallet, api, nep5 } from "@cityofzion/neon-js";
+import Neon, { rpc } from "@cityofzion/neon-js";
 import { environment } from "../../../environments/environment";
-var Long = require("long");
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+ 
+ 
 @Component({
   selector: 'app-testnet',
   templateUrl: './testnet.component.html',
@@ -10,31 +11,53 @@ var Long = require("long");
 })
 export class TestnetComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   netmap: any;
   epoch: any;
   nodes_state: any[];
+  //rpc_result: any;
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
 
   ngOnInit() {
+
+    console.log("API:")
+
+
     this.getNetMap()
+
+    /*
+    {"epoch":4,
+    "nodes":[
+      {"healthy":true,"address":"/ip4/178.128.22.46/tcp/8080","message":"OK"},
+      {"healthy":true,"address":"/ip4/178.62.234.54/tcp/8080","message":"OK"},
+      {"healthy":true,"address":"/ip4/165.22.29.184/tcp/8080","message":"OK"},
+      {"healthy":true,"address":"/ip4/85.143.219.93/tcp/8080","message":"OK"},
+      {"healthy":true,"address":"/ip4/157.245.37.172/tcp/8080","message":"OK"},
+      {"healthy":true,"address":"/ip4/167.71.226.0/tcp/8080","message":"OK"},
+      {"healthy":true,"address":"/ip4/138.197.169.8/tcp/8080","message":"OK"},
+      {"healthy":true,"address":"/ip4/67.205.133.241/tcp/8080","message":"OK"}]}
+    */
   }
 
 
-  isHealthy(val: any) { 
-
-    let ip = val.Address.split("/")[2]
-    let port = val.Address.split("/")[4]
+  isHealthy(val: any) {
+ 
 
     // nodes_state
-    for (let state of this.nodes_state) {
-        if (state.node == ip+":"+port) {
-          if (state.Healthy == true) {
-            return true;
-          }
+    for (let state of this.netmap) {
+      if (state.address == val.address) {
+        if (state.healthy == true) {
+          return true;
         }
+      }
     }
-    
+
     return false;
   }
 
@@ -47,35 +70,41 @@ export class TestnetComponent implements OnInit {
       this.nodes_state = undefined;
       this.epoch = undefined;
       this.netmap = undefined;
-
-      const rpc_client = new rpc.RPCClient(environment.wallet_rpc);
-      const query = Neon.create.query({ id: 0, method: "neofs_netmap", params: [] });
-      let rpc_result = await rpc_client.execute(query);
-
-      this.netmap = rpc_result.NetMap;
+      
+      let rpc_result = undefined;
  
+      this.http.get(`${environment.neofs_api}/healthy`).subscribe(resp => { 
+        
+        rpc_result = resp; 
+        this.netmap = rpc_result.nodes;
+        this.epoch = rpc_result.epoch;
 
-      let long_epoch = rpc_result.Epoch;
-      this.epoch = new Long(long_epoch.low, long_epoch.high, long_epoch.unsigned).toNumber()
-  
+        for (var _i = 0; _i < this.netmap.length; _i++) {  
+          var ip = this.netmap[_i].address.split("/")[2]
+          var port = this.netmap[_i].address.split("/")[4]
+          this.netmap[_i].address = ip + ":" + port
+        }
 
-      let node_list_state = []
+      });
 
-      console.log(rpc_result)
-
-      for (let node_ip_port of this.netmap) {
-        var ip = node_ip_port.Address.split("/")[2]
-        var port = node_ip_port.Address.split("/")[4]
-
-        node_list_state.push(ip + ":" + port)
-
+/*
+      rpc_result = {
+        "epoch": 4,
+        "nodes": [
+          { "healthy": true, "address": "/ip4/178.128.22.46/tcp/8080", "message": "OK" },
+          { "healthy": true, "address": "/ip4/178.62.234.54/tcp/8080", "message": "OK" },
+          { "healthy": true, "address": "/ip4/165.22.29.184/tcp/8080", "message": "OK" },
+          { "healthy": true, "address": "/ip4/85.143.219.93/tcp/8080", "message": "OK" },
+          { "healthy": true, "address": "/ip4/157.245.37.172/tcp/8080", "message": "OK" },
+          { "healthy": true, "address": "/ip4/167.71.226.0/tcp/8080", "message": "OK" },
+          { "healthy": true, "address": "/ip4/138.197.169.8/tcp/8080", "message": "OK" },
+          { "healthy": true, "address": "/ip4/67.205.133.241/tcp/8080", "message": "OK" }]
       }
-
-
+*/
 
 
       //node_list_state
-
+      /*
       let asyncFunctions = [];
 
       for (let node_addr of node_list_state) {
@@ -88,6 +117,8 @@ export class TestnetComponent implements OnInit {
   
       this.nodes_state = await Promise.all(asyncFunctions);
 
+*/
+
     }
 
     catch (err) {
@@ -96,7 +127,7 @@ export class TestnetComponent implements OnInit {
   }
 
 
- 
+
 
 
 }

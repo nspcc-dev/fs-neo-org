@@ -1,8 +1,9 @@
 export const environment = {
   production: true,
 
-  wallet_rpc: "https://fs.neo.org/api/", // "http://178.62.234.54:8081"
-  neo_node_1: "https://fs.neo.org/neo_node/",//"http://85.143.219.93:20332",
+  wallet_rpc: "https://fs.neo.org/token_rpc/", // "http://178.62.234.54:8081"
+  neofs_api: "https://fs.neo.org/api/", // "http://178.62.234.54:8081"
+  neo_node_1: "https://fs.neo.org/neo_node/",//"http://85.143.219.93:20332", // persephone
   neo_rpc: "https://fs.neo.org/neo_rpc/",//"http://85.143.219.93:30333",
   neo_scan: "https://fs.neo.org/neo_scan/", //"http://85.143.219.93:4000/api/main_net",
   nep5_script_hash: "9bcd6be0f0d2b731977640d14d7edf7a6b59ea77",

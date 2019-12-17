@@ -20,14 +20,14 @@ export class WalletComponent implements OnInit {
 
   show = false;
   autohide = true;
-  header = ""
-  alert_type = ""
+  header = "";
+  alert_type = "";
   message = "";
 
   show_sec = false;
   autohide_sec = true;
-  header_sec = ""
-  alert_type_sec = ""
+  header_sec = "";
+  alert_type_sec = "";
   message_sec = "";
 
   spinner_nep5 = true;
@@ -71,6 +71,25 @@ export class WalletComponent implements OnInit {
 
   async DepositWallet(formData) {
 
+    var regex=/^[0-9]+$/;
+    if (!formData.u_dep.match(regex))
+    {
+        this.alert_type = "danger"
+        this.header = "ERROR:"
+        this.message = "Deposit must input numbers."
+        this.show = true;
+        return false;
+    }
+
+    if (!(formData.u_dep > 0))
+    {
+        this.alert_type = "danger"
+        this.header = "ERROR:"
+        this.message = "Deposit must be greater than zero"
+        this.show = true;
+        return false;
+    }
+ 
     //    formData.u_dep should be number <= current nep5 balance oe ERR
 
     //const sb = Neon.create.scriptBuilder();
@@ -128,8 +147,8 @@ export class WalletComponent implements OnInit {
       this.WalletBalanceGASRefreshChanged()
 
       let i = 1;
-      while (i < 50 && this.walletservice.getNeoFSBalance() == prev_neofs_tokens) {
-        await new Promise(resolve => setTimeout(resolve, 100));
+      while (i < 20 && this.walletservice.getNeoFSBalance() == prev_neofs_tokens) {
+        await new Promise(resolve => setTimeout(resolve, 500));
         await this.walletservice.setNeoFSBalance();
         i++;
       }
@@ -208,8 +227,8 @@ export class WalletComponent implements OnInit {
     //await this.walletservice.setBalance()
 
     let i = 1;
-    while (i < 100 && (await this.walletservice.getBalance().gas == prev_gas || await this.walletservice.getBalance().nep5 == prev_nep)) {
-      await new Promise(resolve => setTimeout(resolve, 100));
+    while (i < 25 && (await this.walletservice.getBalance().gas == prev_gas || await this.walletservice.getBalance().nep5 == prev_nep)) {
+      await new Promise(resolve => setTimeout(resolve, 500));
       await this.walletservice.setBalance()
       i++;
     }

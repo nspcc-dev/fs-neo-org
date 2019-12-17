@@ -22,7 +22,6 @@ import { TestnetComponent } from './services/testnet/testnet.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WalletComponent } from './wallet/wallet.component';
 import { PyComponent } from './howto/py/py.component';
- 
 
 @NgModule({
   declarations: [
@@ -48,7 +47,7 @@ import { PyComponent } from './howto/py/py.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

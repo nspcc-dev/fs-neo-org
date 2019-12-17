@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import Neon, { rpc, wallet, api, nep5 } from "@cityofzion/neon-js";
 import { environment } from "../environments/environment";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WalletServService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   wallet_balance: { gas: 0, nep5: 0 }
   neofs_balance: any = 0;
@@ -17,7 +18,7 @@ export class WalletServService {
   wallet: any
 
   public getWallet(): any {
-    return this.wallet
+    return this.wallet;
   }
 
   public setWallet(state: any): any {
@@ -47,24 +48,33 @@ export class WalletServService {
     try {
 
       this.await_neofs_result = true;
-    
-      const rpc_client = new rpc.RPCClient(environment.wallet_rpc);
-      const query = Neon.create.query({ id: 0, method: "neofs_balance", params: [this.wallet.address] });
-      let rpc_result = await rpc_client.execute(query);
-      
-      this.await_neofs_result = false;
-      
-      console.log(rpc_result)
+      let rpc_result;
+      // neofs_api
 
-      if (rpc_result.result == true){
-        this.neofs_balance = rpc_result.gas;
-      }
-      else {
-        this.neofs_balance = 0;
-      }
-      
-      
+
+      this.http.get(`${environment.neofs_api}balance/${this.wallet.publicKey}`).subscribe(resp => {
+
+        rpc_result = resp;
+
+        this.await_neofs_result = false;
+
+        console.log(rpc_result);
   
+        if (rpc_result.balance) {
+          this.neofs_balance = rpc_result.balance;
+        }
+        else {
+          this.neofs_balance = 0;
+        }
+
+      });
+
+
+      //const rpc_client = new rpc.RPCClient(environment.wallet_rpc);
+      //const query = Neon.create.query({ id: 0, method: "neofs_balance", params: [this.wallet.address] });
+      //let rpc_result = await rpc_client.execute(query);
+
+
 
     }
 
@@ -79,7 +89,7 @@ export class WalletServService {
 
       let Nep5_GAS_count;
       let GAS_count;
-      
+
 
       if (Neon.is.address(this.wallet.address) == false) {
         console.log("Incorrect Neo address")
