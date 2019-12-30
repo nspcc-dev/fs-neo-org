@@ -1,0 +1,23 @@
+---
+kind: pipeline
+type: docker
+name: fs_neo_org
+
+steps:
+    - name: make a tarball
+      image: debian:10
+      environment:
+          API_KEY:
+              from_secret: sami_api_key
+      commands:
+          - apt-get update && apt-get install -y curl
+          - export DATE=`date +%H-%M-%d%m%y`
+          - export TARBALL="$DATE.tar"
+          - tar cfz "$TARBALL" ./*
+          - curl -H "X-JFrog-Art-Api:$API_KEY" -T "$TARBALL" "http://registry.nspcc.ru/artifactory//fs.neo.org/$TARBALL"
+
+trigger:
+  event:
+  - push
+  branch:
+  - master
