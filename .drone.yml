@@ -5,7 +5,7 @@ name: fs_neo_org
 
 steps:
     - name: make a tarball
-      image: debian:10
+      image: trion/ng-cli:8.3.22
       environment:
           API_KEY:
               from_secret: sami_api_key
@@ -13,7 +13,7 @@ steps:
           - apt-get update && apt-get install -y --no-install-recommends curl
           - export DATE=`date +%y.%m.%d-%H.%M`
           - export TARBALL="$DATE.tar.gz"
-          - tar cfz "$TARBALL" ./*
+          - make build
           - curl -H "X-JFrog-Art-Api:$API_KEY" -T "$TARBALL" "http://registry.nspcc.ru/artifactory//fs.neo.org/$TARBALL"
 
 trigger:
