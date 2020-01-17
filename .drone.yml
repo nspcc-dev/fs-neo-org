@@ -22,7 +22,7 @@ steps:
       environment:
           API_KEY:
               from_secret: sami_api_key
-          BUILD_FLAG: "--test"
+          BUILD_FLAG: "--prod --configuration=test"
       commands:
           - apt-get update && apt-get install -y --no-install-recommends curl
           - export DATE=`date +%y.%m.%d-%H.%M`
