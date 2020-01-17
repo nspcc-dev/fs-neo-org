@@ -1,7 +1,7 @@
 DISTPATH = "dist/neofs/"
 DATE ?= "$(shell date +%y.%m.%d-%H.%M)"
 TARBALL ?= "$(DATE).tar.gz"
-BUILD_FLAG = "--prod"
+BUILD_FLAG ?= "--prod"
 
 build: deps
 	@echo "=> Building binary"
