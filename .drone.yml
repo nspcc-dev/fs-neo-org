@@ -15,7 +15,7 @@ steps:
       - git fetch --tags
       - export PKGNAME=`make pkgname`
       - make build
-      - curl -H "X-JFrog-Art-Api:$API_KEY" -T "$TARBALL" "http://registry.nspcc.ru/artifactory//fs.neo.org/$PKGNAME"
+      - curl -H "X-JFrog-Art-Api:$API_KEY" -T "$PKGNAME" "http://registry.nspcc.ru/artifactory//fs.neo.org/$PKGNAME"
   - name: make test tarball
     image: trion/ng-cli:8.3.22
     user: root
@@ -28,7 +28,7 @@ steps:
       - git fetch --tags
       - export PKGNAME=`make pkgname`
       - make build
-      - curl -H "X-JFrog-Art-Api:$API_KEY" -T "$TARBALL" "http://registry.nspcc.ru/artifactory//fs.neo.org/$PKGNAME"
+      - curl -H "X-JFrog-Art-Api:$API_KEY" -T "$PKGNAME" "http://registry.nspcc.ru/artifactory//fs.neo.org/$PKGNAME"
 
 trigger:
   event:
