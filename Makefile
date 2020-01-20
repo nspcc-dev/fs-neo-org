@@ -1,6 +1,7 @@
 DISTPATH = "dist/neofs/"
-DATE ?= "$(shell date +%y.%m.%d-%H.%M)"
-TARBALL ?= "$(DATE).tar.gz"
+VERSION?=$(shell git describe --abbrev=4 --dirty --always)
+DATE ?= "$(shell date +%y%m%d-%H%M)"
+TARBALL?= "fs_neo_org_${VERSION}.tar.gz"
 BUILD_FLAG ?= "--prod"
 
 build: deps
@@ -10,3 +11,7 @@ build: deps
 
 deps:
 	@npm install
+
+.PHONY: pkgname
+pkgname:
+	@echo $(TARBALL)

@@ -4,34 +4,32 @@ type: docker
 name: fs_neo_org
 
 steps:
-    - name: make prod tarball
-      image: trion/ng-cli:8.3.22
-      user: root
-      environment:
-          API_KEY:
-              from_secret: sami_api_key
-      commands:
-          - apt-get update && apt-get install -y --no-install-recommends curl
-          - export DATE=`date +%y.%m.%d-%H.%M`
-          - export TARBALL="$DATE.tar.gz"
-          - make build
-          - curl -H "X-JFrog-Art-Api:$API_KEY" -T "$TARBALL" "http://registry.nspcc.ru/artifactory//fs.neo.org/$TARBALL"
-    - name: make test tarball
-      image: trion/ng-cli:8.3.22
-      user: root
-      environment:
-          API_KEY:
-              from_secret: sami_api_key
-          BUILD_FLAG: "--prod --configuration=test"
-      commands:
-          - apt-get update && apt-get install -y --no-install-recommends curl
-          - export DATE=`date +%y.%m.%d-%H.%M`
-          - export TARBALL="$DATE-test.tar.gz"
-          - make build
-          - curl -H "X-JFrog-Art-Api:$API_KEY" -T "$TARBALL" "http://registry.nspcc.ru/artifactory//fs.neo.org/$TARBALL"
+  - name: make prod tarball
+    image: trion/ng-cli:8.3.22
+    user: root
+    environment:
+      API_KEY:
+        from_secret: sami_api_key
+    commands:
+      - apt-get update && apt-get install -y --no-install-recommends curl
+      - export PKGNAME=`make pkgname`
+      - make build
+      - curl -H "X-JFrog-Art-Api:$API_KEY" -T "$TARBALL" "http://registry.nspcc.ru/artifactory//fs.neo.org/$PKGNAME"
+  - name: make test tarball
+    image: trion/ng-cli:8.3.22
+    user: root
+    environment:
+      API_KEY:
+        from_secret: sami_api_key
+      BUILD_FLAG: "--prod --configuration=test"
+    commands:
+      - apt-get update && apt-get install -y --no-install-recommends curl
+      - export PKGNAME=`make pkgname`
+      - make build
+      - curl -H "X-JFrog-Art-Api:$API_KEY" -T "$TARBALL" "http://registry.nspcc.ru/artifactory//fs.neo.org/$PKGNAME"
 
 trigger:
   event:
-  - push
+    - push
   branch:
-  - master
+    - master
