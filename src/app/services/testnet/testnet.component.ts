@@ -16,33 +16,16 @@ export class TestnetComponent implements OnInit {
   netmap: any;
   epoch: any;
   nodes_state: any[];
-  //rpc_result: any;
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
     })
   }
 
   ngOnInit() {
-
-    console.log("API:")
-
-
     this.getNetMap()
-
-    /*
-    {"epoch":4,
-    "nodes":[
-      {"healthy":true,"address":"/ip4/178.128.22.46/tcp/8080","message":"OK"},
-      {"healthy":true,"address":"/ip4/178.62.234.54/tcp/8080","message":"OK"},
-      {"healthy":true,"address":"/ip4/165.22.29.184/tcp/8080","message":"OK"},
-      {"healthy":true,"address":"/ip4/85.143.219.93/tcp/8080","message":"OK"},
-      {"healthy":true,"address":"/ip4/157.245.37.172/tcp/8080","message":"OK"},
-      {"healthy":true,"address":"/ip4/167.71.226.0/tcp/8080","message":"OK"},
-      {"healthy":true,"address":"/ip4/138.197.169.8/tcp/8080","message":"OK"},
-      {"healthy":true,"address":"/ip4/67.205.133.241/tcp/8080","message":"OK"}]}
-    */
   }
 
 
@@ -72,8 +55,8 @@ export class TestnetComponent implements OnInit {
       this.netmap = undefined;
       
       let rpc_result = undefined;
- 
-      this.http.get(`${environment.neofs_api}/healthy`).subscribe(resp => { 
+
+       this.http.get(`${environment.neofs_api}/status/storage/`).subscribe(resp => { 
         
         rpc_result = resp; 
         this.netmap = rpc_result.nodes;
@@ -87,37 +70,6 @@ export class TestnetComponent implements OnInit {
 
       });
 
-/*
-      rpc_result = {
-        "epoch": 4,
-        "nodes": [
-          { "healthy": true, "address": "/ip4/178.128.22.46/tcp/8080", "message": "OK" },
-          { "healthy": true, "address": "/ip4/178.62.234.54/tcp/8080", "message": "OK" },
-          { "healthy": true, "address": "/ip4/165.22.29.184/tcp/8080", "message": "OK" },
-          { "healthy": true, "address": "/ip4/85.143.219.93/tcp/8080", "message": "OK" },
-          { "healthy": true, "address": "/ip4/157.245.37.172/tcp/8080", "message": "OK" },
-          { "healthy": true, "address": "/ip4/167.71.226.0/tcp/8080", "message": "OK" },
-          { "healthy": true, "address": "/ip4/138.197.169.8/tcp/8080", "message": "OK" },
-          { "healthy": true, "address": "/ip4/67.205.133.241/tcp/8080", "message": "OK" }]
-      }
-*/
-
-
-      //node_list_state
-      /*
-      let asyncFunctions = [];
-
-      for (let node_addr of node_list_state) {
-
-        let query_hc = Neon.create.query({ id: 0, method: "neofs_health", params: [node_addr] });
-        asyncFunctions.push(rpc_client.execute(query_hc));
-
-      }
-
-  
-      this.nodes_state = await Promise.all(asyncFunctions);
-
-*/
 
     }
 

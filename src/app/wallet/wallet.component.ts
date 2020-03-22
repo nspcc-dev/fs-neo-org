@@ -18,17 +18,14 @@ export class WalletComponent implements OnInit {
   navbarOpen = false;
   nav = "" // deposit / withdraw
 
+  show_awaiting_msg = false;
+
   show = false;
   autohide = true;
   header = "";
   alert_type = "";
   message = "";
-
-  show_sec = false;
-  autohide_sec = true;
-  header_sec = "";
-  alert_type_sec = "";
-  message_sec = "";
+ 
 
   spinner_nep5 = true;
   spinner_gas = true;
@@ -48,7 +45,7 @@ export class WalletComponent implements OnInit {
       ], // Optional
       extra: {
         // Neoscan URL
-        neoscan: environment.neo_scan
+        neoscan: null
       }
     };
 
@@ -68,10 +65,13 @@ export class WalletComponent implements OnInit {
   }
 
 
+  async delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
   async DepositWallet(formData) {
 
-    var regex=/^[0-9]+$/;
+    var regex=/^[0-9\.]+$/;
     if (!formData.u_dep.match(regex))
     {
         this.alert_type = "danger"
@@ -109,13 +109,16 @@ export class WalletComponent implements OnInit {
 
     const apiProvider = new api.neoscan.instance("PrivateNet");
 
+  console.log("INVOKATION SCRIPT:")
+  console.log(script)
+
     const config_nep = {
       api: apiProvider, // Network
       url: environment.neo_rpc,
       account: wallet_data,
       script: script, // The Smart Contract invocation script
-      gas: 0, // Optional, system fee.
-      fees: 0.0001 // Optional, network fee
+      gas: 0.01, // Optional, system fee.
+      fees: 0.01 // Optional, network fee
     };
 
     // Neon API
@@ -173,43 +176,31 @@ export class WalletComponent implements OnInit {
 
 
   async WalletRequestTokens() {
-    if (this.walletservice.getBalance().gas == 0) {
+   // if (this.walletservice.getBalance().gas == 0) {
+
+      this.show_awaiting_msg = true;
+
       await this.tokens.onClickSubmit({ u_address: this.walletservice.getWallet().address })
 
-      this.show = this.tokens.show
-      this.header = this.tokens.header
-      this.alert_type = this.tokens.alert_type
-      this.message = this.tokens.message
+      await this.WalletBalanceGASRefresh()
 
-      this.show_sec = this.tokens.show_sec
-      this.header_sec = this.tokens.header_sec
-      this.alert_type_sec = this.tokens.alert_type_sec
-      this.message_sec = this.tokens.message_sec
+      this.show_awaiting_msg = false;
 
+      await this.delay(5000);
 
+      this.tokens.show = false;
+      this.tokens.show_p = false;
+      this.tokens.show_sec = false;
+      this.tokens.show_sec_p = false;
 
-      this.spinner_nep5 = true;
-      this.spinner_gas = true;
-
-
-
-      let i = 1;
-      while (i < 100 && (await this.walletservice.getBalance().gas == 0 || await this.walletservice.getBalance().nep5 == 0)) {
-        await new Promise(resolve => setTimeout(resolve, 100));
-        await this.walletservice.setBalance()
-        i++;
-      }
-
-
-      this.spinner_nep5 = false;
-      this.spinner_gas = false;
-    }
+  //}
 
   }
 
   async WalletBalanceGASRefresh() {
     this.spinner_nep5 = true;
     this.spinner_gas = true;
+
     await this.walletservice.setBalance()
     
     this.spinner_nep5 = false;

@@ -15,37 +15,79 @@
         </p>
 
 
-    <form #login="ngForm" (ngSubmit)="onClickSubmit(login.value)">
+    <form #login="ngForm">
       <div class="form-group">
         <label for="u_address">Ender your Neo Address for NeoFS Testnet:</label>
         <input class="form-control" type="text" name="u_address" placeholder="Address" ngModel id="u_address">
         <br />
-        <input class="btn btn-primary" type="submit" value="submit">
-        <div class="btn btn-primary" (click)="onClickCheck(login.value)" value="check" style="margin-left:20px;">Check
-          balance</div>
+
+
+          <button  value="Send" style="margin-left:20px;"
+          [class]="this.show_processing == false ? 'btn btn-primary active': 'btn btn-primary disabled'"
+          [disabled]="this.show_processing? true: null"
+          (click)="onClickSubmit(login.value)">
+            Send</button>
+
+
+        <button  value="check" style="margin-left:20px;"
+        [class]="this.show_processing == false ? 'btn btn-primary active': 'btn btn-primary disabled'" 
+        [disabled]="this.show_processing? true: null"
+        (click)="onClickCheck(login.value)">
+          Check balance</button>
+
+
       </div>
     </form>
 
+
+
+
+    <div *ngIf="show_processing" class="text-center">
+      Processing of the transactions: please, be patient until they will be added to block.
+      <div class="d-flex justify-content-center" > 
+        <div class="spinner-border" role="status"  >
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    </div>
+
+
+
+
     <hr *ngIf="show">
     <ngb-toast *ngIf="show" header="{{this.header}}" [delay]="7000" [autohide]="autohide"
-      (mouseenter)="autohide = false" (mouseleave)="autohide = true" (hide)="show = false; autohide = true" >
+       (hide)="show = false; autohide = true" > 
       <div class="alert alert-{{this.alert_type}}">
         {{this.message}}
       </div>
+    </ngb-toast>
 
+    <hr *ngIf="show_p">
+    <ngb-toast *ngIf="show_p" header="{{this.header_p}}" [delay]="7000" [autohide]="autohide_p"
+       (hide)="show_p = false; autohide_p = true" >
+      <div class="alert alert-{{this.alert_type_p}}">
+        {{this.message_p}}
+      </div>
     </ngb-toast>
 
     <hr *ngIf="show_sec">
     <ngb-toast *ngIf="show_sec" header="{{this.header_sec}}" [delay]="7000" [autohide]="autohide_sec"
-      (mouseenter)="autohide_sec = false" (mouseleave)="autohide_sec = true"
       (hide)="show_sec = false; autohide_sec = true">
       <div class="alert alert-{{this.alert_type_sec}}">
         {{this.message_sec}}
       </div>
-
     </ngb-toast>
 
-  
+      <hr *ngIf="show_sec_p">
+      <ngb-toast *ngIf="show_sec_p" header="{{this.header_sec_p}}" [delay]="7000" [autohide]="autohide_sec_p"
+        (hide)="show_sec_p = false; autohide_sec_p = true">
+        <div class="alert alert-{{this.alert_type_sec_p}}">
+          {{this.message_sec_p}}
+        </div>
+    </ngb-toast>
+
+    
+
 
   </div>
 </div>

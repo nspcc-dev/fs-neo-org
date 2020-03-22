@@ -49,32 +49,16 @@ export class WalletServService {
 
       this.await_neofs_result = true;
       let rpc_result;
-      // neofs_api
 
+      let promise = this.http.get(`${environment.neofs_api}/balance/neofs/${this.wallet.publicKey}/`).toPromise();
 
-      this.http.get(`${environment.neofs_api}balance/${this.wallet.publicKey}`).subscribe(resp => {
+      await promise.then((data) => {
+        this.neofs_balance = JSON.stringify(data);
 
-        rpc_result = resp;
-
-        this.await_neofs_result = false;
-
-        console.log(rpc_result);
-  
-        if (rpc_result.balance) {
-          this.neofs_balance = rpc_result.balance;
-        }
-        else {
-          this.neofs_balance = 0;
-        }
-
+      }).catch((error) => {
+        this.neofs_balance = 0;
+        console.log("Error on attempt to get NEP5 GAS: " + error.error)
       });
-
-
-      //const rpc_client = new rpc.RPCClient(environment.wallet_rpc);
-      //const query = Neon.create.query({ id: 0, method: "neofs_balance", params: [this.wallet.address] });
-      //let rpc_result = await rpc_client.execute(query);
-
-
 
     }
 
@@ -90,42 +74,34 @@ export class WalletServService {
       let Nep5_GAS_count;
       let GAS_count;
 
-
       if (Neon.is.address(this.wallet.address) == false) {
         console.log("Incorrect Neo address")
         return false
       }
 
       else {
+        let promise_gas = this.http.get(`${environment.neofs_api}/balance/gas/${this.wallet.address}/`).toPromise();
 
-        this.await_gas_result = true;
-        const rpcAddr = environment.neo_rpc;
-        const scriptHash = environment.nep5_script_hash;
-        const balance = await nep5.getTokenBalance(rpcAddr, scriptHash, this.wallet.address);
-
-        Nep5_GAS_count = balance.toString();
-
-        const rpc_client = new rpc.RPCClient(rpcAddr);
-        const query = Neon.create.query({ id: 0, method: "getaccountstate", params: [this.wallet.address] });
-        let rpc_result = await rpc_client.execute(query);
-
-        for (let balance of rpc_result.result.balances) {
-          if (balance.asset == environment.gas_asset) {
-            GAS_count = balance.value;
-            //GAS_count = ((balance||{}).value)||0;
-          }
-        }
-
-        if (GAS_count === undefined) {
+        await promise_gas.then((data) => {
+          GAS_count = JSON.stringify(data).replace(/"/g, "");
+        }).catch((error) => {
           GAS_count = 0;
-        }
+          console.log("Error on attempt to get GAS: " + error.error)
+        });
+
+
+        let promise_nep = this.http.get(`${environment.neofs_api}/balance/gas3/${this.wallet.address}/`).toPromise();
+
+        await promise_nep.then((data) => {
+          Nep5_GAS_count = JSON.stringify(data).replace(/"/g, "");  
+        }).catch((error) => {
+          Nep5_GAS_count = 0;
+          console.log("Error on attempt to get NEP5 GAS: " + error.error)
+        });
 
         this.wallet_balance = { gas: GAS_count, nep5: Nep5_GAS_count }
-        this.await_gas_result = false;
-        return true;
+
       }
-
-
     }
     catch (err) {
       console.log(err);

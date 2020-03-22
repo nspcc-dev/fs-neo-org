@@ -1,0 +1,7 @@
+{  "/api/*": {    "target": "http://localhost:8087",    "secure": false,    "pathRewrite": {"^/api" : ""}  },
+  "/neo_node/*": {    "target": "http://fs.nspcc.ru:30333/",    "secure": false,    "pathRewrite": {"^/" : ""}  },
+  "/neo_rpc/*": {    "target": "http://fs.nspcc.ru:20333/",    "secure": false,    "pathRewrite": {"^/" : ""}  },
+  "/neo_scan/*": {    "target": "https://fs.neo.org/neo_scan/",    "secure": true,    "pathRewrite": {"^/" : ""}  }  }
+
+
+  
