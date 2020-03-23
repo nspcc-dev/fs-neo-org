@@ -45,7 +45,7 @@ export class WalletComponent implements OnInit {
       ], // Optional
       extra: {
         // Neoscan URL
-        neoscan: null
+        neoscan: environment.neo_scan
       }
     };
 

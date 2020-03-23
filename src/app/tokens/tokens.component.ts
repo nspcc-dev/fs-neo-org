@@ -118,7 +118,7 @@ export class TokensComponent implements OnInit {
     let check_res;
 
     const query2 = Neon.create.query({ id: 0, method: "gettransactionheight", params: [gas_tx_nep] });
-    let promisefs = this.http.post(`${environment.neo_node_1}`, query2.req).toPromise();
+    let promisefs = this.http.post(`${environment.neo_rpc}`, query2.req).toPromise();
 
     await promisefs.then((data) => {
       if (data["result"] != 0) {
@@ -137,7 +137,7 @@ export class TokensComponent implements OnInit {
 
   async get_gas_req(formData) {
 
-    let promisefs = this.http.get(`${environment.neofs_api}/send/gas/${formData.u_address}/1/`).toPromise();
+    let promisefs = this.http.get(`${environment.neofs_api}/send/gas/${formData.u_address}/25/`).toPromise();
     let gas_tx_nep;
     await promisefs.then((data) => {
 
@@ -163,7 +163,7 @@ export class TokensComponent implements OnInit {
 
   async get_gas3_req(formData) {
 
-    let promisefs = this.http.get(`${environment.neofs_api}/send/gas3/${formData.u_address}/1/`).toPromise();
+    let promisefs = this.http.get(`${environment.neofs_api}/send/gas3/${formData.u_address}/2/`).toPromise();
     let gas_tx_nep;
 
     await promisefs.then((data) => {
