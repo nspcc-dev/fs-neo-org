@@ -53,8 +53,7 @@ export class WalletServService {
       let promise = this.http.get(`${environment.neofs_api}/balance/neofs/${this.wallet.publicKey}/`).toPromise();
 
       await promise.then((data) => {
-        this.neofs_balance = JSON.stringify(data);
-
+        this.neofs_balance = JSON.stringify(data).replace(/"/g, "");
       }).catch((error) => {
         this.neofs_balance = 0;
         console.log("Error on attempt to get NEP5 GAS: " + error.error)

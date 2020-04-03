@@ -109,8 +109,8 @@ export class WalletComponent implements OnInit {
 
     const apiProvider = new api.neoscan.instance("PrivateNet");
 
-  console.log("INVOKATION SCRIPT:")
-  console.log(script)
+  //console.log("INVOKATION SCRIPT:")
+  //console.log(script)
 
     const config_nep = {
       api: apiProvider, // Network
