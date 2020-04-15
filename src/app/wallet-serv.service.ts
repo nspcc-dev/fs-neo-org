@@ -54,8 +54,10 @@ export class WalletServService {
 
       await promise.then((data) => {
         this.neofs_balance = JSON.stringify(data).replace(/"/g, "");
+        this.neofs_balance = parseFloat(parseFloat(this.neofs_balance).toFixed(3));
       }).catch((error) => {
         this.neofs_balance = 0;
+        this.neofs_balance = parseFloat(this.neofs_balance.toFixed(3));
         console.log("Error on attempt to get NEP5 GAS: " + error.error)
       });
 
@@ -83,6 +85,7 @@ export class WalletServService {
 
         await promise_gas.then((data) => {
           GAS_count = JSON.stringify(data).replace(/"/g, "");
+          GAS_count = parseFloat(parseFloat(GAS_count).toFixed(3));
         }).catch((error) => {
           GAS_count = 0;
           console.log("Error on attempt to get GAS: " + error.error)
@@ -93,6 +96,7 @@ export class WalletServService {
 
         await promise_nep.then((data) => {
           Nep5_GAS_count = JSON.stringify(data).replace(/"/g, "");  
+          Nep5_GAS_count = parseFloat(parseFloat(Nep5_GAS_count).toFixed(3));
         }).catch((error) => {
           Nep5_GAS_count = 0;
           console.log("Error on attempt to get NEP5 GAS: " + error.error)

@@ -175,8 +175,27 @@ export class WalletComponent implements OnInit {
     }*/
 
 
+  async WalletRequestNeoFS() {
+    if (this.walletservice.getNeoFSBalance() == 0) {
+    this.show_awaiting_msg = true;
+
+    await this.tokens.onClickSubmitNeoFS(this.walletservice.getWallet().publicKey)
+
+    await this.WalletBalanceFSRefresh()
+
+    this.show_awaiting_msg = false;
+
+    await this.delay(5000);
+
+    this.tokens.show = false;
+    this.tokens.show_p = false;
+    this.tokens.show_sec = false;
+    this.tokens.show_sec_p = false;
+    }
+  }
+
   async WalletRequestTokens() {
-   // if (this.walletservice.getBalance().gas == 0) {
+    if (this.walletservice.getBalance().gas == 0) {
 
       this.show_awaiting_msg = true;
 
@@ -193,7 +212,7 @@ export class WalletComponent implements OnInit {
       this.tokens.show_sec = false;
       this.tokens.show_sec_p = false;
 
-  //}
+  }
 
   }
 
