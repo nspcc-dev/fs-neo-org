@@ -170,7 +170,7 @@ export class TokensComponent implements OnInit {
 
       //this.await_result_gas = false;
       this.alert_type_sec = "warning";
-      this.header_sec = "Transaction (NEP-5 GAS) has been successfully sended. Awaiting of block.";
+      this.header_sec = "Transaction (NEP-5 GAS) has been successfully sended. Awaiting of the block.";
       this.message_sec = "TX: " + JSON.stringify(data);
       this.show_sec = true;
 
@@ -199,7 +199,7 @@ export class TokensComponent implements OnInit {
 
       //this.await_result_gas = false;
       this.alert_type_sec = "warning";
-      this.header_sec = "Transaction (NEP-5 GAS) has been successfully sended. Awaiting of block.";
+      this.header_sec = "Transaction (NeoFS Smart Contract Deposit) has been successfully sended. Awaiting of the block.";
       this.message_sec = "TX: " + JSON.stringify(data);
       this.show_sec = true;
 
