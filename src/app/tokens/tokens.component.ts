@@ -272,7 +272,7 @@ export class TokensComponent implements OnInit {
         if (resp_check == 1) {
 
           type = "NEP-5 GAS";
-          let tx_nep = await this.get_neofs_req(formData);
+          let tx_nep = await this.get_gas3_req(formData);
           let resp_check_nep = await this.await_tx(tx_nep, type)
 
           if (resp_check_nep == 1) {
@@ -291,12 +291,13 @@ export class TokensComponent implements OnInit {
         }
 
         this.show_processing = false;
-
+        this.await_result_gas = false;
 
       }
     }
     catch (err) {
       console.log(err);
+      this.await_result_gas = false;
     }
   }
 
@@ -347,11 +348,12 @@ export class TokensComponent implements OnInit {
         }
 
         this.show_processing = false;
-
+        this.await_result_gas = false;
       }
     }
     catch (err) {
       console.log(err);
+      this.await_result_gas = false;
     }
   }
 
