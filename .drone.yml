@@ -17,7 +17,9 @@ steps:
       - git fetch --tags
       - export PKGNAME=`make pkgname`
       - make build
-      - curl -H "X-JFrog-Art-Api:$API_KEY" -T "$PKGNAME" "https://registry.nspcc.ru/artifactory/fs.neo.org/$PKGNAME"
+      - export SHA1SUM=`shasum -a 1 $PKGNAME | awk '{ print $1 }'`
+      - export MD5SUM=`md5sum $PKGNAME | awk '{ print $1 }'`
+      - curl -H "X-JFrog-Art-Api:$$API_KEY" -H "X-Checksum-MD5:$$MD5SUM" -H "X-Checksum-Sha1:$$SHA1SUM" -T "$$PKGNAME" "https://registry.nspcc.ru/artifactory/fs.neo.org/$PKGNAME"
   - name: make test tarball
     image: registry.nspcc.ru/docker-local/ui_builder:latest
     environment:
@@ -29,7 +31,9 @@ steps:
       - export SUFFIX='-test'
       - export PKGNAME=`make pkgname`
       - make build
-      - curl -H "X-JFrog-Art-Api:$API_KEY" -T "$PKGNAME" "https://registry.nspcc.ru/artifactory/fs.neo.org/$PKGNAME"
+      - export SHA1SUM=`shasum -a 1 $PKGNAME | awk '{ print $1 }'`
+      - export MD5SUM=`md5sum $PKGNAME | awk '{ print $1 }'`
+      - curl -H "X-JFrog-Art-Api:$$API_KEY" -H "X-Checksum-MD5:$$MD5SUM" -H "X-Checksum-Sha1:$$SHA1SUM" -T "$$PKGNAME" "https://registry.nspcc.ru/artifactory/fs.neo.org/$PKGNAME"
 
 trigger:
   event:
