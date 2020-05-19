@@ -5,11 +5,9 @@
 export const environment = {
   production: false,
   
-  wallet_rpc: "http://localhost:4200/api/", // "http://178.62.234.54:8081"
-  neofs_api: "http://localhost:4200/api/", // "http://178.62.234.54:8081"
-  neo_node_1: "http://localhost:4200/neo_node/",//"http://85.143.219.93:20332",
-  neo_rpc: "http://localhost:4200/neo_rpc/",//"http://85.143.219.93:30333",
-  neo_scan: "http://localhost:4200/neo_scan/", //"http://85.143.219.93:4000/api/main_net",
+  neofs_api: "http://localhost:4200/api", 
+  neo_rpc: "http://localhost:4200/neo_rpc",
+  neofs_send_url: "https://send.fs.neo.org",
   gas_asset: "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
   neofs_sc: "67560720693416608bda4e4d7f9b665c5690dbfc"
 

@@ -323,8 +323,6 @@ export class TokensComponent implements OnInit {
       }
       else {
 
-        console.log(pub_key)
-        
         this.show_processing = true;
 
         this.await_result_gas = true;

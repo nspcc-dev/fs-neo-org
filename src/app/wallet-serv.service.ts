@@ -58,7 +58,7 @@ export class WalletServService {
       }).catch((error) => {
         this.neofs_balance = 0;
         this.neofs_balance = parseFloat(this.neofs_balance.toFixed(3));
-        console.log("Error on attempt to get NEP5 GAS: " + error.error)
+        console.log("Error on attempt to get NeoFS balance: " + error.error);
       });
 
     }
@@ -99,7 +99,7 @@ export class WalletServService {
           Nep5_GAS_count = parseFloat(parseFloat(Nep5_GAS_count).toFixed(3));
         }).catch((error) => {
           Nep5_GAS_count = 0;
-          console.log("Error on attempt to get NEP5 GAS: " + error.error)
+          console.log("Error on attempt to get NEP5 GAS: " + error.error);
         });
 
         this.wallet_balance = { gas: GAS_count, nep5: Nep5_GAS_count }

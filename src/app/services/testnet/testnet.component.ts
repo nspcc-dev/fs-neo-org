@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import Neon, { rpc } from "@cityofzion/neon-js";
 import { environment } from "../../../environments/environment";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
  
