@@ -22,6 +22,18 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Building a distribution for a testbench
+
+To build and publish a tarball with test code to the internal artifactory,
+one should run a command:
+```
+drone exec --secret-file=secrets.txt --include 'make test tarball'
+```
+It will trigger a local build of pipeline step and produce a tarball.
+To push a tarball to the artifactory, one need to specify his Artifactory
+API Key in `secrets.txt` file. One might make an API Key in Artifactory
+settings.
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

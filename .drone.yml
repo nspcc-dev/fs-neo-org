@@ -22,6 +22,7 @@ steps:
       - curl -H "X-JFrog-Art-Api:$$API_KEY" -H "X-Checksum-MD5:$$MD5SUM" -H "X-Checksum-Sha1:$$SHA1SUM" -T "$$PKGNAME" "https://registry.nspcc.ru/artifactory/fs.neo.org/$PKGNAME"
   - name: make test tarball
     image: registry.nspcc.ru/docker-local/ui_builder:latest
+    pull: if-not-exists
     environment:
       API_KEY:
         from_secret: sami_api_key
