@@ -6,84 +6,48 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>Introduction</h2>
+            <h2>{{ 'Features.Introduction.title' | translate }} </h2>
         </div>
 
 
-        <p class="mb-4">NeoFS is a distributed, decentralized object storage network developed by <a
-                href="https://nspcc.ru/en" target="_blank">Neo SPCC</a>.
-            Built with Neo blockchain integration in mind, NeoFS aims to support the shift away from third-party storage
-            providers, providing users
-            with complete control over their data.
-        </p>
+        <p class="mb-4" [innerHTML]="'Features.Introduction.p1' | translate">
 
-        <p class="mb-4">Nodes are organized in
-            peer-to-peer network that takes care of storing and distributing user's data.
-            Any Neo user may participate in NeoFS network and get paid for providing storage resources to other users
-            or store his data in NeoFS and pay a competitive price for it.</p>
-
-        <p class="mb-4">The service is designed to work with Neo smart contracts, allowing for truly decentralized
-            applications,
-            and can also be used as a content delivery network. Users can rent out storage in return for Neo GAS tokens
-            or use GAS to store files in the network.
-        </p>
-        <p class="mb-4">Representing Neo’s commitment to building the future, NeoFS offers unparalleled data storage
-            control to users
-            and developers by bringing together the benefits of decentralization and real-world integration.</p>
-
-
-        <p class="mb-4">NeoFS ensures user data security and mitigates against malignant nodes by ensuring
-            zero-knowledge data validation
-            through a combination of homomorphic cryptography and game theory models.
         </p>
 
 
+        <p class="mb-4">
+            {{ 'Features.Introduction.p2' | translate }}
+        </p>
 
-        <!--
-                        <div class="section-title"><div style="padding-top:40px;" >
-                        <iframe width="560" height="315" [src]='safeURL' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div></div>-->
+        <p class="mb-4">
+            {{ 'Features.Introduction.p3' | translate }}
+        </p>
+        <p class="mb-4">
+            {{ 'Features.Introduction.p4' | translate }}
+
+        </p>
+
+
+        <p class="mb-4">
+            {{ 'Features.Introduction.p5' | translate }}
+
+        </p>
+
     </div>
 </div>
-
-
-
 
 
 
 
 <div class="section light-bg" id="features">
-
-
     <div class="container">
 
         <div class="section-title">
-            <h2> NeoFS is geared for real-world applications</h2>
+            <h2> {{ 'Features.RealWorld.title' | translate }}</h2>
         </div>
-
-        <p class="mb-4">Unlike many other projects in this area, <a href="https://nspcc.ru/en" target="_blank">Neo
-                SPCC</a>
-            is not trying to create a
-            parallel reality in a technological sense. Solving
-            real-world problems requires to use standard protocols and have ability to
-            integrate NeoFS with existing systems. There are protocol adapters, or
-            gateways, that allow accessing NeoFS via standard HTTP or S3 protocols. Users
-            can develop their own gateways to integrate NeoFS with existing systems they
-            are using, such as accounting system, CRM, a corporate backup service etc.</p>
-
+        <p class="mb-4" [innerHTML]="'Features.RealWorld.p1' | translate"></p>
     </div>
-
-
-
-
 </div>
-
-
-
-
-
-
-
 
 
 
@@ -92,15 +56,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-6">
-                <h2>Basic components and network</h2>
-                <p class="mb-4"> NeoFS network nodes run the same software and talk the same protocol but may have
-                    different roles. There are nodes that store data and process user API requests, they are regular
-                    storage
-                    nodes and form the Outer Ring. There are nodes that take care of network health, perform
-                    service tasks such as data audit and payments settlements and form the Inner Ring. There are not
-                    many of them and they use dBFT 2.0 consensus algorithm to coordinate their actions.</p>
+                <h2>{{ 'Features.BasicComponent.title' | translate }}</h2>
+                <p class="mb-4"> {{ 'Features.BasicComponent.p1' | translate }} </p>
 
-                <a (click)="routeToNetwork()" class="btn btn-primary">Read more</a>
+                <a (click)="routeToNetwork()"
+                    class="btn btn-primary">{{ 'Features.BasicComponent.read' | translate }}</a>
             </div>
         </div>
         <div class="perspective" style="padding-top:40px;">
@@ -121,7 +81,7 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>Key benefits and competitive advantages</h2>
+            <h2>{{ 'Features.KeyBenefits.title' | translate }}</h2>
         </div>
 
         <div class="row">
@@ -131,8 +91,7 @@
                     <li class="media" (click)="scrollToElement(scale)">
                         <div class="circle-icon mr-2">1</div>
                         <div class="media-body">
-                            <h5 style="padding:20px;">Infinitely scalable due to Network Map and Data Placement
-                                mechanisms</h5>
+                            <h5 style="padding:20px;">{{ 'Features.KeyBenefits.p1' | translate }}</h5>
                         </div>
                     </li>
 
@@ -140,7 +99,7 @@
                     <li class="media" (click)="scrollToElement(chaose)">
                         <div class="circle-icon mr-2">2</div>
                         <div class="media-body">
-                            <h5 style="padding:20px;">Designed to work reliably in chaotic environment</h5>
+                            <h5 style="padding:20px;">{{ 'Features.KeyBenefits.p2' | translate }}</h5>
 
                         </div>
                     </li>
@@ -149,8 +108,7 @@
                     <li class="media" (click)="scrollToElement(control)">
                         <div class="circle-icon mr-2">3</div>
                         <div class="media-body">
-                            <h5 style="padding:20px;">Users have full control over how their data is stored and
-                                distributed</h5>
+                            <h5 style="padding:20px;">{{ 'Features.KeyBenefits.p3' | translate }}</h5>
 
                         </div>
                     </li>
@@ -159,7 +117,7 @@
                     <li class="media" (click)="scrollToElement(protocols)">
                         <div class="circle-icon mr-2">4</div>
                         <div class="media-body">
-                            <h5 style="padding:20px;">Integrated with popular protocols such as HTTP and S3 </h5>
+                            <h5 style="padding:20px;">{{ 'Features.KeyBenefits.p4' | translate }} </h5>
 
                         </div>
                     </li>
@@ -169,7 +127,7 @@
                     <li class="media" (click)="scrollToElement(zeroknowledge)">
                         <div class="circle-icon mr-2">5</div>
                         <div class="media-body">
-                            <h5 style="padding:20px;">Zero-knowledge data validation based on homomorphic cryptography
+                            <h5 style="padding:20px;">{{ 'Features.KeyBenefits.p5' | translate }}
                             </h5>
 
                         </div>
@@ -179,7 +137,7 @@
                     <li class="media" (click)="scrollToElement(sc)">
                         <div class="circle-icon mr-2">6</div>
                         <div class="media-body">
-                            <h5 style="padding:20px;">Directly accessible from smart contract code</h5>
+                            <h5 style="padding:20px;">{{ 'Features.KeyBenefits.p6' | translate }}</h5>
                         </div>
                     </li>
 
@@ -189,15 +147,14 @@
                     <li class="media" (click)="scrollToElement(gas)">
                         <div class="circle-icon mr-2">7</div>
                         <div class="media-body">
-                            <h5 style="padding:20px;">Neo GAS is used for payments rather than custom tokens</h5>
+                            <h5 style="padding:20px;">{{ 'Features.KeyBenefits.p7' | translate }}</h5>
                         </div>
                     </li>
 
                     <li class="media" (click)="scrollToElement(price)">
                         <div class="circle-icon mr-2">8</div>
                         <div class="media-body">
-                            <h5 style="padding:20px;">Incentive model based on market principles where all peers agree
-                                on prices</h5>
+                            <h5 style="padding:20px;">{{ 'Features.KeyBenefits.p8' | translate }}</h5>
 
                         </div>
                     </li>
@@ -206,7 +163,7 @@
                     <li class="media" (click)="scrollToElement(hardware)">
                         <div class="circle-icon mr-2">9</div>
                         <div class="media-body">
-                            <h5 style="padding:20px;">Runs on commodity hardware</h5>
+                            <h5 style="padding:20px;">{{ 'Features.KeyBenefits.p9' | translate }}</h5>
 
                         </div>
                     </li>
@@ -221,33 +178,22 @@
 </div>
 
 
-
-
-
-
-
 <div class="section" id="scale" #scale>
 
 
     <div class="container">
 
         <div class="section-title">
-            <h2>Infinitely scalable due to Network Map and Data Placement </h2>
+            <h2>{{ 'Features.Scalability.title' | translate }}</h2>
         </div>
-        <p class="mb-4">NeoFS is infinitely horizontaly scalable due to its architecture features such as
-            novel Data Audit algorithm, Data Placement and Network Map. </p>
+        <p class="mb-4">{{ 'Features.Scalability.p1' | translate }}. </p>
+
+        <p class="mb-4">{{ 'Features.Scalability.p2' | translate }}
+        </p>
 
         <p class="mb-4">
-            Network Map is a
-            multi-dimensional graph where nodes have attributes and are grouped by those
-            attributes and their values. This allows using a special data placement
-            function to find nodes that would store an object, when putting or getting it to/from
-            NeoFS network without any network requests.</p>
-
-        <p class="mb-4">
-            This approach allows not having any centralized meta-data storage keeping
-            object's locations and not re-balancing data with every joining or leaving
-            storage node.</p>
+            {{ 'Features.Scalability.p3' | translate }}
+        </p>
 
 
 
@@ -262,29 +208,12 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>Designed to work reliably in chaotic environment </h2>
+            <h2>{{ 'Features.ChaoticEnvironment.title' | translate }} </h2>
         </div>
-        <p class="mb-4"> The bigger the NeoFS network grows, the more stable it becomes, because the chance of network
-            is changed would affect the particular container is decreasing with the increasing number of nodes in the
-            network. It means, unlike in DHT approach, the amount of needed data migration decreases with the network
-            growth.</p>
-
-
-
-
+        <p class="mb-4"> {{ 'Features.ChaoticEnvironment.p1' | translate }}</p>
 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="section" id="control" #control>
@@ -292,21 +221,15 @@
 
     <div class="container">
         <div class="section-title">
-            <h2>NeoFS puts the control over data in users’ hands</h2>
+            <h2>{{ 'Features.Control.title' | translate }}</h2>
         </div>
 
 
-        <p class="mb-4">Since anyone may participate in NeoFS network, reliable
-            mechanisms to ensure users' data consistency and availability in a
-            chaotic environment are needed.</p>
+        <p class="mb-4">{{ 'Features.Control.p1' | translate }}</p>
 
-        <p class="mb-4">To achieve this goal, the combination of homomorphic hashing for data
-            integrity checks and game theory models, to create a situation where all nodes
-            behave correctly and the data is stored safely, is used.</p>
+        <p class="mb-4">{{ 'Features.Control.p2' | translate }}</p>
 
-        <p class="mb-4">A decentralized nature of NeoFS eliminates not only centralized points
-            of failure but also centralized points of control. In NeoFS, only users have full control over
-            their data, where, how it is stored, and who can get access to it.</p>
+        <p class="mb-4">{{ 'Features.Control.p3' | translate }}</p>
 
         <div class="row" style="padding-top:40px;">
             <div class="col-12 col-lg-4">
@@ -315,8 +238,8 @@
                         <div class="media">
                             <span> <img src="/assets/images/icon_nspcc_3.svg"></span>
                             <div class="media-body">
-                                <h1 class="card-title">Where </h1>
-                                <p class="card-text">your data is stored</p>
+                                <h1 class="card-title">{{ 'Features.Control.card1.title' | translate }} </h1>
+                                <p class="card-text">{{ 'Features.Control.card1.text' | translate }}</p>
                             </div>
                         </div>
                     </div>
@@ -328,8 +251,8 @@
                         <div class="media">
                             <span> <img src="/assets/images/icon_nspcc_2.svg"></span>
                             <div class="media-body">
-                                <h1 class="card-title">How</h1>
-                                <p class="card-text">your data is stored </p>
+                                <h1 class="card-title">{{ 'Features.Control.card2.title' | translate }}</h1>
+                                <p class="card-text">{{ 'Features.Control.card2.text' | translate }} </p>
                             </div>
                         </div>
                     </div>
@@ -341,36 +264,17 @@
                         <div class="media">
                             <span> <img src="/assets/images/icon_nspcc_1.svg"></span>
                             <div class="media-body">
-                                <h1 class="card-title">Who</h1>
+                                <h1 class="card-title">{{ 'Features.Control.card3.title' | translate }}</h1>
                                 <p class="card-text">
-                                    can get access to your data </p>
+                                    {{ 'Features.Control.card3.text' | translate }} </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
     </div>
 </div>
-
-
-
-<!--
-<div class="section" id="control" #control>
-
-
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Users have full control over how their data is stored and distributed </h2>
-        </div>
-        <p class="mb-4">One of the main ideas of NeoFS is to maximally shift control over the data to the users.
-            We allow users to decide how and where their information will be stored.</p>
-    </div>
-</div>-->
 
 
 <div class="section light-bg" id="protocols" #protocols>
@@ -379,15 +283,11 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>Integrated with popular protocols such as HTTP and S3</h2>
+            <h2>{{ 'Features.Integration.title' | translate }}</h2>
         </div>
-        <p class="mb-4">NeoFS is demonstrating NEO’s commitment to practical idealism as well as its vision of an
-            integrated, user-centric Internet of the future.</p>
-        <p class="mb-4">Through gateways (protocol adapters), users can easily access NeoFS through industry-standard
-            protocols such as HTTP or S3.</p>
-        <p class="mb-4">Moreover, the open nature of NeoFS enables users to freely write his or her own gates to
-            integrate with third-party system for seamless on and off-chain integration as well as unmatched
-            accessibility.</p>
+        <p class="mb-4">{{ 'Features.Integration.p1' | translate }}</p>
+        <p class="mb-4">{{ 'Features.Integration.p2' | translate }}</p>
+        <p class="mb-4">{{ 'Features.Integration.p3' | translate }}</p>
 
 
 
@@ -402,16 +302,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-6">
-                <h2>Zero-knowledge data validation based on homomorphic cryptography</h2>
-                <p class="mb-4">In case of a large number of objects in a distributed network of untrusted
-                    nodes with an ever-changing topology, classical approach with
-                    comparing objects' hashes with some sample in a central meta-data storage is not efficient.
-                    This causes unacceptable overhead.</p>
+                <h2>{{ 'Features.ZK.title' | translate }}</h2>
+                <p class="mb-4">{{ 'Features.ZK.p1' | translate }}</p>
                 <p class="mb-4">
-                    To solve this problem, NeoFS uses homomorphic hashing. It is a special type
-                    of hashing algorithms that allows computing the hash of a composite block
-                    from the hashes of individual blocks.</p>
-                <a (click)="routeToAudit()" class="btn btn-primary">Read more</a>
+                    {{ 'Features.ZK.p2' | translate }}</p>
+                <a (click)="routeToAudit()" class="btn btn-primary">{{ 'Features.ZK.read' | translate }}</a>
             </div>
         </div>
         <div class="perspective-small" style="padding-top:40px;">
@@ -431,11 +326,9 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>Directly accessible from smart contract code</h2>
+            <h2>{{ 'Features.SmartContract.title' | translate }}</h2>
         </div>
-        <p class="mb-4">This feature becomes available in Neo 3.0 release with
-            introduction of Oracles Protocol. Smart contracts will be able to issue GET
-            and PUT requests for fixed-size objects.</p>
+        <p class="mb-4">{{ 'Features.SmartContract.p1' | translate }}</p>
 
     </div>
 </div>
@@ -451,18 +344,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-6">
-                <h2>Neo GAS is used for payments</h2>
-                <p class="mb-4">NeoFS uses GAS for all payments. To be able to pay for storage services in
-                    NeoFS, the one has to deposit some GAS to NeoFS smart contract address. This
-                    event is monitored by Inner Ring nodes and reflected in user's account
-                    balance internally in NeoFS.</p>
+                <h2>{{ 'Features.Payment.title' | translate }}</h2>
+                <p class="mb-4">{{ 'Features.Payment.p1' | translate }}</p>
 
                 <p class="mb-4">
-                    NeoFS Inner Ring nodes keep track of all NeoFS accounts and use dBFT 2.0
-                    consensus algorithm, the same as in Neo blockchain, agree on users' mutual
-                    settlements, reward distribution over node owners and other
-                    payment-related procedures.</p>
-                <a (click)="routeToGas()" class="btn btn-primary">Read more</a>
+                    {{ 'Features.Payment.p2' | translate }}</p>
+                <a (click)="routeToGas()" class="btn btn-primary">{{ 'Features.Payment.read' | translate }}</a>
             </div>
         </div>
         <div class="perspective-small" style="padding-top:40px;">
@@ -485,30 +372,19 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>Incentive model based on market principles</h2>
+            <h2>{{ 'Features.IncentiveModel.title' | translate }}Incentive model based on market principles</h2>
         </div>
-        <p class="mb-4">Incentive model and pricing follow a free market principle. Each node
-            declares how much it wants to receive as a reward for data storage services
-            for the upcoming epoch. Placement function considers the declared price and
-            prefers nodes with better prices. However, since nodes in Network Map
-            declare key-value attributes describing their parameters, such as geographical
-            location, type of storage, capacity and other things also used in
-            Storage Policy, it leaves room for nodes that want higher price, better or
-            unique services to still get into the placement function result.
-            <p class="mb-4">
-                In short, if node is too greedy, it does not get users and
-                rewards. To have higher prices the node needs to satisfy market demand or provide
-                something unique.</p>
+        <p class="mb-4">{{ 'Features.IncentiveModel.p1' | translate }}
+        <p class="mb-4">
+            {{ 'Features.IncentiveModel.p2' | translate }}</p>
 
-            <p class="mb-4">
-                As it is shown on the figure below, node needs to
-                keep price "in the market" to get the highest profit. This should guarantee a
-                competitive price for data storage in NeoFS.
-            </p>
+        <p class="mb-4">
+            {{ 'Features.IncentiveModel.p3' | translate }}
+        </p>
 
 
-            <div class="section-title"><img src="/assets/images/profit.png" alt="profit" class="img-fluid"
-                    style="width:80vw; max-width: 600px;"></div>
+        <div class="section-title"><img src="/assets/images/profit.png" alt="profit" class="img-fluid"
+                style="width:80vw; max-width: 600px;"></div>
 
     </div>
 </div>
@@ -519,14 +395,10 @@
 
 
     <div class="container">
-
         <div class="section-title">
-            <h2>Runs on commodity hardware</h2>
+            <h2>{{ 'Features.Hardware.title' | translate }}</h2>
         </div>
-        <p class="mb-4">NeoFS is designed to work on commodity hardware without any special hardware requirements. This
-            allows
-            users to quickly replace failed system components with what can be bought in a local computer store.
-        </p>
+        <p class="mb-4"> {{ 'Features.Hardware.p1' | translate }} </p>
 
     </div>
 </div>

@@ -4,7 +4,7 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>Services</h2>
+            <h2>{{ 'Services.Services.title' | translate }}</h2>
         </div>
 
 
@@ -15,10 +15,8 @@
                         <div class="media">
                             <span> <img src="/assets/images/icon_nspcc_5.svg"></span>
                             <div class="media-body">
-                                <h2 class="card-title">NeoFS Public TestNet</h2>
-                                <p class="card-text">NeoFS Public TestNet release allows developers in the NEO ecosystem
-                                    to experiment with NeoFS and test potential applications that can make use of
-                                    decentralized storage facilities. </p>
+                                <h2 class="card-title">{{ 'Services.Services.TestNet.title' | translate }}</h2>
+                                <p class="card-text">{{ 'Services.Services.TestNet.desc' | translate }} </p>
                             </div>
                         </div>
                     </div>
@@ -34,9 +32,8 @@
                         <div class="media">
                             <span> <img src="/assets/images/icon_nspcc_7_1.svg"></span>
                             <div class="media-body">
-                                <h2 class="card-title">Simple Wallet for NeoFS Public TestNet</h2>
-                                <p class="card-text">Wallet for NeoFS Public TestNet with NeoFS smart contract deposit
-                                    operation.</p>
+                                <h2 class="card-title">{{ 'Services.Services.Wallet.title' | translate }}</h2>
+                                <p class="card-text">{{ 'Services.Services.Wallet.desc' | translate }}</p>
                             </div>
                         </div>
                     </div>
@@ -54,10 +51,8 @@
                         <div class="media">
                             <span> <img src="/assets/images/icon_nspcc_6_1.svg"></span>
                             <div class="media-body">
-                                <h2 class="card-title">Send.NeoFS </h2>
-                                <p class="card-text">This is a simple example of integration with NeoFS network via HTTP
-                                    protocol. It allows storing files in decentralized network for the selected period
-                                    of time and share them via generated link.</p>
+                                <h2 class="card-title">{{ 'Services.Services.SendFS.title' | translate }} </h2>
+                                <p class="card-text">{{ 'Services.Services.SendFS.desc' | translate }}</p>
                             </div>
                         </div>
                     </div>
@@ -76,8 +71,8 @@
                             <div class="media">
                                 <span> <img src="/assets/images/icon_nspcc_8.svg"></span>
                                 <div class="media-body">
-                                    <h2 class="card-title">Send.NeoFS Status</h2>
-                                    <p class="card-text">Grafana dashboard with real-time data on Send.NeoFS status.
+                                    <h2 class="card-title">{{ 'Services.Services.Status.title' | translate }}</h2>
+                                    <p class="card-text">{{ 'Services.Services.Status.desc' | translate }}
                                     </p>
                                 </div>
                             </div>
@@ -95,10 +90,8 @@
                         <div class="media">
                             <span> <img src="/assets/images/icon_nspcc_4.svg"></span>
                             <div class="media-body">
-                                <h2 class="card-title">NeoFS SDK</h2>
-                                <p class="card-text">It allows developers to deploy their own local NeoFS networks,
-                                    where they may begin testing the solution and integrating support for it into their
-                                    own applications.
+                                <h2 class="card-title">{{ 'Services.Services.SDK.title' | translate }}</h2>
+                                <p class="card-text">{{ 'Services.Services.SDK.desc' | translate }}
 
                                 </p>
                             </div>
@@ -117,8 +110,8 @@
                             <div class="media">
                                 <span> <img src="/assets/images/icon_nspcc_8.svg"></span>
                                 <div class="media-body">
-                                    <h2 class="card-title">NeoGO nodes status</h2>
-                                    <p class="card-text">NeoGO nodes status in the Neo Mainnet.
+                                    <h2 class="card-title">{{ 'Services.Services.NeoGO.title' | translate }}</h2>
+                                    <p class="card-text">{{ 'Services.Services.NeoGO.desc' | translate }}
                                     </p>
                                 </div>
                             </div>
@@ -127,9 +120,6 @@
                 </a>
             </div>
         </div>
-
-
-
     </div>
 </div>
 
@@ -145,9 +135,7 @@
         </div>
 
 
-
         <div class="row" style="padding-left:1rem;padding-right: 1rem;">
-            <!-- <div class="col col-lg-7 col-md-7 col-sm-12 col-xs-12">-->
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" [src]='safeURL' allowfullscreen></iframe>
 

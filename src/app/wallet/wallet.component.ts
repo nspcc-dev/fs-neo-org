@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WalletServService } from '../wallet-serv.service'
 import Neon, { rpc, wallet, api, nep5, sc } from "@cityofzion/neon-js";
 import { Router } from "@angular/router";
-import { environment } from 'src/environments/environment.prod';
+import { environment } from "../../environments/environment";
 
 import { TokensComponent } from '../tokens/tokens.component';
 
