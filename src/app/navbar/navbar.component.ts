@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   navbarOpen = false;
   constructor(public router: Router, public translate: TranslateService) { }
 
+  en = "color: rgba(0, 229, 153, 0.8);";
   ngOnInit() {
     
   }
@@ -23,4 +24,11 @@ export class NavbarComponent implements OnInit {
   onClick(){
     this.navbarOpen = false;
   }
+
+  setLang(lang: string){
+    this.translate.use(lang)
+    //this.en = "color: rgba(0, 0, 0, 0.8);";
+    
+  }
+
 }

@@ -24,13 +24,22 @@
               
               <li class="nav-item"> <a class="nav-link" [routerLink]="['tokens']" routerLinkActive="active" (click)="onClick()">{{ 'Navigation.Top.tokens' | translate }}</a> </li>
 
-            </ul>
-            <ul>
-              <li>        <div class="home-langs">
-                <button type="button" (click)="translate.use('ru') ">RU</button> /
-                <button type="button" (click)="translate.use('en') ">En</button>
-            </div></li>
-            </ul>
+              </ul>
+
+
+<!-- Temporary blocked lang selector-->
+<!-- 
+              <ul class="navbar-nav ml-auto">
+              <li class="nav-item " style="color: rgba(222, 222, 222, 0.8);"> 
+                <a class="nav-item-lang" (click)="setLang('en')" [style]="translate.currentLang == 'en' ? 'color: rgba(0, 229, 153, 0.8)': 'color: rgba(222, 222, 222, 0.8)'">EN</a> |
+                <a class="nav-item-lang" (click)="setLang('zh')" [style]="translate.currentLang == 'zh' ? 'color: rgba(0, 229, 153, 0.8)': 'color: rgba(222, 222, 222, 0.8)'" style="font-size: 0.7em; font-weight: 400">中文</a> |
+                <a class="nav-item-lang" (click)="setLang('ru')" [style]="translate.currentLang == 'ru' ? 'color: rgba(0, 229, 153, 0.8)': 'color: rgba(222, 222, 222, 0.8)'">RU</a> 
+              </li> 
+              </ul>-->
+                      
+                  
+                 
+            
           </div>
         </nav>
       </div>

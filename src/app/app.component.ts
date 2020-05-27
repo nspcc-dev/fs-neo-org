@@ -9,9 +9,9 @@ import { environment } from "../environments/environment";
 })
 export class AppComponent {
   constructor(private translate: TranslateService) {
-        translate.setDefaultLang('en');
-        translate.addLangs(['en', 'ru']);
-        translate.use('en');
+        translate.setDefaultLang(environment.defaultLocale);
+        translate.addLangs(environment.locales);
+        translate.use(environment.defaultLocale);
   }
   title = 'neofs';
 }

@@ -183,6 +183,16 @@ p {
     cursor: pointer;
 }
 
+.nav-item-lang {
+    cursor: pointer;
+    color: #FFF;
+}
+
+.nav-item-lang.active:after {
+    cursor: pointer;
+    color:rgba(0, 229, 153, 0.8);
+}
+
 @media (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 1rem;
