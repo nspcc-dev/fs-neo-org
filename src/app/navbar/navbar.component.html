@@ -13,16 +13,16 @@
 
 
               <li class="nav-item"> <a class="nav-link" [routerLink]="['features']" routerLinkActive="active" (click)="onClick()"
-                  [ngClass]="{'active': this.router.url == '/'}" >Features</a> </li>
-              <li class="nav-item"> <a class="nav-link" [routerLink]="['network']" routerLinkActive="active" (click)="onClick()">Network</a>
+                  [ngClass]="{'active': this.router.url == '/'}" >{{ 'Navigation.Top.features' | translate }}</a> </li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['network']" routerLinkActive="active" (click)="onClick()">{{ 'Navigation.Top.network' | translate }}</a>
               </li>
-              <li class="nav-item"> <a class="nav-link" [routerLink]="['audit']" routerLinkActive="active" (click)="onClick()">Data Audit</a> </li>
-              <li class="nav-item"> <a class="nav-link" [routerLink]="['gas']" routerLinkActive="active" (click)="onClick()">Incentive Model</a> </li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['audit']" routerLinkActive="active" (click)="onClick()">{{ 'Navigation.Top.audit' | translate }}</a> </li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['gas']" routerLinkActive="active" (click)="onClick()">{{ 'Navigation.Top.incentive' | translate }}</a> </li>
                
               <li class="nav-item"> <a class="nav-link" [routerLink]="['services']" routerLinkActive="active" (click)="onClick()"
-                [ngClass]="{'active': this.router.url == 'howto'}">Developers</a> </li>
+                [ngClass]="{'active': this.router.url == 'howto'}">{{ 'Navigation.Top.developers' | translate }}</a> </li>
               
-              <li class="nav-item"> <a class="nav-link" [routerLink]="['tokens']" routerLinkActive="active" (click)="onClick()">Get TestNet GAS</a> </li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['tokens']" routerLinkActive="active" (click)="onClick()">{{ 'Navigation.Top.tokens' | translate }}</a> </li>
 
             </ul>
             <ul>

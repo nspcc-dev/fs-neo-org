@@ -162,6 +162,40 @@
 		},
 		"title": ""
 	},
+	"HowToPython": {
+		"Address": {
+			"p1": "",
+			"p2": "",
+			"p3": "",
+			"p4": "",
+			"p5": "",
+			"p6": "",
+			"title": ""
+		},
+		"Deposit": {
+			"p1": "",
+			"p2": "",
+			"title": ""
+		},
+		"Wallet": {
+			"p1": "",
+			"p2": "",
+			"p3": "",
+			"p4": "",
+			"title": ""
+		},
+		"title": ""
+	},
+	"Navigation": {
+		"Top": {
+			"audit": "",
+			"developers": "",
+			"features": "",
+			"incentive": "",
+			"network": "",
+			"tokens": ""
+		}
+	},
 	"Network": {
 		"Environment": {
 			"p1": "",

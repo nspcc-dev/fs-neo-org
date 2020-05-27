@@ -162,6 +162,40 @@
 		},
 		"title": "How to deposit NEP-5 GAS to NeoFS"
 	},
+	"HowToPython": {
+		"Address": {
+			"p1": "Run neo-python wallet",
+			"p2": "Run pip install for first execution",
+			"p3": "Create wallet",
+			"p4": "Now you can find NEO address and public key in the NeoFS TestNet:",
+			"p5": "Add NEP-5 GAS token information to the wallet",
+			"p6": "Use `wallet export wif &lt;address&gt;` to get WIF for Neo address. For example:",
+			"title": "Get Neo address"
+		},
+		"Deposit": {
+			"p1": "To deposit GAS to the NeoFS smart contract need to run contract 0x{{neofs_sc}} method `Deposit` with options: public key, GAS amount.",
+			"p2": "For example:",
+			"title": "Deposit NEP-5 GAS to NeoFS"
+		},
+		"Wallet": {
+			"p1": "RPC endpoint http://fs.nspcc.ru:30333 can be used for custom wallets.",
+			"p2": "All the examples below will be for neo-python.",
+			"p3": "Use pre-configured <a href=\"https://github.com/nspcc-dev/neo-python\" target=\"_blank\">neo-python</a>:",
+			"p4": "or get default <a href=\"https://github.com/CityOfZion/neo-python\" target=\"_blank\">neo-python</a>: and change config file neo/data/protocol.privnet.json <a href=\"https://github.com/nspcc-dev/neo-python/blob/master/neo/data/protocol.privnet.json\" target=\"_blank\">to this</a>:",
+			"title": "Wallet"
+		},
+		"title": "How to deposit NEP-5 GAS to NeoFS (Python Neo-cli)"
+	},
+	"Navigation": {
+		"Top": {
+			"audit": "Data Audit",
+			"developers": "Developers",
+			"features": "Features",
+			"incentive": "Incentive Model",
+			"network": "Network",
+			"tokens": "Get TestNet GAS"
+		}
+	},
 	"Network": {
 		"Environment": {
 			"p1": "As files are organized in directories in file system, objects are organized in containers in NeoFS.",
