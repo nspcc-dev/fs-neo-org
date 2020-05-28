@@ -16,27 +16,33 @@
                   [ngClass]="{'active': this.router.url == '/'}" >{{ 'Navigation.Top.features' | translate }}</a> </li>
               <li class="nav-item"> <a class="nav-link" [routerLink]="['network']" routerLinkActive="active" (click)="onClick()">{{ 'Navigation.Top.network' | translate }}</a>
               </li>
+
+
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['data']" routerLinkActive="active" (click)="onClick()"> {{ 'Navigation.Top.data' | translate }} </a> </li>
+
+
               <li class="nav-item"> <a class="nav-link" [routerLink]="['audit']" routerLinkActive="active" (click)="onClick()">{{ 'Navigation.Top.audit' | translate }}</a> </li>
               <li class="nav-item"> <a class="nav-link" [routerLink]="['gas']" routerLinkActive="active" (click)="onClick()">{{ 'Navigation.Top.incentive' | translate }}</a> </li>
                
               <li class="nav-item"> <a class="nav-link" [routerLink]="['services']" routerLinkActive="active" (click)="onClick()"
                 [ngClass]="{'active': this.router.url == 'howto'}">{{ 'Navigation.Top.developers' | translate }}</a> </li>
-              
-              <li class="nav-item"> <a class="nav-link" [routerLink]="['tokens']" routerLinkActive="active" (click)="onClick()">{{ 'Navigation.Top.tokens' | translate }}</a> </li>
+
+                <li class="nav-item"> <a class="nav-link" [routerLink]="['presentation']" routerLinkActive="active" (click)="onClick()"> {{ 'Navigation.Top.videos' | translate }} </a> </li>
+          
 
               </ul>
 
 
 <!-- Temporary blocked lang selector-->
-<!-- 
+ <!-- -->
               <ul class="navbar-nav ml-auto">
               <li class="nav-item " style="color: rgba(222, 222, 222, 0.8);"> 
                 <a class="nav-item-lang" (click)="setLang('en')" [style]="translate.currentLang == 'en' ? 'color: rgba(0, 229, 153, 0.8)': 'color: rgba(222, 222, 222, 0.8)'">EN</a> |
                 <a class="nav-item-lang" (click)="setLang('zh')" [style]="translate.currentLang == 'zh' ? 'color: rgba(0, 229, 153, 0.8)': 'color: rgba(222, 222, 222, 0.8)'" style="font-size: 0.7em; font-weight: 400">中文</a> |
                 <a class="nav-item-lang" (click)="setLang('ru')" [style]="translate.currentLang == 'ru' ? 'color: rgba(0, 229, 153, 0.8)': 'color: rgba(222, 222, 222, 0.8)'">RU</a> 
               </li> 
-              </ul>-->
-                      
+              </ul>
+                 
                   
                  
             

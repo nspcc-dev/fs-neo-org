@@ -10,6 +10,8 @@ import { FeaturesComponent } from './features/features.component';
 import { NetworkComponent } from './network/network.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuditComponent } from './audit/audit.component';
+import { DataComponent } from './data/data.component';
+import { PresentationComponent } from './presentation/presentation.component';
 import { GasComponent } from './gas/gas.component';
 import { TokensComponent } from './tokens/tokens.component';
 import { ServicesComponent } from './services/services.component';
@@ -39,6 +41,8 @@ import {HttpClient} from '@angular/common/http';
     NetworkComponent,
     FooterComponent,
     AuditComponent,
+    DataComponent,
+    PresentationComponent,
     GasComponent,
     TokensComponent,
     ServicesComponent,

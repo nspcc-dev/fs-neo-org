@@ -162,19 +162,21 @@
 
 
             <div *ngIf="this.walletservice.getBalance()">
-                <div class="btn btn-primary" (click)="WalletBalanceRefresh()" value="check" style="margin-top:20px;">
+                <div class="btn btn-primary" (click)="WalletBalanceRefresh()" value="check" style="margin-top:20px; cursor: pointer;">
                     {{ 'Wallet.Main.refresh' | translate }} </div>
 
                 <!--    -->
 
                 <div class="btn btn-primary "
-                    [class]="this.walletservice.getBalance().gas == 0 ? 'btn btn-primary active': 'btn btn-primary disabled'"
-                    (click)="WalletRequestTokens()" value="check" style="margin-left:20px; margin-top:20px;">
+                    [class]="(this.walletservice.getBalance().gas == 0 && this.show_awaiting_msg == false ) ? 'btn btn-primary active': 'btn btn-primary disabled'"
+                    [style]="(this.walletservice.getBalance().gas == 0 && this.show_awaiting_msg == false ) ? 'cursor: pointer;': 'cursor: default;'"
+                    (click)="WalletRequestTokens()" value="check" style="margin-left:20px; margin-top:20px; cursor: pointer;">
                     {{ 'Wallet.Main.requestgas' | translate }}</div>
 
                 <div class="btn btn-primary "
-                    [class]="this.walletservice.getNeoFSBalance() == 0 ? 'btn btn-primary active': 'btn btn-primary disabled'"
-                    (click)="WalletRequestNeoFS()" value="check" style="margin-left:20px; margin-top:20px;">
+                    [class]="( this.walletservice.getNeoFSBalance() == 0 && this.show_awaiting_msg == false ) ? 'btn btn-primary active': 'btn btn-primary disabled'"
+                    [style]="( this.walletservice.getNeoFSBalance() == 0 && this.show_awaiting_msg == false ) ? 'cursor: pointer;': 'cursor: default;'"
+                    (click)="WalletRequestNeoFS()" value="check" style="margin-left:20px; margin-top:20px;  ">
                     {{ 'Wallet.Main.requestneofs' | translate }}
                 </div>
 
@@ -372,7 +374,7 @@
                                             <br />
                                             <input class="btn btn-primary" type="submit" value="Login">
                                             <div class="btn btn-primary" (click)="GenerateWallet()" value="check"
-                                                style="margin-left:20px;">{{ 'Wallet.Main.generate' | translate }}</div>
+                                                style="margin-left:20px; cursor: pointer;">{{ 'Wallet.Main.generate' | translate }}</div>
                                         </div>
                                     </form>
  

@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+
+@font-face {
+    font-family: Rajdhani;
+    src: url('assets/fonts/Rajdhani-Regular.ttf');
+}
+@font-face {
+    font-family: Rajdhani-Bold;
+    src: url('assets/fonts/Rajdhani-Bold.ttf');
+}
+
+
+
+
+
 button:focus {
     outline: none !important;
   }
@@ -13,16 +27,6 @@ button:focus {
     padding-top: 4rem;
     padding-bottom: 8rem;    /* Footer height */
   }
-
-
-@font-face {
-    font-family: Rajdhani;
-    src: url('/assets/fonts/Rajdhani-Regular.ttf');
-}
-@font-face {
-    font-family: Rajdhani-Bold;
-    src: url('assets/fonts/Rajdhani-Bold.ttf');
-}
 
 body {
     font-family: 'Rajdhani', sans-serif;
