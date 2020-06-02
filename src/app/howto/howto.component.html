@@ -4,23 +4,20 @@
   <div class="container">
 
     <div class="section-title">
-      <h2>How to deposit NEP-5 GAS to NeoFS</h2>
+      <h2>{{ 'HowTo.title' | translate }}</h2>
     </div>
 
     <div class="section-title">
-      <h3>Wallet</h3>
+      <h3>{{ 'HowTo.Wallet.title' | translate }}</h3>
     </div>
 
     <p class="mb-4">
-      RPC endpoint http://fs.nspcc.ru:30333  can be used for custom wallets.
+      {{ 'HowTo.Wallet.p1' | translate }}
     </p>
-    <p class="mb-4">
-      Open <a [routerLink]="['/wallet']"> NeoFS Testnet Wallet</a>. Open an existing wallet by providing private key/WIF or create a new wallet and click on the "Request tokens" button.
+    <p class="mb-4"  [innerHTML]="'HowTo.Wallet.p2' | translate ">
     </p>
-    <p class="mb-4">
-      Or use neo-python. A description of how to do this is available <a [routerLink]="['/howto/py']">here</a>. 
-      It is possible to request tokens for your address <a [routerLink]="['/tokens']">here</a> in case of a custom wallet.
-    </p>
+    <p class="mb-4"  [innerHTML]="'HowTo.Wallet.p3' | translate "></p>
+      
   </div>
 
 
@@ -30,12 +27,11 @@
 
 
     <div class="section-title">
-      <h3>Deposit NEP-5 GAS to NeoFS</h3>
+      <h3>{{ 'HowTo.Deposit.title' | translate }}</h3>
     </div>
 
     <p class="mb-4">
-      Select the Deposit tab in the NeoFS wallet. Enter the amount of NEP-5 GAS tokens for deposit to NeoFS balance and click on the "Deposit" button.
-
+      {{ 'HowTo.Deposit.p1' | translate }}
     </p>
 
   </div>
@@ -51,46 +47,40 @@
 
 
     <div class="section-title">
-      <h3>Run NeoFS CLI</h3>
+      <h3>{{ 'HowTo.RunCLI.title' | translate }}</h3>
     </div>
 
-    <h5>
-      Get <a href="https://github.com/nspcc-dev/neofs-local" target="_blank">neofs-local repository</a>
+    <h5 [innerHTML]="'HowTo.RunCLI.p1' | translate ">
     </h5>
     <p class="mb-4 code">
-
-      git clone https://github.com/nspcc-dev/neofs-local.git<br>
+      git clone https://github.com/nspcc-dev/neofs-local.git<br> 
       cd neofs-local<br>
-
     </p>
 
     <p class="mb-4">
-      Volume directory is './data'. Add files to have access from docker. In the docker this dir will be available in the root
-      - `/data`.
+      {{ 'HowTo.RunCLI.p2' | translate }}
+      
     </p>
 
     <h5>
-      Run NeoFS CLI
+
+      {{ 'HowTo.RunCLI.p3' | translate }} 
     </h5>
     <p class="mb-4 code">
-
       make cli
-
     </p>
 
 
 
     <h5>
-      Declare NeoFS endpoint for CLI
+      {{ 'HowTo.RunCLI.p4' | translate }}  
     </h5>
     <p class="mb-4">
-      Can be declared your own NeoFS node or default as in example below.
+      {{ 'HowTo.RunCLI.p5' | translate }} 
 
 
     </p>
-    <p class="mb-4">
-      We recommend choosing either your own node or the closest one possible. <a
-        [routerLink]="['/services/testnet']">Available nodes can be found here</a>.
+    <p class="mb-4" [innerHTML]="'HowTo.RunCLI.p6' | translate ">
     </p>
 
     <p class="mb-4 code">
@@ -101,7 +91,7 @@
 
 
     <h5>
-      Declare your private key for CLI by WIF
+      {{ 'HowTo.RunCLI.p7' | translate }} 
     </h5>
     <p class="mb-4 code">
 
@@ -119,11 +109,11 @@
 
 
     <div class="section-title">
-      <h3>NeoFS CLI first steps</h3>
+      <h3>{{ 'HowTo.CLI.title' | translate }}</h3>
     </div>
 
     <h5>
-      Check balance
+      {{ 'HowTo.CLI.p1' | translate }}
     </h5>
     <p class="mb-4 code">
 
@@ -131,14 +121,13 @@
 
     </p>
 
-    <p class="mb-4">
-      If you have not sent NEP-5 tokens by `Deposit` invocation of 0xcdabc9be4bfbc2ca4696e6cd6da3af104f929601 smart
-      contract use <a [routerLink]="['/wallet']">our simple wallet</a> for NeoFS testnet or your custom token.
+    <p class="mb-4" [innerHTML]="'HowTo.CLI.p2' | translate ">
     </p>
 
 
     <h5>
-      Create container
+      {{ 'HowTo.CLI.p3' | translate }}
+      
     </h5>
     <p class="mb-4 code">
 
@@ -149,7 +138,8 @@
 
 
     <h5>
-      Upload object to container
+      {{ 'HowTo.CLI.p4' | translate }}
+      
     </h5>
     <p class="mb-4 code">
 
@@ -161,7 +151,7 @@
 
 
 
-    <h5>Create Storage group</h5>
+    <h5>{{ 'HowTo.CLI.p5' | translate }}</h5>
 
     <p class="mb-4 code">
 
@@ -169,12 +159,13 @@
 
     </p>
     <p class="mb-4">
-      Any number of objec IDs can be added to the storage group creation command.
+      {{ 'HowTo.CLI.p6' | translate }}
+      
     </p>
 
 
 
-    <h5>Get object</h5>
+    <h5>{{ 'HowTo.CLI.p7' | translate }}</h5>
 
     <p class="mb-4 code">
 
@@ -184,7 +175,7 @@
 
 
     <h5>
-      Open object by HTTP gate url
+      {{ 'HowTo.CLI.p8' | translate }}
     </h5>
     <p class="mb-4 code">
 
@@ -193,9 +184,8 @@
     </p>
 
 
-    <p class="mb-4">
-      Additional information is available in <a
-        href="https://github.com/nspcc-dev/neofs-local/blob/master/neofs-local/HOWTO.md" target="_blank">github HowTo file</a>.
+    <p class="mb-4" [innerHTML]="'HowTo.CLI.p9' | translate ">
+      
     </p>
   </div>
 

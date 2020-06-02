@@ -4,7 +4,7 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>Simple NeoFS Testnet Wallet</h2>
+            <h2>{{ 'Wallet.Main.title' | translate }}</h2>
         </div>
 
     </div>
@@ -31,15 +31,15 @@
 
 
                                     <li class="nav-item"> <a class="nav-link"
-                                            (click)="SetNavWallet('wallet')">Wallet</a>
+                                            (click)="SetNavWallet('wallet')">{{ 'Wallet.Main.wallet' | translate }}</a>
                                     </li>
                                     <!--
                                     <li class="nav-item"> <a class="nav-link"
-                                            (click)="SetNavWallet('deposit')">Deposit</a>
+                                            (click)="SetNavWallet('deposit')">{{ 'Wallet.Main.deposit' | translate }}</a>
                                     </li>
                                     
                                     <li class="nav-item"> <a class="nav-link"
-                                            (click)="SetNavWallet('withdraw')">Withdraw</a>
+                                            (click)="SetNavWallet('withdraw')">{{ 'Wallet.Main.withdraw' | translate }}</a>
                                     </li> -->
 
                                 </ul>
@@ -47,7 +47,7 @@
                                 <ul class="navbar-nav ml-auto">
 
 
-                                    <li class="nav-item"> <a class="nav-link" (click)="CloseWallet()">Close</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" (click)="CloseWallet()">{{ 'Wallet.Main.close' | translate }}</a> </li>
 
 
                                 </ul>
@@ -89,7 +89,7 @@
 
                             <div class="d-flex justify-content-center" *ngIf="this.spinner_nep5 == true">
                                 <div class="spinner-border" role="status">
-                                    <span class="sr-only">Loading...</span>
+                                    <span class="sr-only">{{ 'Wallet.Main.loading' | translate }}</span>
                                 </div>
                             </div>
 
@@ -115,7 +115,7 @@
 
                             <div class="d-flex justify-content-center" *ngIf="this.spinner_gas == true">
                                 <div class="spinner-border" role="status">
-                                    <span class="sr-only">Loading...</span>
+                                    <span class="sr-only">{{ 'Wallet.Main.loading' | translate }}</span>
                                 </div>
                             </div>
 
@@ -143,7 +143,7 @@
 
                             <div class="d-flex justify-content-center" *ngIf="this.spinner_neofs == true">
                                 <div class="spinner-border" role="status">
-                                    <span class="sr-only">Loading...</span>
+                                    <span class="sr-only">{{ 'Wallet.Main.loading' | translate }}</span>
                                 </div>
                             </div>
 
@@ -162,20 +162,22 @@
 
 
             <div *ngIf="this.walletservice.getBalance()">
-                <div class="btn btn-primary" (click)="WalletBalanceRefresh()" value="check" style="margin-top:20px;">
-                    Refresh </div>
+                <div class="btn btn-primary" (click)="WalletBalanceRefresh()" value="check" style="margin-top:20px; cursor: pointer;">
+                    {{ 'Wallet.Main.refresh' | translate }} </div>
 
                 <!--    -->
 
                 <div class="btn btn-primary "
-                    [class]="this.walletservice.getBalance().gas == 0 ? 'btn btn-primary active': 'btn btn-primary disabled'"
-                    (click)="WalletRequestTokens()" value="check" style="margin-left:20px; margin-top:20px;">
-                    Request tokens to wallet</div>
+                    [class]="(this.walletservice.getBalance().gas == 0 && this.show_awaiting_msg == false ) ? 'btn btn-primary active': 'btn btn-primary disabled'"
+                    [style]="(this.walletservice.getBalance().gas == 0 && this.show_awaiting_msg == false ) ? 'cursor: pointer;': 'cursor: default;'"
+                    (click)="WalletRequestTokens()" value="check" style="margin-left:20px; margin-top:20px; cursor: pointer;">
+                    {{ 'Wallet.Main.requestgas' | translate }}</div>
 
                 <div class="btn btn-primary "
-                    [class]="this.walletservice.getNeoFSBalance() == 0 ? 'btn btn-primary active': 'btn btn-primary disabled'"
-                    (click)="WalletRequestNeoFS()" value="check" style="margin-left:20px; margin-top:20px;">
-                    Request tokens to NeoFS account 
+                    [class]="( this.walletservice.getNeoFSBalance() == 0 && this.show_awaiting_msg == false ) ? 'btn btn-primary active': 'btn btn-primary disabled'"
+                    [style]="( this.walletservice.getNeoFSBalance() == 0 && this.show_awaiting_msg == false ) ? 'cursor: pointer;': 'cursor: default;'"
+                    (click)="WalletRequestNeoFS()" value="check" style="margin-left:20px; margin-top:20px;  ">
+                    {{ 'Wallet.Main.requestneofs' | translate }}
                 </div>
 
 
@@ -197,10 +199,10 @@
 <div class="section zero_half" *ngIf="this.show_awaiting_msg">
     <div class="container" *ngIf="this.show_awaiting_msg"> 
         <div  class="text-center">
-            Processing of the transactions: please, be patient until they will be added to block.
+            {{ 'Wallet.Main.txprocessing' | translate }}
             <div class="d-flex justify-content-center">
                 <div class="spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
+                    <span class="sr-only">{{ 'Wallet.Main.loading' | translate }}</span>
                 </div>
             </div>
         </div>
@@ -214,7 +216,7 @@
     <div class="container" *ngIf="show">
         <hr >
         <div>
-        <ngb-toast   *ngIf="show" header="{{this.header}}" [delay]="7000" [autohide]="autohide"
+        <ngb-toast *ngIf="show" header="{{this.header}}" [delay]="7000" [autohide]="autohide"
             (mouseenter)="autohide = false" (mouseleave)="autohide = true" (hide)="show = false; autohide = true"
             >
     
@@ -244,7 +246,6 @@
     <div class="container" *ngIf="this.tokens.show_p">
         <hr>
         <div>
-            <!-- (mouseenter)="autohide = false" (mouseleave)="autohide = true"  -->
             <ngb-toast *ngIf="this.tokens.show_p" header="{{this.tokens.header_p}}" [delay]="7000" [autohide]="this.tokens.autohide_p"
                 (hide)="this.tokens.show_p = false; this.tokens.autohide_p = true">
                 <div class="alert alert-{{this.tokens.alert_type_p}}">
@@ -253,7 +254,6 @@
             </ngb-toast>
         </div>
     </div>
-
 
 
     <div class="container" *ngIf="this.tokens.show_sec">
@@ -291,17 +291,14 @@
                     <div class="card features">
                         <div class="card-body">
                             <div class="media">
-
                                 <div class="media-body">
 
 
-                                    <h2>Deposit</h2>
-
+                                    <h2>{{ 'Wallet.Main.deposit' | translate }}</h2>
 
                                     <form #dep="ngForm" (ngSubmit)="DepositWallet(dep.value)">
                                         <div class="form-group">
-                                            <label for="u_dep">Enter your NEP-5 GAS tokens amount for deposit to NeoFS
-                                                balance:</label>
+                                            <label for="u_dep">{{ 'Wallet.Main.nep5deposit' | translate }}</label>
                                             <input class="form-control" type="text" name="u_dep"
                                                 placeholder="Amount for deposit" ngModel id="u_dep">
                                             <br />
@@ -309,14 +306,12 @@
 
                                         </div>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -332,24 +327,21 @@
                     <div class="card features">
                         <div class="card-body">
                             <div class="media">
-
                                 <div class="media-body">
 
-
-
-                                    <h2>Wallet info</h2>
+                                    <h2>{{ 'Wallet.Main.info' | translate }}</h2>
                                     <p class="mb-4">
-                                        Address: {{this.walletservice.getWallet().label}}
+                                        {{ 'Wallet.Main.address' | translate }} {{this.walletservice.getWallet().label}}
                                     </p>
 
                                     <p class="mb-4">
-                                        WIF: {{this.walletservice.getWallet().WIF}}
+                                        {{ 'Wallet.Main.wif' | translate }} {{this.walletservice.getWallet().WIF}}
                                     </p>
                                     <p class="mb-4">
-                                        Private key: {{this.walletservice.getWallet().privateKey}}
+                                        {{ 'Wallet.Main.privkey' | translate }} {{this.walletservice.getWallet().privateKey}}
                                     </p>
                                     <p class="mb-4">
-                                        Public key: {{this.walletservice.getWallet().publicKey}}
+                                        {{ 'Wallet.Main.pubkey' | translate }} {{this.walletservice.getWallet().publicKey}}
                                     </p>
 
                                 </div>
@@ -358,7 +350,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -373,33 +364,25 @@
                     <div class="card features">
                         <div class="card-body">
                             <div class="media">
-
                                 <div class="media-body">
-
 
                                     <form #login="ngForm" (ngSubmit)="OpenWallet(login.value)">
                                         <div class="form-group">
-                                            <label for="u_wif">Enter your NeoFS Testnet Neo Address WIF or private
-                                                key:</label>
+                                            <label for="u_wif">{{ 'Wallet.Main.wifenter' | translate }}</label>
                                             <input class="form-control" type="text" name="u_wif" placeholder="WIF"
                                                 ngModel id="u_wif">
                                             <br />
                                             <input class="btn btn-primary" type="submit" value="Login">
                                             <div class="btn btn-primary" (click)="GenerateWallet()" value="check"
-                                                style="margin-left:20px;">Generate New Wallet</div>
+                                                style="margin-left:20px; cursor: pointer;">{{ 'Wallet.Main.generate' | translate }}</div>
                                         </div>
                                     </form>
-
-
-
-
+ 
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: 'app-py',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class PyComponent implements OnInit {
 
   constructor() { }
+
+  neofs_sc = environment.neofs_sc;
 
   ngOnInit() {
   }

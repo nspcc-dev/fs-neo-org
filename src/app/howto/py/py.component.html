@@ -4,33 +4,31 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>How to deposit NEP-5 GAS to NeoFS</h2>
+            <h2>{{ 'HowToPython.title' | translate }}</h2>
         </div>
 
         <div class="section-title">
-            <h3>Wallet</h3>
+            <h3>{{ 'HowToPython.Wallet.title' | translate }}</h3>
         </div>
 
         <p class="mb-4">
-            RPC endpoint http://fs.nspcc.ru:30333 can be used for custom wallets.
+            {{ 'HowToPython.Wallet.p1' | translate }}
+            
         </p>
         <p class="mb-4">
-            All the examples below will be for neo-python.
+            {{ 'HowToPython.Wallet.p2' | translate }}
+            
         </p>
-        <p class="mb-4">
-            Use pre-configured <a href="https://github.com/nspcc-dev/neo-python" target="_blank">neo-python</a>:
+        <p class="mb-4" [innerHTML]="'HowToPython.Wallet.p3' | translate ">
+            
         </p>
 
         <p class="mb-4 code">
             git clone https://github.com/nspcc-dev/neo-python
         </p>
 
-        <p class="mb-4">
-            or get default <a href="https://github.com/CityOfZion/neo-python" target="_blank">neo-python</a>: and change
-            config file
-            neo/data/protocol.privnet.json <a
-                href="https://github.com/nspcc-dev/neo-python/blob/master/neo/data/protocol.privnet.json"
-                target="_blank">to this</a>:
+        <p class="mb-4" [innerHTML]="'HowToPython.Wallet.p4' | translate ">
+            
         </p>
         <p class="mb-4 code">
             git clone https://github.com/CityOfZion/neo-python.git
@@ -47,11 +45,11 @@
 
 
         <div class="section-title">
-            <h3>Get Neo address</h3>
+            <h3>{{ 'HowToPython.Address.title' | translate }}</h3>
         </div>
 
         <h5>
-            Run neo-python wallet
+            {{ 'HowToPython.Address.p1' | translate }}
         </h5>
         <p class="mb-4 code">
 
@@ -61,7 +59,7 @@
         </p>
 
         <p class="mb-4">
-            Run pip install for first execution
+            {{ 'HowToPython.Address.p2' | translate }}
         </p>
 
         <p class="mb-4 code">
@@ -74,7 +72,7 @@
 
         </p>
         <h5>
-            Create wallet
+            {{ 'HowToPython.Address.p3' | translate }}
         </h5>
 
         <p class="mb-4 code">
@@ -84,7 +82,7 @@
         </p>
 
         <p class="mb-4">
-            Now you can find NEO address and public key in the NeoFS TestNet:
+            {{ 'HowToPython.Address.p4' | translate }}
         </p>
 
         <p class="mb-4 code">
@@ -94,46 +92,36 @@
         </p>
 
         <h5>
-            Add NEP-5 GAS token information to the wallet
+            {{ 'HowToPython.Address.p5' | translate }}
         </h5>
         <p class="mb-4 code">
             neo> wallet import token 9bcd6be0f0d2b731977640d14d7edf7a6b59ea77
         </p>
 
-        <p class="mb-4">
-            Use `wallet export wif &lt;address&gt;` to get WIF for Neo address. For example:
+        <p class="mb-4" [innerHTML]="'HowToPython.Address.p6' | translate ">
         </p>
         <p class="mb-4 code">
             neo> wallet export wif AUJ3GSGiKShHFnkjBuVKfmAE4xdmE4qN6a
         </p>
 
-
-
     </div>
 
 
-
-
-
-
     <div class="container upper">
-
-
         <div class="section-title">
-            <h3>Deposit NEP-5 GAS to NeoFS</h3>
+            <h3>{{ 'HowToPython.Deposit.title' | translate }}</h3>
         </div>
 
         <p class="mb-4">
-            To deposit GAS to the NeoFS smart contract need to run contract 0xcdabc9be4bfbc2ca4696e6cd6da3af104f929601
-            method
-            `Deposit` with options: public key, GAS amount.
+            {{ 'HowToPython.Deposit.p1' | translate  :{neofs_sc: this.neofs_sc} }}
+            
         </p>
         <p class="mb-4  code">
             sc invoke &lt;contract script hash&gt; Deposit
             [b'&lt;public key&gt;', &lt;amount&gt;]
         </p>
         <p class="mb-4">
-            For example:
+            {{ 'HowToPython.Deposit.p2' | translate }}
         </p>
         <p class="mb-4 code">
 

@@ -4,20 +4,25 @@
   <div class="container">
 
     <div class="section-title">
-      <h2>Get GAS for public NeoFS Testnet</h2>
+      <h2>{{ 'Tokens.Get.title' | translate }}</h2>
     </div>
 
     <p class="mb-4">
-      Get 5 GAS and 50 Nep-5 GAS Tokens (for Neo2 Testnet). With the transition to the Neo 3.0 TestNet only GAS token
-      will be send. How to connect to NeoFS Neo TestNet and create Neo address <a [routerLink]="['/howto']">can be found here.</a></p>
+      {{ 'Tokens.Get.p1' | translate }}
+      </p>
 
+    <p class="mb-4" [innerHTML]="'Tokens.Get.p2' | translate ">
+ 
+      </p>
+
+       
       <p class="mb-4">
         </p>
 
 
     <form #login="ngForm">
       <div class="form-group">
-        <label for="u_address">Ender your Neo Address for NeoFS Testnet:</label>
+        <label for="u_address">{{ 'Tokens.Get.address' | translate }}</label>
         <input class="form-control" type="text" name="u_address" placeholder="Address" ngModel id="u_address">
         <br />
 
@@ -26,14 +31,14 @@
           [class]="this.show_processing == false ? 'btn btn-primary active': 'btn btn-primary disabled'"
           [disabled]="this.show_processing? true: null"
           (click)="onClickSubmit(login.value)">
-            Send</button>
+          {{ 'Tokens.Get.send' | translate }}</button>
 
 
         <button  value="check" style="margin-left:20px;"
         [class]="this.show_processing == false ? 'btn btn-primary active': 'btn btn-primary disabled'" 
         [disabled]="this.show_processing? true: null"
         (click)="onClickCheck(login.value)">
-          Check balance</button>
+        {{ 'Tokens.Get.checkbalance' | translate }}</button>
 
 
       </div>
@@ -43,10 +48,10 @@
 
 
     <div *ngIf="show_processing" class="text-center">
-      Processing of the transactions: please, be patient until they will be added to block.
+      {{ 'Tokens.Get.processing' | translate }}
       <div class="d-flex justify-content-center" > 
         <div class="spinner-border" role="status"  >
-            <span class="sr-only">Loading...</span>
+            <span class="sr-only">{{ 'Tokens.Get.loading' | translate }}</span>
         </div>
     </div>
     </div>

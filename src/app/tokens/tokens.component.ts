@@ -190,14 +190,11 @@ export class TokensComponent implements OnInit {
 
 
   async get_neofs_req(public_key) {
-
-    // /deposit/031a6c6fbbdf02ca351745fa86b9ba5a9452d785ac4f7fc2b7548ca2a46c4fcf4a/
     let promisefs = this.http.get(`${environment.neofs_api}/deposit/${public_key}`).toPromise();
     let gas_tx_nep;
 
     await promisefs.then((data) => {
 
-      //this.await_result_gas = false;
       this.alert_type_sec = "warning";
       this.header_sec = "Transaction (NeoFS Smart Contract Deposit) has been successfully sended. Awaiting of the block.";
       this.message_sec = "TX: " + JSON.stringify(data);

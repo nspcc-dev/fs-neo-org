@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {NetworkComponent} from "./network/network.component";
 import {FeaturesComponent} from "./features/features.component";
 import {AuditComponent} from "./audit/audit.component";
+import {PresentationComponent} from "./presentation/presentation.component";
+import {DataComponent} from "./data/data.component";
 import {GasComponent} from "./gas/gas.component";
 import {ServicesComponent} from "./services/services.component";
 import {TokensComponent} from "./tokens/tokens.component";
@@ -19,7 +21,9 @@ import {PyComponent} from "./howto/py/py.component";
 const routes: Routes = [
   {path: '', component: FeaturesComponent },
   {path: 'features', component: FeaturesComponent},
-  {path: 'network', component: NetworkComponent},
+  {path: 'network', component: NetworkComponent}, 
+  {path: 'data', component: DataComponent},
+  {path: 'presentation', component: PresentationComponent},
   {path: 'audit', component: AuditComponent},
   {path: 'gas', component: GasComponent},
   {path: 'services', component: ServicesComponent},

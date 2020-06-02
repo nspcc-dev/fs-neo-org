@@ -16,13 +16,13 @@ steps:
     commands:
       - git fetch --tags
       - export PKGNAME=`make pkgname`
+      - make languages
       - make build
       - export SHA1SUM=`shasum -a 1 $PKGNAME | awk '{ print $1 }'`
       - export MD5SUM=`md5sum $PKGNAME | awk '{ print $1 }'`
       - curl -H "X-JFrog-Art-Api:$$API_KEY" -H "X-Checksum-MD5:$$MD5SUM" -H "X-Checksum-Sha1:$$SHA1SUM" -T "$$PKGNAME" "https://registry.nspcc.ru/artifactory/fs.neo.org/$PKGNAME"
   - name: make localtest tarball
     image: registry.nspcc.ru/docker-local/ui_builder:latest
-    pull: if-not-exists
     environment:
       API_KEY:
         from_secret: sami_api_key
@@ -31,6 +31,7 @@ steps:
       - git fetch --tags
       - export SUFFIX='-localtest'
       - export PKGNAME=`make pkgname`
+      - make languages
       - make build
       - export SHA1SUM=`shasum -a 1 $PKGNAME | awk '{ print $1 }'`
       - export MD5SUM=`md5sum $PKGNAME | awk '{ print $1 }'`
