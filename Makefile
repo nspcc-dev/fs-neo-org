@@ -13,9 +13,12 @@ build: deps
 deps:
 	@npm install
 
-.PHONY: pkgname
+.PHONY: pkgname version
 pkgname:
 	@echo $(TARBALL)
+
+version:
+	@echo $(VERSION)
 
 languages:
 	@rm -rf src/assets/i18n/
