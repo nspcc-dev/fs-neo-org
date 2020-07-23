@@ -13,7 +13,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Building a distribution for a testbench
 
 To build and publish a tarball with test code to the internal artifactory,
-one should run a [jenkins job|https://jenkins.ci.nspcc.ru/job/fs.neo.org_update/]
+one should run a [jenkins job](https://jenkins.ci.nspcc.ru/job/fs.neo.org_update/)
 with `localtest` parameter selected.
 
 ## Further help
