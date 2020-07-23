@@ -13,14 +13,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Building a distribution for a testbench
 
 To build and publish a tarball with test code to the internal artifactory,
-one should run a command:
-```
-drone exec --secret-file=secrets.txt --include 'make test tarball'
-```
-It will trigger a local build of pipeline step and produce a tarball.
-To push a tarball to the artifactory, one need to specify his Artifactory
-API Key in `secrets.txt` file. One might make an API Key in Artifactory
-settings.
+one should run a [jenkins job|https://jenkins.ci.nspcc.ru/job/fs.neo.org_update/]
+with `localtest` parameter selected.
 
 ## Further help
 
