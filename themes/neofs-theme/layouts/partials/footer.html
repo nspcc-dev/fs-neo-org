@@ -1,0 +1,9 @@
+<div class="footer text-center">
+  <div class="social-media">
+    {{ range .Site.Params.social }}
+    <a href="{{ .link | safeURL }}" target="_blank">
+      <img class="social-icon-simple" src="{{ .icon }}" style="{{ .img_style | safeCSS }}" alt="" />
+    </a>
+    {{ end }}
+  </div>
+</div>

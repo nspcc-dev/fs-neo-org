@@ -1,5 +1,0 @@
-{  "/api/*": {    "target": "https://fs.neo.org/",    "secure": true,  "changeOrigin": true, "pathRewrite": {"^/api" : ""} },
-  "/neo_node/*": {    "target": "https://fs.nspcc.ru/",    "secure": true,  "changeOrigin": true,  "pathRewrite": {"^/neo_node" : ""}  },
-  "/neo_rpc/*": {    "target": "http://fs.nspcc.ru:20333/",    "secure": true,  "changeOrigin": true, "pathRewrite": {"^/neo_rpc" : ""}  },
-  "/neo_scan/*": {    "target": "https://fs.neo.org/neo_scan/",    "secure": true, "changeOrigin": true,   "pathRewrite": {"^/" : ""}  }  }
-
