@@ -13,37 +13,37 @@
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link {{ if eq .Page.RelPermalink "/" }}active{{ end }}" href="{{ absLangURL "/" }}">
+                <a class="nav-link {{ if or (eq .Page.RelPermalink "/cn/") (eq .Page.RelPermalink "/") }}active{{ end }}" href="{{ absLangURL "/" }}">
                   {{ i18n "features_title" }}
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ if eq .Page.RelPermalink "/network/" }}active{{ end }}" href="{{ absLangURL "network" }}">
+                <a class="nav-link {{ if in .Page.RelPermalink "/network/" }}active{{ end }}" href="{{ absLangURL "network" }}">
                   {{ i18n "network_title" }}
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ if eq .Page.RelPermalink "/data/" }}active{{ end }}" href="{{ absLangURL "data" }}">
+                <a class="nav-link {{ if in .Page.RelPermalink "/data/" }}active{{ end }}" href="{{ absLangURL "data" }}">
                   {{ i18n "data_title" }}
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ if eq .Page.RelPermalink "/audit/" }}active{{ end }}" href="{{ absLangURL "audit" }}">
+                <a class="nav-link {{ if in .Page.RelPermalink "/audit/" }}active{{ end }}" href="{{ absLangURL "audit" }}">
                   {{ i18n "audit_title" }}
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ if eq .Page.RelPermalink "/gas/" }}active{{ end }}" href="{{ absLangURL "gas" }}">
+                <a class="nav-link {{ if in .Page.RelPermalink "/gas/" }}active{{ end }}" href="{{ absLangURL "gas" }}">
                   {{ i18n "incentive_title" }}
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ if eq .Page.RelPermalink "/services/" }}active{{ end }}" href="{{ absLangURL "services" }}">
+                <a class="nav-link {{ if in .Page.RelPermalink "/services/" }}active{{ end }}" href="{{ absLangURL "services" }}">
                   {{ i18n "developers_title" }}
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ if eq .Page.RelPermalink "/presentation/" }}active{{ end }}" href="{{ absLangURL "presentation" }}">
+                <a class="nav-link {{ if in .Page.RelPermalink "/presentation/" }}active{{ end }}" href="{{ absLangURL "presentation" }}">
                   {{ i18n "videos_title" }}
                 </a>
               </li>
