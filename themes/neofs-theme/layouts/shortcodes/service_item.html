@@ -1,17 +1,35 @@
 <div class="row">
-  <a href="{{ .Get 2 }}">
-    <div class="col-12 col-lg-12">
-      <div class="card features">
-        <div class="card-body">
-          <div class="media">
-            <span> <img src="{{ .Get 3 }}"></span>
-            <div class="media-body">
-              <h2 class="card-title">{{ .Get 0 }}</h2>
-              <p class="card-text">{{ .Get 1 }}</p>
+  {{ if ne (.Get 2) "" }}
+    <a href="{{ .Get 2 }}">
+      <div class="col-12 col-lg-12">
+        <div class="card features">
+          <div class="card-body">
+            <div class="media">
+              <span> <img src="{{ .Get 3 }}"></span>
+              <div class="media-body">
+                <h2 class="card-title">{{ .Get 0 }}</h2>
+                <p class="card-text">{{ .Get 1 }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  {{ else }}
+    <div>
+      <div class="col-12 col-lg-12">
+        <div class="card features">
+          <div class="card-body">
+            <div class="media">
+              <span> <img src="{{ .Get 3 }}"></span>
+              <div class="media-body">
+                <h2 class="card-title">{{ .Get 0 }}</h2>
+                <p class="card-text">{{ .Get 1 }}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </a>
+  {{ end }}
 </div>

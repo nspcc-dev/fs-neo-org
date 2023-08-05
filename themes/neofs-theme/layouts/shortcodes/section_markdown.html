@@ -1,6 +1,8 @@
-<div class="section {{ .Get 1 }}">
+<div class="section {{ .Get 1 }}" id="{{ .Get 2 }}">
   <div class="container">
-    <h2 class="section-title">{{ .Get 0 }}</h2>
+    {{ if ne (.Get 0) "" }}
+      <h2 class="section-title">{{ .Get 0 }}</h2>
+    {{ end }}
     {{ .Inner | markdownify }}
   </div>
 </div>
