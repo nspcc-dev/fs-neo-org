@@ -21,7 +21,7 @@ img_style= ""
 
 [[params.social]]
 icon = "/images/socials/nspcc.svg"
-link = "https://nspcc.ru/en"
+link = "https://nspcc.io"
 img_style= "filter: invert(1); border-right: 2px solid #000000; padding-right: 20px;"
 
 [[params.social]]
