@@ -50,3 +50,10 @@ link = "https://www.youtube.com/@neospcc5818"
 img_style= "filter: invert(1);"
 width= "30"
 height= "30"
+
+[[params.social]]
+icon = "/images/socials/medium.svg"
+link = "https://neospcc.medium.com/"
+img_style= "filter: invert(1);"
+width= "30"
+height= "30"
