@@ -18,23 +18,42 @@ DefaultContentLanguage = "en"
 icon = "/images/socials/neo.svg"
 link = "https://neo.org"
 img_style= ""
+width= "26"
+height= "26"
 
 [[params.social]]
 icon = "/images/socials/nspcc.svg"
 link = "https://nspcc.io"
-img_style= "filter: invert(1); border-right: 2px solid #000000; padding-right: 20px;"
+img_style= "filter: invert(1);"
+type= "pipe"
+width= "37"
+height= "37"
 
 [[params.social]]
 icon = "/images/socials/github.svg"
 link = "https://github.com/nspcc-dev"
+block_style= "padding-left: 10px;"
 img_style= "filter: invert(1);"
+width= "30"
+height= "30"
 
 [[params.social]]
 icon = "/images/socials/twitter.svg"
 link = "https://twitter.com/neospcc"
 img_style= "filter: invert(1);"
+width= "30"
+height= "30"
 
 [[params.social]]
 icon = "/images/socials/youtube.svg"
 link = "https://www.youtube.com/@neospcc5818"
 img_style= "filter: invert(1);"
+width= "30"
+height= "30"
+
+[[params.social]]
+icon = "/images/socials/medium.svg"
+link = "https://neospcc.medium.com/"
+img_style= "filter: invert(1);"
+width= "30"
+height= "30"
