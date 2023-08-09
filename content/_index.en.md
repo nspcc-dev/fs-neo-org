@@ -27,7 +27,7 @@ draft: false
   {{<section_column "/images/pages/governance_1.png">}}
     <h2>Basic components and network</h2>
     <p>NeoFS network nodes run the same software and talk the same protocol but may have different roles. There are nodes that store data and process user API requests, they are regular storage nodes and form the Outer Ring. There are nodes that take care of network health, perform service tasks such as data audit and payments settlements and form the Inner Ring. There are not many of them and they use dBFT 2.0 consensus algorithm to coordinate their actions.</p>
-    {{<button "Read more" "/network">}}
+    {{<button "Read more" "/network/">}}
   {{</button>}}
 {{</section>}}
 
@@ -84,7 +84,7 @@ draft: false
     <h2>Zero-knowledge data validation based on homomorphic cryptography</h2>
     <p>In case of a large number of objects in a distributed network of untrusted nodes with an ever-changing topology, classical approach with comparing objects' hashes with some sample in a central meta-data storage is not efficient. This causes unacceptable overhead.</p>
     <p>To solve this problem, NeoFS uses homomorphic hashing. It is a special type of hashing algorithms that allows computing the hash of a composite block from the hashes of individual blocks.</p>
-    {{<button "Read more" "/audit">}}
+    {{<button "Read more" "/audit/">}}
   {{</button>}}
 {{</section>}}
 
@@ -97,7 +97,7 @@ draft: false
     <h2>Neo GAS is used for payments</h2>
     <p>NeoFS uses GAS for all payments. To be able to pay for storage services in NeoFS, the one has to deposit some GAS to NeoFS smart contract address. This event is monitored by Inner Ring nodes and reflected in user's account balance internally in NeoFS.</p>
     <p>NeoFS Inner Ring nodes keep track of all NeoFS accounts and use dBFT 2.0 consensus algorithm, the same as in Neo blockchain, agree on users' mutual settlements, reward distribution over node owners and other payment-related procedures.</p>
-    {{<button "Read more" "/gas">}}
+    {{<button "Read more" "/gas/">}}
   {{</button>}}
 {{</section>}}
 
