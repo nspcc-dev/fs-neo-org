@@ -1,9 +1,17 @@
 <div class="footer text-center">
   <div class="social-media">
     {{ range .Site.Params.social }}
-    <a href="{{ .link | safeURL }}" target="_blank">
-      <img class="social-icon-simple" src="{{ .icon }}" style="{{ .img_style | safeCSS }}" alt="" />
-    </a>
+      {{ if .type }}
+        <span class="social_pipe">
+          <a href="{{ .link | safeURL }}" target="_blank">
+            <img class="social-icon-simple" src="{{ .icon }}" style="{{ .img_style | safeCSS }}" alt="" width="{{ .width }}" height="{{ .height }}" />
+          </a>
+        </span>
+      {{ else }}
+        <a href="{{ .link | safeURL }}" target="_blank" style="{{ .block_style | safeCSS }}">
+          <img class="social-icon-simple" src="{{ .icon }}" style="{{ .img_style | safeCSS }}" alt="" width="{{ .width }}" height="{{ .height }}" />
+        </a>
+      {{ end }}
     {{ end }}
   </div>
 </div>

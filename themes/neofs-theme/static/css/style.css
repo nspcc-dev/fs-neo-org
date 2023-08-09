@@ -11557,7 +11557,8 @@ header {
 }
 
 .footer a {
-  display: inline-block;
+  line-height: 0;
+  margin: 0 10px;
 }
 
 .underline {
@@ -11566,10 +11567,12 @@ header {
 
 .social-media {
   text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .social-icon-simple {
-  margin: 10px;
   height: 30px;
   filter: none;
 }
@@ -11585,6 +11588,12 @@ header {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.social_pipe {
+  border-right: 2px solid #f9fafa;
+  display: flex;
+  padding-right: 10px;
 }
 
 @media (max-width: 767px) {
