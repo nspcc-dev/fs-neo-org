@@ -1,0 +1,68 @@
+<div class="nav-menu fixed-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-dark navbar-expand-lg" style="padding-left:0px;">
+          <a class="navbar-brand" href="{{ absLangURL "/" }}">
+            <img src="/images/logo.svg" class="img-fluid" alt="logo" style="height:50px;">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link {{ if or (eq .Page.RelPermalink "/cn/") (eq .Page.RelPermalink "/") }}active{{ end }}" href="{{ absLangURL "/" }}">
+                  {{ i18n "features_title" }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ if in .Page.RelPermalink "/network/" }}active{{ end }}" href="{{ absLangURL "network" }}">
+                  {{ i18n "network_title" }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ if in .Page.RelPermalink "/data/" }}active{{ end }}" href="{{ absLangURL "data" }}">
+                  {{ i18n "data_title" }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ if in .Page.RelPermalink "/audit/" }}active{{ end }}" href="{{ absLangURL "audit" }}">
+                  {{ i18n "audit_title" }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ if in .Page.RelPermalink "/gas/" }}active{{ end }}" href="{{ absLangURL "gas" }}">
+                  {{ i18n "incentive_title" }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ if in .Page.RelPermalink "/services/" }}active{{ end }}" href="{{ absLangURL "services" }}">
+                  {{ i18n "developers_title" }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ if in .Page.RelPermalink "/presentation/" }}active{{ end }}" href="{{ absLangURL "presentation" }}">
+                  {{ i18n "videos_title" }}
+                </a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item" style="color: #dededecc;">
+                <a class="nav-item-lang" href="/"
+                  style="color:{{ if eq .Lang "en" }}#00e599cc;{{ else }}#dededecc;{{ end }}">EN</a>
+                |
+                <a class="nav-item-lang" href="/cn/"
+                  style="color:{{ if eq .Lang "cn" }}#00e599cc;{{ else }}#dededecc;{{ end }}font-size: 0.7em;">中文</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+</script>

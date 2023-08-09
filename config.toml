@@ -1,0 +1,40 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'NeoFS: public distributed decentralized object storage'
+theme = "neofs-theme"
+
+# languages
+DefaultContentLanguage = "en"
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+  [languages.cn]
+    languageName = "Chinese"
+    weight = 2
+
+# social links
+[[params.social]]
+icon = "/images/socials/neo.svg"
+link = "https://neo.org"
+img_style= ""
+
+[[params.social]]
+icon = "/images/socials/nspcc.svg"
+link = "https://nspcc.ru/en"
+img_style= "filter: invert(1); border-right: 2px solid #000000; padding-right: 20px;"
+
+[[params.social]]
+icon = "/images/socials/github.svg"
+link = "https://github.com/nspcc-dev"
+img_style= "filter: invert(1);"
+
+[[params.social]]
+icon = "/images/socials/twitter.svg"
+link = "https://twitter.com/neospcc"
+img_style= "filter: invert(1);"
+
+[[params.social]]
+icon = "/images/socials/youtube.svg"
+link = "https://www.youtube.com/@neospcc5818"
+img_style= "filter: invert(1);"
