@@ -21,6 +21,22 @@
   src: url(../fonts/Rajdhani-Bold.eot?#iefix) format("embedded-opentype"), url(../fonts/Rajdhani-Bold.woff) format("woff"), url(../fonts/Rajdhani-Bold.ttf) format("truetype"), url(../fonts/Rajdhani-Bold.svg) format("svg")
 }
 
+@font-face {
+  font-family: "微软雅黑";
+  font-style: normal;
+  font-weight: normal;
+  src: url(../fonts/微软雅黑-Regular.eot);
+  src: url(../fonts/微软雅黑-Regular.eot?#iefix) format("embedded-opentype"), url(../fonts/微软雅黑-Regular.woff) format("woff"), url(../fonts/微软雅黑-Regular.ttf) format("truetype"), url(../fonts/微软雅黑-Regular.svg) format("svg")
+}
+
+@font-face {
+  font-family: "微软雅黑";
+  font-style: normal;
+  font-weight: bold;
+  src: url(../fonts/微软雅黑-Bold.eot);
+  src: url(../fonts/微软雅黑-Bold.eot?#iefix) format("embedded-opentype"), url(../fonts/微软雅黑-Bold.woff) format("woff"), url(../fonts/微软雅黑-Bold.ttf) format("truetype"), url(../fonts/微软雅黑-Bold.svg) format("svg")
+}
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -11176,7 +11192,7 @@ button:focus {
 }
 
 body {
-  font-family: Rajdhani, sans-serif;
+  font-family: "Rajdhani", "微软雅黑", sans-serif;
   position: relative
 }
 
