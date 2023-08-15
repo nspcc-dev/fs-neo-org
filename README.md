@@ -9,7 +9,18 @@
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/nspcc-dev/fs-neo-org?sort=semver)
 ![License](https://img.shields.io/github/license/nspcc-dev/fs-neo-org.svg?style=popout)
 
-# fs.neo.org
+# Overview
+
+It's a landing page that describes all the advantages of using it and everything under the hood of NeoFS.
+
+# Requirements
+
+- [Hugo framework](https://gohugo.io/)
+
+# Instructions
+
+* `hugo server` - start Hugo’s development server to view the site
+* `hugo` -  creates the entire static site in the `public` directory
 
 # License
 
