@@ -5,25 +5,25 @@ draft: false
 ---
 
 {{<section "视频演示">}}
-  {{<youtube_embed "Consensus 2020 - NeoFS: Decentralized Storage for A Real Economy" "https://www.youtube.com/embed/YRm77r_6sw0">}}
+  {{<youtube_embed "Consensus 2020 - NeoFS: Decentralized Storage for A Real Economy" "https://www.youtube.com/embed/8JjDx8JrHjM">}}
 {{</section>}}
 
 {{<section "" "simple">}}
-  {{<youtube_embed "NeoFS Webinar: Architecture of decentralized object storage" "https://www.youtube.com/embed/2o44JvXyy0o">}}
+  {{<youtube_embed "NeoFS Webinar: Architecture of decentralized object storage" "https://www.youtube.com/embed/98ayXYRbDyc">}}
 {{</section>}}
 
 {{<section "" "simple">}}
-  {{<youtube_embed "NeoFS Introduction - Episode 1: System Overview - 2019" "https://www.youtube.com/embed/0NDF3QqHpjk">}}
+  {{<youtube_embed "NeoFS Introduction - Episode 1: System Overview - 2019" "https://www.youtube.com/embed/lbpFH4_SyaU">}}
 {{</section>}}
 
 {{<section "" "simple">}}
-  {{<youtube_embed "NeoFS Introduction - Episode 2: Payments - 2019" "https://www.youtube.com/embed/N5lljo-IvgI">}}
+  {{<youtube_embed "NeoFS Introduction - Episode 2: Payments - 2019" "https://www.youtube.com/embed/BAL_Nm9BG6M">}}
 {{</section>}}
 
 {{<section "" "simple">}}
-  {{<youtube_embed "NeoFS Introduction - Episode 3: Placement, Migration, and Replication" "https://www.youtube.com/embed/hZlLP1rgA5Y">}}
+  {{<youtube_embed "NeoFS Introduction - Episode 3: Placement, Migration, and Replication" "https://www.youtube.com/embed/3FXoQ_JLWL8">}}
 {{</section>}}
 
 {{<section "" "simple">}}
-  {{<youtube_embed "NeoFS Introduction - Episode 4: Data Audit" "https://www.youtube.com/embed/yRecLfRAehM">}}
+  {{<youtube_embed "NeoFS Introduction - Episode 4: Data Audit" "https://www.youtube.com/embed/HRRLYtlcYXQ">}}
 {{</section>}}
