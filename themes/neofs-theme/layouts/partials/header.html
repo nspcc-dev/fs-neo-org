@@ -38,6 +38,11 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link {{ if in .Page.RelPermalink "/hosting/" }}active{{ end }}" href="{{ absLangURL "hosting/" }}">
+                  {{ i18n "hosting_title" }}
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link {{ if in .Page.RelPermalink "/services/" }}active{{ end }}" href="{{ absLangURL "services/" }}">
                   {{ i18n "developers_title" }}
                 </a>
