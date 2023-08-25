@@ -26,4 +26,6 @@ draft: false
   * it receives a reply with content, caches it and replies to nginx
 
   NeoFS nodes just do their job in this scheme, serving `SEARCH` and `GET` (`PUT` as well, for uploads) requests in a usual manner. Containers are set up with basic ACL that allows anyone to read (it's a widely open website), but allows only owner to upload new content.
+
+  ![hosting scheme](/images/pages/hosting.png)
 {{</section_markdown>}}
