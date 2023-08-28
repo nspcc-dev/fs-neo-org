@@ -1,6 +1,6 @@
 <header id="home" class="bg-gradient">
   <div class="container mt-5">
-    <h1>{{ .Get 0 }}</h1>
+    <h1>{{ .Get "text" }}</h1>
   </div>
-  <div class="img-holder mt-3"><img src="{{ .Get 1 }}" class="img-fluid"></div>
+  <div class="img-holder mt-3"><img src="{{ .Get "icon" }}" class="img-fluid"></div>
 </header>

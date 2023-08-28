@@ -4,7 +4,7 @@ date: 2022-12-16T16:32:57+03:00
 draft: false
 ---
 
-{{<section_markdown "Data Storage">}}
+{{<section_markdown text="Data Storage">}}
   To implement data storage and processing, the NeoFS system operates with objects. An object is a structure intended to be placed on a data storage device and transmitted over a network. This structure consists of a user’s data block of a finite length and a set of headers containing information about the data and the object itself. The size of the data in the object can be zero.
 
   Objects may have links to other objects. User data may be split into several linked objects to solve scaling and balancing problems.

@@ -1,7 +1,7 @@
-<div class="section {{ .Get 1 }}" id="{{ .Get 2 }}">
+<div class="section {{ .Get "type" }}" style="{{ .Get "style" }}" id="{{ .Get "id" }}">
   <div class="container">
-    {{ if ne (.Get 0) "" }}
-      <h2 class="section-title">{{ .Get 0 }}</h2>
+    {{ if .Get "text" }}
+      <h2 class="section-title">{{ .Get "text" }}</h2>
     {{ end }}
     {{ .Inner }}
   </div>

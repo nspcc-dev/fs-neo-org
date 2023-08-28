@@ -1,14 +1,14 @@
 <div class="row">
-  {{ if ne (.Get 2) "" }}
-    <a href="{{ .Get 2 }}">
+  {{ if .Get "link" }}
+    <a href="{{ .Get "link" }}">
       <div class="col-12 col-lg-12">
         <div class="card features">
           <div class="card-body">
             <div class="media">
-              <span> <img src="{{ .Get 3 }}"></span>
+              <span> <img src="{{ .Get "icon" }}"></span>
               <div class="media-body">
-                <h2 class="card-title">{{ .Get 0 }}</h2>
-                <p class="card-text">{{ .Get 1 }}</p>
+                <h2 class="card-title">{{ .Get "text" }}</h2>
+                <p class="card-text">{{ .Get "subtext" }}</p>
               </div>
             </div>
           </div>
@@ -21,10 +21,10 @@
         <div class="card features">
           <div class="card-body">
             <div class="media">
-              <span> <img src="{{ .Get 3 }}"></span>
+              <span> <img src="{{ .Get "icon" }}"></span>
               <div class="media-body">
-                <h2 class="card-title">{{ .Get 0 }}</h2>
-                <p class="card-text">{{ .Get 1 }}</p>
+                <h2 class="card-title">{{ .Get "text" }}</h2>
+                <p class="card-text">{{ .Get "subtext" }}</p>
               </div>
             </div>
           </div>

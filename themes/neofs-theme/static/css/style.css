@@ -11625,4 +11625,8 @@ header {
   .service_items_flex .row {
     display: block;
   }
+
+  code {
+    word-break: break-word;
+  }
 }
