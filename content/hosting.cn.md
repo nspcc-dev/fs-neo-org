@@ -4,7 +4,7 @@ date: 2022-12-16T16:32:57+03:00
 draft: false
 ---
 
-{{<section_markdown "Hosting">}}
+{{<section_markdown text="Hosting">}}
   The website contents is stored as a set of objects in a NeoFS container. Each object has a `FilePath` attribute with a corresponding file name (`index.html`, `img/something.png`, etc), they also have a `Content-Type` attribute with appropriate type (`text/html`, `image/png`, etc). These objects are uploaded from the website release tarball using [neofs-cli](https://github.com/nspcc-dev/neofs-node), if there is an update, new objects are uploaded first and then all old ones are deleted. Only NeoFS storage nodes have data for this container.
 
   We have an [nginx](https://nginx.org/) instance accepting initial user's connections, it:
