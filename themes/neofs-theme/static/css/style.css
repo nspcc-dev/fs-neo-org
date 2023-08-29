@@ -11199,7 +11199,6 @@ button:focus {
 
 #content-wrap {
   padding-top: 4rem;
-  padding-bottom: 8rem
 }
 
 body {
@@ -11571,10 +11570,23 @@ header {
 
 .footer {
   background-color: #2b393f;
-  padding: 2rem 0;
-  position: absolute;
+  padding: 40px 20px;
   bottom: 0;
   width: 100%
+}
+
+.footer .title {
+  color: #fff;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 0.3rem;
+}
+
+.footer .subtitle {
+  color: #ffffffcc;
+  font-weight: 400;
+  line-height: 1.25;
+  font-size: .75rem;
 }
 
 .footer a {
@@ -11591,6 +11603,7 @@ header {
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .social-icon-simple {
