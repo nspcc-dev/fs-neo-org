@@ -11574,6 +11574,7 @@ header {
 
 .footer {
   background-color: #2b393f;
+  color: #ffffffcc;
   padding: 40px 20px;
   bottom: 0;
   width: 100%
@@ -11587,7 +11588,6 @@ header {
 }
 
 .footer .subtitle {
-  color: #ffffffcc;
   font-weight: 400;
   line-height: 1.25;
   font-size: .75rem;
@@ -11607,7 +11607,7 @@ header {
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .social-icon-simple {
