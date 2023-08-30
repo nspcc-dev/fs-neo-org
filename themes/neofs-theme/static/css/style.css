@@ -24,19 +24,21 @@
 }
 
 @font-face {
-  font-family: "微软雅黑";
+  font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: normal;
-  src: url(../fonts/微软雅黑-Regular.eot);
-  src: url(../fonts/微软雅黑-Regular.eot?#iefix) format("embedded-opentype"), url(../fonts/微软雅黑-Regular.woff) format("woff"), url(../fonts/微软雅黑-Regular.ttf) format("truetype"), url(../fonts/微软雅黑-Regular.svg) format("svg")
+  src: url(../fonts/NotoSansSC-Regular.woff2) format('woff2'),
+    url(../fonts/NotoSansSC-Regular.woff) format("woff"),
+    url(../fonts/NotoSansSC-Regular.otf) format('opentype');
 }
 
 @font-face {
-  font-family: "微软雅黑";
+  font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: bold;
-  src: url(../fonts/微软雅黑-Bold.eot);
-  src: url(../fonts/微软雅黑-Bold.eot?#iefix) format("embedded-opentype"), url(../fonts/微软雅黑-Bold.woff) format("woff"), url(../fonts/微软雅黑-Bold.ttf) format("truetype"), url(../fonts/微软雅黑-Bold.svg) format("svg")
+  src: url(../fonts/NotoSansSC-Bold.woff2) format('woff2'),
+    url(../fonts/NotoSansSC-Bold.woff) format("woff"),
+    url(../fonts/NotoSansSC-Bold.otf) format('opentype');
 }
 
 :root {
@@ -11204,7 +11206,7 @@ button:focus {
 }
 
 body {
-  font-family: "Rajdhani", "微软雅黑", sans-serif;
+  font-family: "Rajdhani", "Noto Sans SC", sans-serif;
   position: relative
 }
 
