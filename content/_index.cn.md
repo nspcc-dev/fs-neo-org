@@ -97,7 +97,7 @@ draft: false
     <h2>Neo GAS用于支付</h2>
     <p>NeoFS使用GAS支付所有费用。要想在NeoFS支付储存服务的费用，您必须将一些GAS储存到NeoFS的智能合约地址。该事件由内环节点监控，并在NeoFS内部反映在用户的账户余额中。</p>
     <p>NeoFS内环节点跟踪所有NeoFS账户，同时使用与Neo区块链相同的dBFT 2.0共识算法，并就用户相互结算、节点所有者奖励分配以及其他与支付相关流程达成协议。</p>
-    {{<button text="读取更多" link="/gas/">}}
+    {{<button text="读取更多" link="/pricing/">}}
   {{</button>}}
 {{</section>}}
 

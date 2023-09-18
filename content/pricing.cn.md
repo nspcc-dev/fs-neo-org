@@ -1,8 +1,10 @@
 ---
-title: Gas
+title: Pricing
 date: 2022-12-16T16:32:57+03:00
 draft: false
 ---
+
+{{<price_calculator text="Storage Price Calculator" caption="GAS is used to pay for data storage and depends on the size of the data you store. To calculate the GAS cost per month, use the calculator where you need to select the number of megabytes you want to store.">}}
 
 {{<section_markdown text="激励模式">}}
   激励模式和定价务均遵循自由市场原则。每个节点均声明其要为即将到来的时代提供数据存储服务的报酬作为奖励。布局功能需考虑声明的价格，并选择价格更好的节点。然而，由于网络地图中的节点声明了描述其参数的键值属性，例如地理位置、存储类型、容量和其他存储策略中也使用的东西，这就为希望获得更高价格、更好或独特服务的节点仍然可以进入布置功能结果而保留了空间。
