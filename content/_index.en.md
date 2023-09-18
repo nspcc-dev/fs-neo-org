@@ -97,7 +97,7 @@ draft: false
     <h2>Neo GAS is used for payments</h2>
     <p>NeoFS uses GAS for all payments. To be able to pay for storage services in NeoFS, the one has to deposit some GAS to NeoFS smart contract address. This event is monitored by Inner Ring nodes and reflected in user's account balance internally in NeoFS.</p>
     <p>NeoFS Inner Ring nodes keep track of all NeoFS accounts and use dBFT 2.0 consensus algorithm, the same as in Neo blockchain, agree on users' mutual settlements, reward distribution over node owners and other payment-related procedures.</p>
-    {{<button text="Read more" link="/gas/">}}
+    {{<button text="Read more" link="/pricing/">}}
   {{</button>}}
 {{</section>}}
 
