@@ -11603,7 +11603,7 @@ header {
 .range_calculator input[type="range"]::-moz-range-thumb {
   height: 22px;
   width: 22px;
-  background-color: #f50;
+  background-color: #00af92;
   border-radius: 50%;
   border: none;
   transition: .2s ease-in-out;
