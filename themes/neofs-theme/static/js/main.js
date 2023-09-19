@@ -10,6 +10,10 @@ $(document).ready(function () {
 
 	const calculatorValue = document.querySelector("#calculator_value");
 	const calculatorPriceValue = document.querySelector("#calculator_price_value");
+	const calculator = document.querySelector("#range");
+	if (calculator) {
+		calculator.value = 10;
+	}
 	$("#range").on('input', (event) => {
 		let capacity = Math.pow(2, event.target.value);
 		storagePrice = 100000;
