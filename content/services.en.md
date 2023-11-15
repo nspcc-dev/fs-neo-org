@@ -9,5 +9,5 @@ draft: false
 
   {{<service_item text="NeoFS SDK Go" subtext="Go implementation of NeoFS SDK" link="https://pkg.go.dev/github.com/nspcc-dev/neofs-sdk-go" icon="/images/icons/go.svg">}}
 
-  {{<service_item text="NeoFS Status" subtext="NeoFS status monitoring page" link="https://status.fs.neo.org/" icon="/images/icons/status.svg">}}
+  {{<service_item text="NeoFS Spec" subtext="Technical Specification" link="https://http.fs.neo.org/Bj1YwbEZtqx6fwecb3jKo59ZJtz2SgoEB9dj8Q6vYREM/neofs-spec-latest.pdf" icon="/images/icons/spec.svg">}}
 {{</section>}}
