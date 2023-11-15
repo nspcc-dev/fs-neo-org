@@ -65,9 +65,9 @@ draft: false
   <p>NeoFS的分散性不仅消除了集中性的故障点，也消除了集中性的控制点。在NeoFS中，仅用户才可完全控制其数据，包括数据的存储位置、存储方式以及谁可以访问它们。</p>
 
   {{<service_items_flex>}}
-    {{<service_item text="地点" subtext="您的数据已存储" icon="/images/icons/icon3.svg">}}
-    {{<service_item text="方式" subtext="您的数据已存储" icon="/images/icons/icon2.svg">}}
-    {{<service_item text="谁" subtext="可以访问您的数据" icon="/images/icons/icon1.svg">}}
+    {{<service_item text="地点" subtext="您的数据已存储" icon="/images/icons/icon3.svg" />}}
+    {{<service_item text="方式" subtext="您的数据已存储" icon="/images/icons/icon2.svg" />}}
+    {{<service_item text="谁" subtext="可以访问您的数据" icon="/images/icons/icon1.svg" />}}
   {{</section_markdown>}}
 {{</section_markdown>}}
 

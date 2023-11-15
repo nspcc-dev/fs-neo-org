@@ -65,9 +65,9 @@ draft: false
   <p>A decentralized nature of NeoFS eliminates not only centralized points of failure but also centralized points of control. In NeoFS, only users have full control over their data, where, how it is stored, and who can get access to it.</p>
 
   {{<service_items_flex>}}
-    {{<service_item text="Where" subtext="your data is stored" icon="/images/icons/icon3.svg">}}
-    {{<service_item text="How" subtext="your data is stored" icon="/images/icons/icon2.svg">}}
-    {{<service_item text="Who" subtext="can get access to your data" icon="/images/icons/icon1.svg">}}
+    {{<service_item text="Where" subtext="your data is stored" icon="/images/icons/icon3.svg" />}}
+    {{<service_item text="How" subtext="your data is stored" icon="/images/icons/icon2.svg" />}}
+    {{<service_item text="Who" subtext="can get access to your data" icon="/images/icons/icon1.svg" />}}
   {{</section_markdown>}}
 {{</section_markdown>}}
 
