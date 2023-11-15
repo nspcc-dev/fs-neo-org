@@ -5074,7 +5074,8 @@ input[type=submit].btn-block {
 }
 
 .card-title {
-  margin-bottom: .75rem
+  margin-bottom: 0;
+  line-height: 1;
 }
 
 .card-subtitle {
@@ -5834,7 +5835,8 @@ a.badge-dark:focus {
 
 .media-body {
   -ms-flex: 1;
-  flex: 1
+  flex: 1;
+  padding-left: 12px;
 }
 
 .list-group {
@@ -11476,15 +11478,9 @@ header {
   left: 0
 }
 
-.card-title {
-  padding-left: 10px;
-  padding-bottom: 5px
-}
-
 .card-text {
   font-size: 18px;
-  padding-left: 15px;
-  margin-top: -20px
+  margin: 0;
 }
 
 .card.features:hover {
@@ -11693,6 +11689,11 @@ header {
   flex-wrap: wrap;
 }
 
+.row_service_item {
+  display: block;
+  width: 50%;
+}
+
 .social_pipe {
   border-right: 2px solid #f9fafa;
   display: flex;
@@ -11704,8 +11705,10 @@ header {
     display: block;
   }
 
-  .service_items_flex .row {
+  .service_items_flex .row,
+  .row_service_item {
     display: block;
+    width: unset;
   }
 
   code {
