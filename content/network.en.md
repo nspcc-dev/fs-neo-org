@@ -61,5 +61,5 @@ draft: false
 {{</section>}}
 
 {{<section text="Protocol Gates" type="simple">}}
-  <p>To interact with existing systems using standard protocols, NeoFS has protocol gates. Gates are mainly maintained by users and not a part of NeoFS network. From the start, HTTP protocol gate is provided, that allows accessing data from NeoFS using regular browser. Further, AWS S3 and OpenStack Object Storage gates will be provided to allow users to make more sophisticated integrations. Technically one may easily develop own gate by using NeoFS protocol libraries.</p>
+  <p>To interact with existing systems using standard protocols, NeoFS has protocol gates. Gates are mainly maintained by users and not a part of NeoFS network. From the start, <a href="https://github.com/nspcc-dev/neofs-rest-gw/">REST protocol gateway</a> is provided, that allows accessing data from NeoFS using regular browser. <a href="https://github.com/nspcc-dev/neofs-s3-gw/">AWS S3 gateway</a> is also provided to allow users to make more sophisticated integrations. Technically one may easily develop own gate by using NeoFS protocol libraries.</p>
 {{</section_markdown>}}
