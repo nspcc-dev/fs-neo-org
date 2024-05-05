@@ -19,7 +19,7 @@ $(document).ready(function () {
 		storagePrice = 100000;
 		epochDuration = 240;
 		timePerBlock = 15;
-		calculatorPriceValue.textContent = ((capacity / 1024) * storagePrice * (30 * 24 * 60 * 60) / epochDuration / timePerBlock  / 10e12).toFixed(8);
+		calculatorPriceValue.textContent = ((capacity / 1024) * storagePrice * (30 * 24 * 60 * 60) / epochDuration / timePerBlock  / 1e12).toFixed(8);
 		if (capacity < 1024) {
 			measurement = 'MB';
 		} else if (capacity < 1048576) {
