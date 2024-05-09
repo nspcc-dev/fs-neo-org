@@ -1,0 +1,76 @@
+name: Build and deploy
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [opened, synchronize]
+  push:
+    # Build for the master branch.
+    branches:
+      - master
+  release:
+    # Publish released commit
+    types:
+      - published
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Ref to build [default: triggered event; examples: v0.92.0, 0a4ff9d3e4a9ab432fd5812eb18c98e03b5a7432]'
+        required: false
+        default: ''
+      deploy:
+        description: 'Deploy to production [default: false; examples: true, false]'
+        required: false
+        default: 'false'
+
+jobs:
+  build:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref }}
+          # Allows to fetch all history for all branches and tags. Need this for proper versioning.
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+
+      - name: Build
+        run: make release
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fs-neo-org
+          path: ./fs.neo.org-*.tar.gz
+          if-no-files-found: error
+
+      - name: Set up Python
+        if: ${{ github.event_name == 'release' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.event.inputs.deploy == 'true') }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.6'
+
+      - name: Publish to NeoFS
+        if: ${{ github.event_name == 'release' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.event.inputs.deploy == 'true') }}
+        uses: nspcc-dev/gh-push-to-neofs@master
+        with:
+          NEOFS_WALLET: ${{ secrets.NEOFS_WALLET }}
+          NEOFS_WALLET_PASSWORD: ${{ secrets.NEOFS_WALLET_PASSWORD }}
+          NEOFS_NETWORK_DOMAIN: ${{ vars.NEOFS_NETWORK_DOMAIN }}
+          NEOFS_HTTP_GATE: ${{ vars.NEOFS_HTTP_GATE }}
+          STORE_OBJECTS_CID: ${{ vars.STORE_OBJECTS_CID }}
+          PATH_TO_FILES_DIR: fs.neo.org
+          REPLACE_CONTAINER_CONTENTS: true
+
+      - name: Attach binary to the release as an asset
+        if: ${{ github.event_name == 'release' }}
+        run: gh release upload ${{ github.event.release.tag_name }} ./fs.neo.org-*.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
