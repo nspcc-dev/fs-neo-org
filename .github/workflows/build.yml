@@ -67,6 +67,7 @@ jobs:
           NEOFS_HTTP_GATE: ${{ vars.NEOFS_HTTP_GATE }}
           STORE_OBJECTS_CID: ${{ vars.STORE_OBJECTS_CID }}
           PATH_TO_FILES_DIR: fs.neo.org
+          STRIP_PREFIX: true
           REPLACE_CONTAINER_CONTENTS: true
 
       - name: Attach binary to the release as an asset
