@@ -17,7 +17,7 @@ draft: false
 
   <p>The main use case for NeoFS is DApps's data storage and content distribution. Nowadays most DApps do not store their assets in a decentralized fashion that makes them not really distributed applications. In NeoFS, DApps can upload content and distribute it to clients via protocol gates using standard HTTPS protocol or, for example, using NeoFS API from mobile application.</p>
 
-  <p>DApps can access NeoFS directly from smart contract code. For instance, DApp's smart contract can generate some data and put it into NeoFS rather then storing it in the blockchain. Storing data off-chain is significantly cheaper and easier to deliver to client.</p>
+  <p>dApps can access NeoFS directly from smart contract code. For instance, dApp's smart contract can query some data from NeoFS (with JSONPath filtering) and have some logic depending on this data. Storing data off-chain is significantly cheaper and easier to deliver to client.</p>
 {{</section>}}
 
 {{<section text="Network Map" type="simple">}}
