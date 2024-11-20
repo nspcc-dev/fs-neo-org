@@ -10,12 +10,12 @@ draft: false
   {{<section_column image="/images/pages/governance_1.png">}}
     <p>Inner Ring nodes are connected to Neo Blockchain. They are constantly monitoring events coming from the blockchain to synchronize their state and the state of NeoFS smart contract that manages users' money deposits and information about Inner Ring nodes themselves.</p>
 
-    <p>Since the Inner Ring is a critical infrastructure part, not every node may get this role. The node willing to join the Inner Ring should be registered in NeoFS smart contract in Neo Blockchain and pay some security deposit that is lost in case of the node starts to behave badly.</p>
+    <p>Since the Inner Ring is a critical infrastructure part, not every node may get this role. The node willing to join the Inner Ring should be registered in NeoFS smart contract in Neo Blockchain and pay some security deposit that is lost in case node starts to behave badly.</p>
 
     <p>In addition, in the same way as Neo consensus nodes, NeoFS Inner Ring nodes try to achieve maximal possible geographical, political and network decentralization.</p>
   {{</section_column>}}
 
-  <p>The main use case for NeoFS is DApps's data storage and content distribution. Nowadays most DApps do not store their assets in a decentralized fashion that makes them not really distributed applications. In NeoFS, DApps can upload content and distribute it to clients via protocol gates using standard HTTPS protocol or, for example, using NeoFS API from mobile application.</p>
+  <p>The main use case for NeoFS is dApps's data storage and content distribution. Nowadays most dApps do not store their assets in decentralized fashion that makes them not really distributed applications. In NeoFS, dApps can upload content and distribute it to clients via protocol gates using standard HTTPS protocol or, for example, using NeoFS API from mobile application.</p>
 
   <p>dApps can access NeoFS directly from smart contract code. For instance, dApp's smart contract can query some data from NeoFS (with JSONPath filtering) and have some logic depending on this data. Storing data off-chain is significantly cheaper and easier to deliver to client.</p>
 {{</section>}}
@@ -23,7 +23,7 @@ draft: false
 {{<section text="Network Map" type="simple">}}
 
   {{<section_column image="/images/pages/container.png">}}
-    <p>Inner Ring nodes monitor the state of NeoFS storage nodes. Using this information, they maintain up-to-date Network Map. It is a multi-dimensional graph where nodes have attributes and are grouped by those attributes and their values. This allows using a special data placement function to find nodes that would store an object when putting or getting it in/from NeoFS network.</p>
+    <p>Inner Ring nodes monitor state of NeoFS storage nodes. Using this information, they maintain up-to-date Network Map. It is a multi-dimensional graph where nodes have attributes and are grouped by those attributes and their values. This allows using a special data placement function to find nodes that would store an object when putting or getting it in/from NeoFS network.</p>
   {{</section_column>}}
 
   <p>This approach allows not having any centralized meta-data storage keeping object's locations and not re-balancing data with every joining or leaving storage node, as it happens in DHT-based systems.</p>
@@ -34,13 +34,13 @@ draft: false
 
   Each container is served by a subset of storage nodes that satisfy storage policy defined for this particular container by the user. To calculate that nodes’ subset, storage policy filters are applied to Network Map. The resulting set of nodes is responsible for making sure that storage policy is satisfied and data is not corrupted. In case of success, they share users' payment for data storage. One storage node may serve many containers, so if it behaves correctly small shares from each container summ-up in a significant reward. The same is true for the losses in case of container nodes' misbehavior. This motivates nodes to keep an eye on other container members and properly perform all required replication, migration and data recovery processes.
 
-  Another non-obvious benefit of this approach is the bigger NeoFS network grows, the more stable it becomes, because the chance of network is changed would affect a particular container is decreasing with the increasing number of nodes in the network. It means, unlike in DHT approach, the amount of needed data migration decreases with network growth.
+  Another non-obvious benefit of this approach is the bigger NeoFS network grows, the more stable it becomes, because the chance of network changes affecting a particular container is decreasing with the increasing number of nodes in the network. It means, unlike in DHT approach, the amount of required data migrations decreases with network growth.
 {{</section_markdown>}}
 
 {{<section text="NeoFS Blockchain Components" type="simple">}}
 
   {{<section_column image="/images/pages/contracts.png">}}
-    <p>The main smart contracts that provide the input and output of GAS tokens to the NeoFS account and the list of nodes of Inner Ring, are on the Neo mainnet. NeoFS internal banking and data audit results are on FS chain (which technically is a sidechain to the main network). This allows not to load a large number of NeoFS internal transactions to the Neo blockchain network. This approach also allows us to achieve complete anonymity of the Inner Ring nodes and not to disclose them to other network nodes.</p>
+    <p>The main smart contracts that provide deposit and withdrawal of GAS tokens to/from NeoFS accounts and maintain the list of Inner Ring nodes, are on the Neo mainnet. NeoFS internal banking and data audit results are on FS chain (which technically is a sidechain to the main network). This allows to avoid pushing a large number of internal NeoFS transactions to the main Neo blockchain network. This approach also allows us to achieve complete anonymity of Inner Ring nodes and not to disclose them to other network nodes.</p>
 
     <p>The main NeoFS network contract is deployed in the Neo main network. The role of this contract is to accept Neo GAS assets from users, and withdraw Neo GAS to users. The list of Inner Ring nodes is maintained in a standard native Role Management contract with a designated NeoFS Alphabet role,</p>
 
@@ -55,7 +55,7 @@ draft: false
 
   <p>The Reputation contract’s role is maintaining reputation ratings of Storage nodes. This contract is also deployed to FS chain to process a lot of invocations to process the view of Storage nodes' trust.</p>
 
-  <p>Neo main chain and FS chain do not interact directly. The bridge between the two chains is Inner Ring which subscribes to events from both chains. The Inner Ring nodes are responsible for servicing the Neofs network, monitoring Storage nodes, and data integrity of the storage network.</p>
+  <p>Neo main chain and FS chain do not interact directly. The bridge between the two chains is Inner Ring which subscribes to events from both chains. The Inner Ring nodes are responsible for servicing the NeoFS network, monitoring Storage nodes, and data integrity of the storage network.</p>
 
   <p>The Inner Ring nodes are connected to Neo Blockchain. They are constantly monitoring events coming from the blockchain to synchronize their state, the state of the NeoFS smart contract that manages users' GAS deposits and information about the Inner Ring nodes themselves, and FS chain smart contracts.</p>
 {{</section>}}
