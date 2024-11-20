@@ -40,24 +40,24 @@ draft: false
 {{<section text="NeoFS Blockchain Components" type="simple">}}
 
   {{<section_column image="/images/pages/contracts.png">}}
-    <p>The main smart contracts that provide the input and output of GAS tokens to the NeoFS account and the list of nodes of Inner Ring, are on the Neo Mainnet. NeoFS internal banking and data audit results are on the sidechain. This allows not to load a large number of NeoFS internal transactions to the Neo blockchain network. This approach also allows us to achieve complete anonymity of the Inner Ring nodes and not to disclose them to other network nodes.</p>
+    <p>The main smart contracts that provide the input and output of GAS tokens to the NeoFS account and the list of nodes of Inner Ring, are on the Neo mainnet. NeoFS internal banking and data audit results are on FS chain (which technically is a sidechain to the main network). This allows not to load a large number of NeoFS internal transactions to the Neo blockchain network. This approach also allows us to achieve complete anonymity of the Inner Ring nodes and not to disclose them to other network nodes.</p>
 
     <p>The main NeoFS network contract is deployed in the Neo main network. The roles of this contract are to maintain the list of the Inner Ring nodes, maintain the list of nodes-candidates for Inner Ring, accept Neo GAS input assets from users, and withdraw Neo GAS to users.</p>
 
-    <p>Service contracts of the NeoFS network such as Network Map contract, Container contract, Balance contract, Data Audit contract, and Reputation contract are on the NeoFS Neo sidechain.</p>
+    <p>Service contracts of the NeoFS network such as Network Map contract, Container contract, Balance contract, Data Audit contract, and Reputation contract are on the FS chain.</p>
 
-    <p>The Network Map contract is the main NeoFS network contract in the NeoFS Neo sidechain. The roles of this contract are to provide to the sidechain contracts a list of the Inner Ring nodes, which is initially stored in the Neo main network blockchain in the NeoFS contract, to manage the list of Storage nodes, maintain the Network Map, to take snapshots of Network Map when a new epoch sets, and store the epoch counter, providing an interface for changing the epoch to the Inner Ring nodes. Epoch is a real-time period during which a permanent Network Map exists.</p>
+    <p>The Network Map contract is the main NeoFS network contract in FS chain. The roles of this contract are to provide a list of the Inner Ring nodes to FS chain contracts, which is initially stored in the Neo main network blockchain in the NeoFS contract, to manage the list of Storage nodes, maintain the Network Map, to take snapshots of Network Map when a new epoch sets, and store the epoch counter, providing an interface for changing the epoch to the Inner Ring nodes. Epoch is a real-time period during which a permanent Network Map exists.</p>
   {{</section_column>}}
 
-  <p>The Container contact is deployed in the NeoFS Neo sidechain. The roles of this contract are to maintain a list of containers and provide such operations as to get a specific container by its identifier, to get a list of all user containers, and to get a list of all containers.</p>
+  <p>The Container contact is deployed in FS chain. The roles of this contract are to maintain a list of containers and provide such operations as to get a specific container by its identifier, to get a list of all user containers, and to get a list of all containers.</p>
 
-  <p>The Balance contact, being in the NeoFS Neo sidechain, provides the internal NeoFS banking performing a large number of fast microtransactions based on the results of the NeoFS network.</p>
+  <p>The Balance contact, being in FS chain, provides the internal NeoFS banking performing a large number of fast microtransactions based on the results of the NeoFS network.</p>
 
-  <p>The Reputation contract’s role is maintaining reputation ratings of Storage nodes. This contract is also deployed in the NeoFS Neo sidechain to process a lot of invocations to process the view of Storage nodes' trust.</p>
+  <p>The Reputation contract’s role is maintaining reputation ratings of Storage nodes. This contract is also deployed to FS chain to process a lot of invocations to process the view of Storage nodes' trust.</p>
 
-  <p>Neo main network chain and NeoFS Neo sidechain do not interact directly. The bridge between the two chains is Inner Ring which subscribes to events from both chains. The Inner Ring nodes are responsible for servicing the Neofs network, monitoring Storage nodes, and data integrity of the storage network.</p>
+  <p>Neo main chain and FS chain do not interact directly. The bridge between the two chains is Inner Ring which subscribes to events from both chains. The Inner Ring nodes are responsible for servicing the Neofs network, monitoring Storage nodes, and data integrity of the storage network.</p>
 
-  <p>The Inner Ring nodes are connected to Neo Blockchain. They are constantly monitoring events coming from the blockchain to synchronize their state, the state of the NeoFS smart contract that manages users' GAS deposits and information about the Inner Ring nodes themselves, and NeoFS Neo sidechain smart contracts.</p>
+  <p>The Inner Ring nodes are connected to Neo Blockchain. They are constantly monitoring events coming from the blockchain to synchronize their state, the state of the NeoFS smart contract that manages users' GAS deposits and information about the Inner Ring nodes themselves, and FS chain smart contracts.</p>
 {{</section>}}
 
 {{<section text="Protocol Gates" type="simple">}}
