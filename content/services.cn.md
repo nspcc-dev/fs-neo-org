@@ -18,5 +18,7 @@ draft: false
         <a href="https://http.fs.neo.org/Bj1YwbEZtqx6fwecb3jKo59ZJtz2SgoEB9dj8Q6vYREM/neofs-spec-latest.pdf">Latest</a>
       </div>
     {{</service_item>}}
+
+    {{<service_item text="NeoFS Panel" class="row_service_item" subtext="Try NeoFS: app allows you to move funds from/to NeoFS and manage containers and objects via web UI" link="https://panel.fs.neo.org/" icon="/images/icons/panel.svg" />}}
   {{</service_items_flex>}}
 {{</section>}}
