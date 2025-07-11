@@ -6,18 +6,6 @@ draft: false
 
 {{<price_calculator text="Storage Price Calculator" caption="GAS is used to pay for data storage and depends on the size of the data you store. To calculate the GAS cost per month, use the calculator where you need to select the number of megabytes you want to store. You can also choose how many copies of the data to include in the cost.">}}
 
-{{<section_markdown text="Incentive model">}}
-  Incentive model and pricing follows a free market principles. Each node declares how much it wants to receive as a reward for data storage services for the upcoming epoch. Placement function considers the declared price and prefers nodes with better prices. However, because nodes in Network Map declare key-value attributes describing their parameters, such as geographical location, type of storage, capacity and other things also used in Storage Policy, it leaves room for nodes that want higher price, better or unique services to still get into the placement function result.
-
-  In short, if node is too greedy it does not get users and rewards. To achieve higher prices, node needs to satisfy market demand or provide something unique.
-
-  ![profit](/images/pages/profit.png)
-
-  As it is shown on the figure above, the node needs to keep price "in the market" to get the highest profit. This should guarantee a competitive price for data storage in NeoFS.
-
-
-{{</section_markdown>}}
-
 {{<section_markdown text="Neo GAS token input" type="simple">}}
   NeoFS uses Neo GAS for all payments. To be able to pay for storage services in NeoFS, the one has to deposit some GAS to NeoFS smart contract address. This event is monitored by Inner Ring nodes and reflected in user's account balance internally in NeoFS. NeoFS uses Neo GAS for all payments. To be able to pay for storage services in NeoFS, the one has to deposit some GAS to NeoFS smart contract address. This event is monitored by Inner Ring nodes and reflected in user's account balance internally in NeoFS.
 

@@ -15,8 +15,6 @@ draft: false
   该服务旨在与Neo智能合约一起工作以支持真正的去中心化应用，该服务也可以用作内容分发网络。用户可以出租存储空间以换取Neo GAS令牌，或者使用GAS在网络中存储文件。
 
   NeoFS体现了Neo对构建未来的承诺，通过将分散化和真实世界集成的好处结合在一起，为用户和开发人员提供了无与伦比的数据存储控制。
-
-  NeoFS通过将同态密码学和博弈论模型相结合以确保零知识数据验证，从而确保用户数据安全并缓解恶性节点的攻击。
 {{</section_markdown>}}
 
 {{<section_markdown text="NeoFS可面向实际应用" type="light-bg">}}
@@ -37,11 +35,9 @@ draft: false
     {{<key_benefit number="2" text="旨在在混沌环境中可靠地工作" link="reliably">}}
     {{<key_benefit number="3" text="用户可以完全控制其数据的存储和分发方式" link="control">}}
     {{<key_benefit number="4" text="与诸如HTTP和S3之类的主流协议集成 " link="protocols">}}
-    {{<key_benefit number="5" text="基于同态密码学的零知识数据验证 " link="cryptography">}}
-    {{<key_benefit number="6" text="可使用智能合约代码直接访问" link="accessible">}}
-    {{<key_benefit number="7" text="Neo GAS用于付款，而非自定义令牌" link="payments">}}
-    {{<key_benefit number="8" text="基于市场原则的激励模式，所有同行均同意的价格" link="principles">}}
-    {{<key_benefit number="9" text="在商用硬件上运行" link="hardware">}}
+    {{<key_benefit number="5" text="可使用智能合约代码直接访问" link="accessible">}}
+    {{<key_benefit number="6" text="Neo GAS用于付款，而非自定义令牌" link="payments">}}
+    {{<key_benefit number="7" text="在商用硬件上运行" link="hardware">}}
   {{</key_benefits>}}
 {{</section>}}
 
@@ -79,15 +75,6 @@ draft: false
   此外，NeoFS的开放性使用户可以自由编写自己的门户，并与第三方系统集成，以实现无缝的链上和链下集成以及无与伦比的可访问性。
 {{</section_markdown>}}
 
-{{<section type="column-reverse" id="cryptography">}}
-  {{<section_column image="/images/pages/audit.png">}}
-    <h2>基于同态密码学的零知识数据验证</h2>
-    <p>在拓扑结构不断变化的不可信节点的分布式网络中，如果存在大量对象，则将对象哈希值与中央元数据存储中的样本进行比较的传统方法无效。从而导致不可接受的开销。</p>
-    <p>为解决该问题，NeoFS使用了同态哈希。这是一种特殊类型的哈希算法，它可根据单个数据块的哈希来计算复合块的哈希。</p>
-    {{<button text="读取更多" link="/audit/">}}
-  {{</button>}}
-{{</section>}}
-
 {{<section text="可使用智能合约代码直接访问" type="light-bg" id="accessible">}}
  <p>随着Oracles协议的引入，此功能在Neo 3.0版本中可用。智能合约能够对固定大小的对象发出GET和PUT请求。</p>
 {{</section>}}
@@ -100,16 +87,6 @@ draft: false
     {{<button text="读取更多" link="/pricing/">}}
   {{</button>}}
 {{</section>}}
-
-{{<section_markdown text="基于市场原则的激励模式" type="simple" id="principles">}}
-  激励模式和定价务均遵循自由市场原则。每个节点均声明其要为即将到来的时代提供数据存储服务的报酬作为奖励。布局功能需考虑声明的价格，并选择价格更好的节点。然而，由于网络地图中的节点声明了描述其参数的键值属性，例如地理位置、存储类型、容量和其他存储策略中也使用的东西，这就为希望获得更高价格、更好或独特服务的节点仍然可以进入布置功能结果而保留了空间。
-
-  简而言之，如果节点过于贪婪，它便不会获得用户和奖励。因此，为获取更高价格，节点需要满足市场需求或提供独特产品。
-
-  如下图所示，节点需要将价格保持"在市场中"以获得最高利润。保证从而NeoFS中数据存储的价格具有竞争力。
-
-  ![profit](/images/pages/profit.png)
-{{</section_markdown>}}
 
 {{<section text="在商用硬件上运行" type="light-bg" id="hardware">}}
   <p>NeoFS旨在为商用硬件而工作，无任何特殊硬件要求。这使得用户可以使用在本地计算机商店购买的系统组件快速替换出现故障的系统组件。</p>
