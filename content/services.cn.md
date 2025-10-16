@@ -16,8 +16,8 @@ draft: false
 
     {{<service_item text="NeoFS Spec" class="row_service_item" subtext="Technical Specification" icon="/images/icons/spec.svg">}}
       <div>
-        <a href="https://rest.fs.neo.org/Bj1YwbEZtqx6fwecb3jKo59ZJtz2SgoEB9dj8Q6vYREM/neofs-spec-c57acefc.pdf" style="margin-right: 10px;">Release</a>
-        <a href="https://rest.fs.neo.org/Bj1YwbEZtqx6fwecb3jKo59ZJtz2SgoEB9dj8Q6vYREM/neofs-spec-latest.pdf">Latest</a>
+        <a href="https://rest.fs.neo.org/Hcd7eqRcHjqdHWhJTHC9MW9FNg5nWCHH9Pxaiskin5Ln/neofs-spec-c0b07156.pdf" style="margin-right: 10px;">Release</a>
+        <a href="https://rest.fs.neo.org/Hcd7eqRcHjqdHWhJTHC9MW9FNg5nWCHH9Pxaiskin5Ln/neofs-spec-latest.pdf">Latest</a>
       </div>
     {{</service_item>}}
   {{</service_items_flex>}}
