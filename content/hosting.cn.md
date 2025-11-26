@@ -11,7 +11,7 @@ draft: false
   * handles TLS connections (certificates/encryption)
   * accepts original HTTP requests
   * rewrites these requests, so that they could be processed by [NeoFS REST gateway](https://github.com/nspcc-dev/neofs-rest-gw)
-    - each original request gets converted into `/v1/get_by_attribute/$CID/FilePath/$PATH` where `$CID` is the container ID storing website's objects and `$PATH` is the original request (`index.html`, `img/something.png`, etc)
+    - each original request gets converted into `/v1/objects/$CID/by_attribute/FilePath/$PATH` where `$CID` is the container ID storing website's objects and `$PATH` is the original request (`index.html`, `img/something.png`, etc)
     - additional rules convert requests to directories `/something/` into the same `v1/get_by_attribute` API, but with an `index.html` appended
   * passes these rewritten requests to one of the configured NeoFS REST gateways (there is a number of them)
   * caches responses
@@ -19,9 +19,9 @@ draft: false
 {{</section_markdown>}}
 {{<section style="padding: 0">}}
   {{<spoiler text="Nginx config">}}
-            rewrite '^/$'                       /v1/get_by_attribute/$cid/FilePath/index.html break;
-            rewrite '^/(.+)/$'                  /v1/get_by_attribute/$cid/FilePath/$1/index.html break;
-            rewrite '^/(.+)$'                   /v1/get_by_attribute/$cid/FilePath/$1 break;
+            rewrite '^/$'                       /v1/objects/$cid/by_attribute/FilePath/index.html break;
+            rewrite '^/(.+)/$'                  /v1/objects/$cid/by_attribute/FilePath/$1/index.html break;
+            rewrite '^/(.+)$'                   /v1/objects/$cid/by_attribute/FilePath/$1 break;
             proxy_pass https://$neofs_rest_gateway;
   {{</spoiler>}}
 {{</section>}}
