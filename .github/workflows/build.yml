@@ -63,8 +63,6 @@ jobs:
         with:
           NEOFS_WALLET: ${{ secrets.NEOFS_WALLET }}
           NEOFS_WALLET_PASSWORD: ${{ secrets.NEOFS_WALLET_PASSWORD }}
-          NEOFS_ENDPOINT: ${{ vars.NEOFS_ENDPOINT }}
-          HTTP_URL_PREFIX: ${{ vars.HTTP_URL_PREFIX }}
           STORE_OBJECTS_CID: ${{ vars.STORE_OBJECTS_CID }}
           PATH_TO_FILES_DIR: fs.neo.org
           REPLACE_CONTAINER_CONTENTS: true
